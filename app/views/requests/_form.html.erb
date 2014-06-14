@@ -40,7 +40,7 @@
       </li>
   </section>
 
-  <section id="tax-year-section">
+  <section id="tax-year-section" class="is-active">
     <p>על איזו שנת מס אנחנו מדברים?</p>
     <%= f.select :tax_year, (1..5).map {|n| n.years.ago.year}, {}, { multiple: true } %>
   </section>
@@ -85,7 +85,6 @@
     <div id="mit-spouse-name-dialog">
       אוקיי, אז מה השם הפרטי של בן/בת הזוג?
       <%= f.text_field :spouse_name %>
-      <button id="mit-continue" type="button">המשך</button>
     </div>
   </section>
 
@@ -102,7 +101,6 @@
     <%= f.label :spouse_death_date, "תאריך פטירה" %>
     <%= f.date_select :spouse_death_date %>
 
-    <button id="wit-continue" type="button">המשך</button>
   </section>
 
   <section id="personal-overview-section">
@@ -137,6 +135,55 @@
       <%= render partial: "academia", locals: {f: f, spouse: true} %>
     </div>
   </section>
+
+  <section id="special-area-section">
+    <p><em class="user-name">משה</em>, סימנת שהתגוררת ביישוב מיוחד.</p>
+    <div class="spouse">
+      אבל לפני זה, האם אתה ו<em class="spouse-name">רונית</em> גרתם יחד כל התקופה?
+      <%= f.check_box :lived_with_spouse_throughout %> כן
+    </div>
+    <%= f.label :city, "שם היישוב" %>
+    <%= f.select :city, [["אביבים", 1], ["אילת", 2], ["אפגניסטן", 3], ["פרדסיה", 4], ["תל יוסף", 5]] %>
+
+    <p>גרתי שם:</p>
+    <input id="spa-lived-throughout" type="checkbox" checked="checked" />
+    <label for="spa-lived-throughout">כל השנה</label>
+
+    <div>
+      <input id="spa-lived-in-dates" type="checkbox" />
+      <label for="spa-lived-in-dates">בין התאריכים:</label>
+      <div id="spa-date-range">
+        מ-
+        <%= f.date_select :special_area_residency_start_date %>
+        עד -
+        <%= f.date_select :special_area_residency_end_date %>
+      </div>
+    </div>
+  </section>
+
+  <section id="personal-medical-section">
+    <div>
+      <p><em class="user-name">משה</em>, האם אחד או יותר מהסטטוסים הללו תקף לגביך</p>
+      <%= render partial: "personal_medical", locals: {f: f, spouse: false} %>
+    </div>
+    <div class="spouse">
+      <p>ולגבי <em class="spouse-name">רונית</em>?</p>
+      <%= render partial: "personal_medical", locals: {f: f, spouse: true} %>
+    </div>
+  </section>
+
+  <section id="personal-residency-section">
+    <div>
+      <p><em class="user-name">משה</em>, האם היית תושב ישראל בשנת המס</p>
+      <%= render partial: "personal_residency", locals: {f: f, spouse: false} %>
+    </div>
+    <div class="spouse">
+      <p>ולגבי <em class="spouse-name">רונית</em>?</p>
+      <%= render partial: "personal_residency", locals: {f: f, spouse: true} %>
+    </div>
+  </section>
+
+  <button id="continue-button" type="button">המשך</button>
 
   <div class="actions">
     <%= f.submit "שלח בקשה" %>

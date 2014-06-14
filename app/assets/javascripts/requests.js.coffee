@@ -1,3 +1,12 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+class TaxPassView extends Backbone.View
+  el: 'body'
+
+  events:
+    'click #continue-button': 'onContinueClick'
+
+  onContinueClick: (e) ->
+    @$('section.is-active').removeClass('is-active')
+      .next('section').addClass('is-active')
+
+$ ->
+  new TaxPassView

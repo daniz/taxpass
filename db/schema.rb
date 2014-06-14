@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614090319) do
+ActiveRecord::Schema.define(version: 20140614104240) do
 
   create_table "requests", force: true do |t|
     t.datetime "created_at"
@@ -56,6 +56,16 @@ ActiveRecord::Schema.define(version: 20140614090319) do
     t.integer  "spouse_academia_degree"
     t.integer  "academia_years"
     t.integer  "spouse_academia_years"
+    t.boolean  "lived_with_spouse_throughout"
+    t.date     "special_area_residency_start_date"
+    t.date     "special_area_residency_end_date"
+    t.integer  "city"
+    t.boolean  "blind"
+    t.boolean  "disabled"
+    t.boolean  "spouse_blind"
+    t.boolean  "spouse_disabled"
+    t.boolean  "israeli_resident"
+    t.string   "spouse_israeli_resident"
   end
 
   create_table "users", force: true do |t|
