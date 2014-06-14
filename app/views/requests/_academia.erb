@@ -1,0 +1,13 @@
+<% prefix = "spouse_" if spouse %>
+
+<%= f.label       :"#{prefix}academia_graduation_date", "שנת סיום" %>
+<%= f.date_select :"#{prefix}academia_graduation_date" %>
+
+<%= f.label       :"#{prefix}academia_institution", "מוסד אקדמי" %>
+<%= f.select      :"#{prefix}academia_institution", [["אונ׳ תל אביב", 1], ["טכניון", 2], ["אונ׳ בן גוריון", 3]] %>
+
+<%= f.label       :"#{prefix}academia_degree", "סוג התואר" %>
+<%= f.select      :"#{prefix}academia_degree", [["מדעי המחשב", 1], ["מדעי החיים", 2], ["מדעי קשקבל", 3]] %>
+
+<%= f.label       :"#{prefix}academia_years", "שנות לימוד" %>
+<%= f.select      :"#{prefix}academia_years", [["12", 1], ["13", 2], ["14", 3]] %>

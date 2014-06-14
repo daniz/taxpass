@@ -127,6 +127,17 @@
     </div>
   </section>
 
+  <section id="academia-section">
+    <div>
+      <p><em class="user-name">משה</em>, סימנת שסיימת תואר אקדמי, מס הכנסה מכיר רק בתארים מסויימים ממוסדות מסויימים</p>
+      <%= render partial: "academia", locals: {f: f, spouse: false} %>
+    </div>
+    <div class="spouse">
+      <p>ולגבי <em class="spouse-name">רונית</em>?</p>
+      <%= render partial: "academia", locals: {f: f, spouse: true} %>
+    </div>
+  </section>
+
   <div class="actions">
     <%= f.submit "שלח בקשה" %>
   </div>

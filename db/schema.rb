@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614082248) do
+ActiveRecord::Schema.define(version: 20140614090319) do
 
   create_table "requests", force: true do |t|
     t.datetime "created_at"
@@ -48,6 +48,14 @@ ActiveRecord::Schema.define(version: 20140614082248) do
     t.boolean  "spouse_academic"
     t.boolean  "special_area_resident"
     t.boolean  "spouse_special_area_resident"
+    t.date     "academia_graduation_date"
+    t.date     "spouse_academia_graduation_date"
+    t.integer  "academia_institution"
+    t.integer  "spouse_academia_institution"
+    t.integer  "academia_degree"
+    t.integer  "spouse_academia_degree"
+    t.integer  "academia_years"
+    t.integer  "spouse_academia_years"
   end
 
   create_table "users", force: true do |t|
