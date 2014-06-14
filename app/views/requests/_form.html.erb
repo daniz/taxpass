@@ -11,7 +11,123 @@
     </div>
   <% end %>
 
+  <section id="nav-sidebar">
+    <ul id="nav-main">
+      <li id="nav-personal">
+        <h4>פרטים כלליים</h4>
+        <ul>
+          <li id="nav-personal-overview">פרטים כלליים</li>
+          <li id="nav-personal-tax-status">סטטוס לפי מס הכנסה</li>
+          <li id="nav-personal-medical">מצב רפואי מוכר על ידי ביטוח</li>
+          <li id="nav-personal-residency">תושבות לצרכי מס</li>
+        </ul>
+      </li>
+      <li id="nav-family">
+        <h4>מצב משפחתי</h4>
+        <ul></ul>
+      </li>
+      <li id="nav-income">
+        <h4>הכנסות</h4>
+        <ul></ul>
+      </li>
+      <li id="nav-expenses">
+        <h4>הוצאות</h4>
+        <ul></ul>
+      </li>
+      <li id="nav-summary">
+        <h4>סיכום</h4>
+        <ul></ul>
+      </li>
+  </section>
+
+  <section id="tax-year-section">
+    <p>על איזו שנת מס אנחנו מדברים?</p>
+    <%= f.select :tax_year, (1..5).map {|n| n.years.ago.year}, {}, { multiple: true } %>
+  </section>
+
+  <section id="marital-status-section">
+    <p>
+    הדבר הכי חשוב בחיים הוא גם הכי חשוב לצרכי מס הכנסה, לכן חשוב לנו מה המצב המשפחתי שלך בשנת המס
+    <em id="mrs-tax-year">2013</em> 
+    אם בשנת המס שינית סטטוס אישי (חתונה פרידה או לצערינו התאלמנת) - נתין לבחור ביותר מאפשרות אחת.
+    </p>
+    <%= f.check_box :is_single %>
+    <%= f.label :is_single, "רווק/ה" %>
+
+    <%= f.check_box :is_married %>
+    <%= f.label :is_married, "נשוי/אה" %>
+
+    <%= f.check_box :is_widowed %>
+    <%= f.label :is_widowed, "אלמנ/ה" %>
+
+    <%= f.check_box :is_divorced %>
+    <%= f.label :is_divorced, "גרוש/ה" %>
+
+    <%= f.check_box :is_seperated %>
+    <%= f.label :is_seperated, "פרוד/ה" %>
+
+    <%= f.check_box :is_coupled %>
+    <%= f.label :is_coupled, "ברית הזוגיות" %>
+
+    <%= f.check_box :is_same_sex_married %>
+    <%= f.label :is_same_sex_married, "נישואים חד מיניים" %>
+  </section>
+
+  <section id="married-intro-section">
+    <p>
+      <em class="user-name">משה</em>, האם ברצונך למלא את החזר המס גם בעבור החצי השני שלך?
+      מומלץ למלא עבור הזוג, ואז בסוף התהליך נבדוק האם כדאי להגיש עבורך בלבד או בשם בשניכם.
+      הערה: אם יש לך עסק והתיק שלך מסווג כעוסק מורשה או עוסק פטור, ושני בני הזוג עובדים בעסק, חובה
+      למלא עבור שני בני הזוג.
+    </p>
+    <button id="mit-only-me" type="button">לא, עליי בלבד</button>
+    <button id="mit-spouse-too" type="button">גם עבור בן הזוג</button>
+    <div id="mit-spouse-name-dialog">
+      אוקיי, אז מה השם הפרטי של בן/בת הזוג?
+      <%= f.text_field :spouse_name %>
+      <button id="mit-continue" type="button">המשך</button>
+    </div>
+  </section>
+
+  <section id="widowed-intro-section">
+    <p>
+      <em class="user-name">משה</em>, אנחנו מצטערים לשמוע על אבדנך, ומאחלים לך חיים ארוכים.
+      כאלמנ/ה ייתכן ותהיה זכאי להחזרי מס. לצורך כך, אנחנו צריכים כרגע 2 פרטים, ואחרי שנבדוק, ייתכן שנצטרך
+      פרטים נוספים על מקורות ההכנסה שנותרו או היו לבן/בת הזוג.
+    </p>
+    
+    <%= f.label :spouse_name, "שם בן/בת הזוג" %>
+    <%= f.text_field :spouse_name %>
+
+    <%= f.label :spouse_death_date, "תאריך פטירה" %>
+    <%= f.date_select :spouse_death_date %>
+
+    <button id="wit-continue" type="button">המשך</button>
+  </section>
+
+  <section id="personal-overview-section">
+    <div>
+      <p><em class="user-name">משה</em>, אנא מלא את הפרטים הבאים:</p>
+      <%= render partial: "personal_overview", locals: {f: f, spouse: false} %>
+    </div>
+    <div class="spouse">
+      <p>ולגבי <em class="spouse-name">רונית</em>?</p>
+      <%= render partial: "personal_overview", locals: {f: f, spouse: true} %>
+    </div>
+  </section>
+
+  <section id="personal-tax-status-section">
+    <div>
+      <p><em class="user-name">משה</em>, האם אחד או יותר מהסטטוסים הללו תקף לגביך?</p>
+      <%= render partial: "personal_tax_status", locals: {f: f, spouse: false} %>
+    </div>
+    <div class="spouse">
+      <p>ולגבי <em class="spouse-name">רונית</em>?</p>
+      <%= render partial: "personal_tax_status", locals: {f: f, spouse: true} %>
+    </div>
+  </section>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "שלח בקשה" %>
   </div>
 <% end %>

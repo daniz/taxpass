@@ -11,11 +11,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531151743) do
+ActiveRecord::Schema.define(version: 20140614082248) do
 
   create_table "requests", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "tax_year"
+    t.boolean  "is_single"
+    t.boolean  "is_married"
+    t.boolean  "is_widowed"
+    t.boolean  "is_divorced"
+    t.boolean  "is_seperated"
+    t.boolean  "is_coupled"
+    t.boolean  "is_same_sex_married"
+    t.string   "spouse_name"
+    t.date     "spouse_death_date"
+    t.date     "birth_date"
+    t.integer  "gender"
+    t.integer  "occupation"
+    t.date     "spouse_birth_date"
+    t.integer  "spouse_gender"
+    t.integer  "spouse_occupation"
+    t.boolean  "retired"
+    t.boolean  "spouse_retired"
+    t.boolean  "immigrant"
+    t.boolean  "spouse_immigrant"
+    t.date     "immigration_date"
+    t.date     "spouse_immigration_date"
+    t.boolean  "idf_service"
+    t.boolean  "spouse_idf_service"
+    t.date     "idf_discharge_date"
+    t.date     "spouse_idf_discharge_date"
+    t.integer  "idf_service_duration"
+    t.integer  "spouse_idf_service_duration"
+    t.boolean  "academic"
+    t.boolean  "spouse_academic"
+    t.boolean  "special_area_resident"
+    t.boolean  "spouse_special_area_resident"
   end
 
   create_table "users", force: true do |t|

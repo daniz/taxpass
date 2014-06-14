@@ -1,0 +1,10 @@
+<% prefix = "spouse_" if spouse %>
+
+<%= f.label       :"#{prefix}birth_date", "תאריך לידה" %>
+<%= f.date_select :"#{prefix}birth_date" %>
+
+<%= f.label       :"#{prefix}gender", "מין" %>
+<%= f.select      :"#{prefix}gender", [["זכר", 1], ["נקבה", 2]] %>
+
+<%= f.label       :"#{prefix}occupation", "עיסוק" %>
+<%= f.select      :"#{prefix}occupation", [["גנן", 1], ["שוטר", 2], ["ירקן", 3], ["בוקר", 4]] %>

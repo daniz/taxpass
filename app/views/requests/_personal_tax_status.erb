@@ -1,0 +1,40 @@
+<% prefix = "spouse_" if spouse %>
+
+<ul>
+  <li>
+    <%= f.check_box :"#{prefix}retired" %>
+    <%= f.label     :"#{prefix}retired", "פנסיונר" %>
+  </li>
+  <li>
+    <%= f.check_box :"#{prefix}immigrant" %>
+    <%= f.label     :"#{prefix}immigrant", "עולה חדש" %>
+    <ul>
+      <li>
+        <%= f.label       :"#{prefix}immigration_date", "תאריך עליה" %>
+        <%= f.date_select :"#{prefix}immigration_date" %>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <%= f.check_box :"#{prefix}idf_service" %>
+    <%= f.label     :"#{prefix}idf_service", "שחרור משירות חובה" %>
+    <ul>
+      <li>
+        <%= f.label       :"#{prefix}idf_discharge_date", "תאריך שחרור" %>
+        <%= f.date_select :"#{prefix}idf_discharge_date" %>
+      </li>
+      <li>
+        <%= f.label         :"#{prefix}idf_service_duration", "מספר חודשי שירות" %>
+        <%= f.number_field  :"#{prefix}idf_service_duration" %>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <%= f.check_box :"#{prefix}academic" %>
+    <%= f.label     :"#{prefix}academic", "בעל תואר אקדמי או לימודי תעודה" %>
+  </li>
+  <li>
+    <%= f.check_box :"#{prefix}special_area_resident" %>
+    <%= f.label     :"#{prefix}special_area_resident", "תושב אזור מיוחד (לרבות אילת)" %>
+  </li>
+</ul>
