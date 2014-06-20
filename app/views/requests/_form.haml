@@ -1,0 +1,162 @@
+%form{ action: "/requests", method: "post" }
+  
+  %section#nav-sidebar
+    %ul#nav-main
+      %li#nav-personal
+        %h4 פרטים כלליים
+        %ul
+          %li#nav-personal-overview פרטים כלליים
+          %li#nav-personal-tax-status סטטוס לפי מס הכנסה
+          %li#nav-personal-medical מצב רפואי מוכר על ידי ביטוח
+          %li#nav-personal-residency תושבות לצרכי מס
+      %li#nav-family
+        %h4 מצב משפחתי
+      %li#nav-income
+        %h4 הכנסות
+      %li#nav-expenses
+        %h4 הוצאות
+      %li#nav-summary
+        %h4 סיכום
+
+  %section#tax-year-section.is-active
+    %p על איזו שנת מס אנחנו מדברים?
+    %select{ id: "tax_year", multiple: "multiple" }
+      - (1..5).map{ |n| n.years.ago.year }.each do |y|
+        %option{ value: y }= y
+    
+  
+  %section#marital-status-section
+    %p 
+      הדבר הכי חשוב בחיים הוא גם הכי חשוב לצרכי מס הכנסה, לכן חשוב לנו מה המצב המשפחתי שלך בשנת המס
+      %em.tax-year 2013
+      אם בשנת המס שינית סטטוס אישי (חתונה פרידה או לצערינו התאלמנת) - ניתן לבחור ביותר מאפשרות אחת.
+
+    %input{ id: "is_single", type: "checkbox", value: "1" }
+    %label{ for: "is_single" } רווק/ה
+    
+    %input{ id: "is_married", type: "checkbox", value: "1" }
+    %label{ for: "is_married" } נשוי/אה
+
+    %input{ id: "is_widowed", type: "checkbox", value: "1" }
+    %label{ for: "is_widowed" } אלמנ/ה
+
+    %input{ id: "is_divorced", type: "checkbox", value: "1" }
+    %label{ for: "is_divorced" } גרוש/ה
+
+    %input{ id: "is_seperated", type: "checkbox", value: "1" }
+    %label{ for: "is_seperated" } פרוד/ה
+
+    %input{ id: "is_coupled", type: "checkbox", value: "1" }
+    %label{ for: "is_coupled" } ברית הזוגיות
+
+    %input{ id: "is_same_sex_married", type: "checkbox", value: "1" }
+    %label{ for: "is_same_sex_married" } נישואים חד מיניים
+  
+
+  %section#married-intro-section
+    %p 
+      <em class="user-name">משה</em>, האם ברצונך למלא את החזר המס גם בעבור החצי השני שלך?
+      מומלץ למלא עבור הזוג, ואז בסוף התהליך נבדוק האם כדאי להגיש עבורך בלבד או בשם בשניכם.
+      הערה: אם יש לך עסק והתיק שלך מסווג כעוסק מורשה או עוסק פטור, ושני בני הזוג עובדים בעסק, חובה
+      למלא עבור שני בני הזוג.
+    
+    %button#mit-only-me{ type: "button" } לא, עליי בלבד
+    %button#mit-spouse-too{ type: "button" } גם עבור בן הזוג
+    #mit-spouse-name-dialog
+      אוקיי, אז מה השם הפרטי של בן/בת הזוג?
+      %input{ id: "spouse_name", type: "text" }
+
+  %section#widowed-intro-section
+    %p 
+      <em class="user-name">משה</em>, אנחנו מצטערים לשמוע על אבדנך, ומאחלים לך חיים ארוכים.
+      כאלמנ/ה ייתכן ותהיה זכאי להחזרי מס. לצורך כך, אנחנו צריכים כרגע 2 פרטים, ואחרי שנבדוק, ייתכן שנצטרך
+      פרטים נוספים על מקורות ההכנסה שנותרו או היו לבן/בת הזוג.
+    
+    %label{ for: "deceased_spouse_name" } שם בן/בת הזוג
+    %input{ id: "deceased_spouse_name", type: "text" }
+
+    %label{ for: "spouse_death_date" } תאריך פטירה
+    .date-field
+      %input{ id: "spouse_death_date", type: "date" }
+
+  %section#personal-overview-section
+    %p <em class="user-name">משה</em>, אנא מלא את הפרטים הבאים:
+    = render partial: "personal_overview", locals: { spouse: false }
+    .spouse
+      %p ולגבי <em class="spouse-name">רונית</em>?
+      = render partial: "personal_overview", locals: { spouse: true }
+
+  %section#personal-tax-status-section
+    %p <em class="user-name">משה</em>, האם אחד או יותר מהסטטוסים הללו תקף לגביך?
+    = render partial: "personal_tax_status", locals: { spouse: false }
+    .spouse
+      %p ולגבי <em class="spouse-name">רונית</em>?
+      = render partial: "personal_tax_status", locals: { spouse: true }
+
+  %section#academia-section
+    %p <em class="user-name">משה</em>, סימנת שסיימת תואר אקדמי, מס הכנסה מכיר רק בתארים מסויימים ממוסדות מסויימים
+    = render partial: "academia", locals: { spouse: false }
+    .spouse
+      %p ולגבי <em class="spouse-name">רונית</em>?
+      = render partial: "academia", locals: { spouse: true }
+
+  %section#special-area-section
+    %p <em class="user-name">משה</em>, סימנת שהתגוררת ביישוב מיוחד.
+    .spouse
+      אבל לפני זה, האם אתה ו<em class="spouse-name">רונית</em> גרתם יחד כל התקופה?
+      %input{ id: "lived_with_spouse_throughout", type: "checkbox", value: "1" }
+      %label{ for: "lived_with_spouse_throughout" } כן
+    
+    %label{ for: "city" } שם היישוב
+    %select{ id: "city" } 
+      %option{ value: "1" } אביבים
+      %option{ value: "2" } אילת
+      %option{ value: "3" } אפגניסטן
+      %option{ value: "4" } פרדסיה
+      %option{ value: "5" } תל יוסף
+
+    %p גרתי שם:
+    %input#spa-lived-throughout{ type: "checkbox", checked: "checked" }
+    %label{ for: "spa-lived-throughout" } כל השנה
+
+    %div
+      %input#spa-lived-in-dates{ type: "checkbox" }
+      %label{ for: "spa-lived-in-dates" } בין התאריכים:
+      #spa-date-range
+        מ-
+        .date-field
+          %input{ id: "special_area_residency_start_date", type: "date" }
+        עד -
+        .date-field
+          %input{ id: "special_area_residency_end_date", type: "date" }
+
+  %section#personal-medical-section
+    %p <em class="user-name">משה</em>, האם אחד או יותר מהסטטוסים הללו תקף לגביך?
+    = render partial: "personal_medical", locals: { spouse: false }
+    .spouse
+      %p ולגבי <em class="spouse-name">רונית</em>?
+      = render partial: "personal_medical", locals: { spouse: true }
+
+  %section#personal-residency-section
+    %p <em class="user-name">משה</em>, האם היית תושב ישראל בשנת המס <em id="tax-year">2013</em>?
+    = render partial: "personal_residence", locals: { spouse: false }
+    .spouse
+      %p ולגבי <em class="spouse-name">רונית</em>?
+      = render partial: "personal_residence", locals: { spouse: true }  
+
+  %section#kids-section
+    %p <em class="user-name">משה</em>, האם יש לך ילדים?
+    %p יש לסמן כן גם אם ילדים שלך אך לא בחזקתך ילדים שאינם שלך אך נמצאים בחזקתך
+
+    %input#kds-has-kids{ type: "checkbox" } כן
+
+    %ul#kds-kids-list
+       
+    %a#kds-add-child{ href: "#" } הוסף ילד
+  
+
+  %button#continue-button{ type: "button" } המשך
+
+/   <div class="actions">
+/     <%= f.submit "שלח בקשה" %>
+/   </div>

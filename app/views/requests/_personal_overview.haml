@@ -1,0 +1,17 @@
+- prefix = "spouse_" if spouse
+
+%label{ for: "#{prefix}birth_date" } תאריך לידה
+.date-field
+  %input{ id: "#{prefix}birth_date", type: "date" }  
+
+%label{ for: "#{prefix}gender" } מין
+%select{ id: "#{prefix}gender" } 
+  %option{ value: 1 } זכר
+  %option{ value: 2 } נקבה
+
+%label{ for: "#{prefix}occupation" } עיסוק
+%select{ id: "#{prefix}occupation" }
+  %option{ value: 1 } גנן 
+  %option{ value: 2 } שוטר 
+  %option{ value: 3 } ירקן 
+  %option{ value: 4 } בוקר

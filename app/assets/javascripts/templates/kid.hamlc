@@ -1,0 +1,7 @@
+%li.kds-kid-info{ data: { index: @index } }
+  %label{ for: "kid_name_#{@index}" } שם הילד
+  %input{ id: "kid_name_#{@index}" }
+
+  %label{ for: "kid_date_of_birth_#{@index}" } תאריך לידה
+  .date-field
+    %input{ id: "kid_date_of_birth_#{@index}" }

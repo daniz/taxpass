@@ -1,0 +1,23 @@
+- prefix = "spouse_" if spouse
+
+%label{ for: "#{prefix}academia_graduation_date" } שנת סיום
+.date-field
+  %input{ id: "#{prefix}academia_graduation_date", type: "date" }
+
+%label{ for: "#{prefix}academia_institution" } מוסד אקדמי
+%select{ id: "#{prefix}academia_institution" }
+  %option{ value: "1" } אונ׳ תל אביב
+  %option{ value: "2" } טכניון
+  %option{ value: "3" } אונ׳ בן גוריון
+
+%label{ for: "#{prefix}academia_degree" } סוג התואר
+%select{ id: "#{prefix}academia_degree" }
+  %option{ value: "1" } מדעי המחשב
+  %option{ value: "2" } מדעי החיים
+  %option{ value: "3" } מדעי קשקבל
+
+%label{ for: "#{prefix}academia_years" } שנות לימוד
+%select{ id: "#{prefix}academia_years" }
+  %option{ value: "1" } 12
+  %option{ value: "2" } 13
+  %option{ value: "3" } 14

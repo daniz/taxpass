@@ -30,6 +30,8 @@ gem 'devise'
 
 gem 'better_errors'
 
+gem 'haml-rails'
+
 gem 'haml_coffee_assets', git: "https://github.com/netzpirat/haml_coffee_assets"
 gem 'execjs'
 
