@@ -30,6 +30,9 @@ gem 'devise'
 
 gem 'better_errors'
 
+gem 'haml_coffee_assets', git: "https://github.com/netzpirat/haml_coffee_assets"
+gem 'execjs'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

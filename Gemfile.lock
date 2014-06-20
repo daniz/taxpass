@@ -1,3 +1,12 @@
+GIT
+  remote: https://github.com/netzpirat/haml_coffee_assets
+  revision: 1c5038429dbcf14151759913352376107d62c891
+  specs:
+    haml_coffee_assets (1.16.0)
+      coffee-script (~> 2.0)
+      sprockets (~> 2.0)
+      tilt (~> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -130,6 +139,8 @@ DEPENDENCIES
   better_errors
   coffee-rails (~> 4.0.0)
   devise
+  execjs
+  haml_coffee_assets!
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.1.1)

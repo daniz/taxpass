@@ -27,7 +27,7 @@
         <ul></ul>
       </li>
       <li id="nav-income">
-        <h4>הכנסות</h4>
+        <h4>הכנסות</h4>§
         <ul></ul>
       </li>
       <li id="nav-expenses">
@@ -196,10 +196,11 @@
           <%= kids_f.text_field :name %>
 
           <%= kids_f.label :date_of_birth, "תאריך לידה" %>
-          <%= kids_f.date_select :date_of_birth %>
+          <%= kids_f.date_select :date_of_birth, start_year: 1970 %>
         </li>
       <% end %>
     </ul>
+    <a id="kds-add-child" href="#">הוסף ילד</a>
   </section>
 
   <button id="continue-button" type="button">המשך</button>
