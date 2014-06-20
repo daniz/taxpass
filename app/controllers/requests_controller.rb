@@ -15,6 +15,7 @@ class RequestsController < ApplicationController
   # GET /requests/new
   def new
     @request = Request.new
+    2.times { @request.kids.build }
   end
 
   # GET /requests/1/edit

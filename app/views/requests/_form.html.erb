@@ -48,7 +48,7 @@
   <section id="marital-status-section">
     <p>
     הדבר הכי חשוב בחיים הוא גם הכי חשוב לצרכי מס הכנסה, לכן חשוב לנו מה המצב המשפחתי שלך בשנת המס
-    <em id="mrs-tax-year">2013</em> 
+    <em id="tax-year">2013</em> 
     אם בשנת המס שינית סטטוס אישי (חתונה פרידה או לצערינו התאלמנת) - נתין לבחור ביותר מאפשרות אחת.
     </p>
     <%= f.check_box :is_single %>
@@ -174,13 +174,32 @@
 
   <section id="personal-residency-section">
     <div>
-      <p><em class="user-name">משה</em>, האם היית תושב ישראל בשנת המס</p>
+      <p><em class="user-name">משה</em>, האם היית תושב ישראל בשנת המס <em id="tax-year">2013</em>?</p>
       <%= render partial: "personal_residency", locals: {f: f, spouse: false} %>
     </div>
     <div class="spouse">
       <p>ולגבי <em class="spouse-name">רונית</em>?</p>
       <%= render partial: "personal_residency", locals: {f: f, spouse: true} %>
     </div>
+  </section>
+
+  <section id="kids-section">
+    <p><em class="user-name">משה</em>, האם יש לך ילדים?</p>
+    <p>יש לסמן כן גם אם ילדים שלך אך לא בחזקתך ילדים שאינם שלך אך נמצאים בחזקתך</p>
+
+    <input type="checkbox" /> כן
+
+    <ul class="kds-kids-list">
+      <%= f.fields_for :kids do |kids_f| %>
+        <li class="kds-kid-info">
+          <%= kids_f.label :name, "שם הילד" %>
+          <%= kids_f.text_field :name %>
+
+          <%= kids_f.label :date_of_birth, "תאריך לידה" %>
+          <%= kids_f.date_select :date_of_birth %>
+        </li>
+      <% end %>
+    </ul>
   </section>
 
   <button id="continue-button" type="button">המשך</button>
