@@ -40,7 +40,7 @@
       </li>
   </section>
 
-  <section id="tax-year-section" class="is-active">
+  <section id="tax-year-section" class="active">
     <p>על איזו שנת מס אנחנו מדברים?</p>
     <%= f.select :tax_year, (1..5).map {|n| n.years.ago.year}, {}, { multiple: true } %>
   </section>

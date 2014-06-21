@@ -18,18 +18,17 @@
       %li#nav-summary
         %h4 סיכום
 
-  %section#tax-year-section.is-active
+  %section#tax-year-section.active
     %p על איזו שנת מס אנחנו מדברים?
-    %select{ id: "tax_year", multiple: "multiple" }
+    %select.save-request{ id: "tax_year", multiple: "multiple" }
       - (1..5).map{ |n| n.years.ago.year }.each do |y|
         %option{ value: y }= y
     
-  
   %section#marital-status-section
     %p 
       הדבר הכי חשוב בחיים הוא גם הכי חשוב לצרכי מס הכנסה, לכן חשוב לנו מה המצב המשפחתי שלך בשנת המס
-      %em.tax-year 2013
-      אם בשנת המס שינית סטטוס אישי (חתונה פרידה או לצערינו התאלמנת) - ניתן לבחור ביותר מאפשרות אחת.
+      <em class="tax-year">1900</em>? אם בשנת המס שינית סטטוס אישי (חתונה פרידה או לצערינו התאלמנת) - ניתן לבחור
+      ביותר מאפשרות אחת.
 
     %input.save-request{ id: "is_single", type: "checkbox", value: "1" }
     %label{ for: "is_single" } רווק/ה
@@ -138,7 +137,7 @@
       = render partial: "personal_medical", locals: { spouse: true }
 
   %section#personal-residency-section
-    %p <em class="user-name">משה</em>, האם היית תושב ישראל בשנת המס <em id="tax-year">2013</em>?
+    %p <em class="user-name">משה</em>, האם היית תושב ישראל בשנת המס <em class="tax-year">1900</em>?
     = render partial: "personal_residence", locals: { spouse: false }
     .spouse
       %p ולגבי <em class="spouse-name">רונית</em>?
@@ -162,6 +161,7 @@
   %section#kids-support-section
     %ul#kdss-kids-list  
   
+  %button#back-button{ type: "button" } חזור
   %button#continue-button{ type: "button" } המשך
 
 /   <div class="actions">
