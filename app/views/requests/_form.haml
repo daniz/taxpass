@@ -20,7 +20,7 @@
 
   %section#tax-year-section.active
     %p על איזו שנת מס אנחנו מדברים?
-    %select.save-request{ id: "tax_year", multiple: "multiple" }
+    %select.save-request{ id: "tax_year" }
       - (1..5).map{ |n| n.years.ago.year }.each do |y|
         %option{ value: y }= y
     
@@ -61,7 +61,7 @@
     
     %button#mit-only-me{ type: "button" } לא, עליי בלבד
     %button#mit-spouse-too{ type: "button" } גם עבור בן הזוג
-    #mit-spouse-name-dialog
+    #mit-spouse-name-dialog.spouse
       אוקיי, אז מה השם הפרטי של בן/בת הזוג?
       %input.save-request{ id: "spouse_name", type: "text" }
 
@@ -115,11 +115,11 @@
       %option{ value: "5" } תל יוסף
 
     %p גרתי שם:
-    %input#spa-lived-throughout{ type: "checkbox", checked: "checked" }
+    %input#spa-lived-throughout{ type: "radio", checked: "checked", name: "spa-residence-dates" }
     %label{ for: "spa-lived-throughout" } כל השנה
 
     %div
-      %input#spa-lived-in-dates{ type: "checkbox" }
+      %input#spa-lived-in-dates{ type: "radio", name: "spa-residence-dates" }
       %label{ for: "spa-lived-in-dates" } בין התאריכים:
       #spa-date-range
         מ-
@@ -147,11 +147,12 @@
     %p <em class="user-name">משה</em>, האם יש לך ילדים?
     %p יש לסמן כן גם אם ילדים שלך אך לא בחזקתך ילדים שאינם שלך אך נמצאים בחזקתך
 
-    %input#kds-has-kids{ type: "checkbox" } כן
+    %input#kds-has-kids{ type: "checkbox" }
+    %label{ for: "kds-has-kids" } כן
 
-    %ul#kds-kids-list
-       
-    %a#kds-add-kid{ href: "#" } הוסף ילד
+    #kds-kids
+      %ul#kds-kids-list       
+      %a#kds-add-kid{ href: "#" } הוסף ילד
 
   %section#kids-spouse-section
     %p האם כל הילדים משותפים לך ול<em class="spouse-name">רונית</em>?

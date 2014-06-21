@@ -9,3 +9,19 @@ section {
     display: block;
   }
 }
+
+.spouse {
+  display: none;
+
+  .spouse-included & {
+    display: block;
+  }
+}
+
+.date-field {
+  display: inline;
+}
+
+#kds-kids {
+  display: none;
+}
