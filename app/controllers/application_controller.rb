@@ -9,6 +9,11 @@ class ApplicationController < ActionController::Base
     new_request_path
   end
 
+  def after_sign_out_path_for(r)
+    root_path
+  end
+
+
   protected
 
   def configure_devise_permitted_parameters
