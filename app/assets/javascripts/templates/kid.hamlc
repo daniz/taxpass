@@ -1,7 +1,7 @@
-%li.kds-kid-info{ data: { index: @index } }
-  %label{ for: "kid_name_#{@index}" } שם הילד
-  %input{ id: "kid_name_#{@index}" }
+%li.kds-kid-info{ data: { index: @index } } 
+  %label{ for: "kid_name_#{ @index }" } שם הילד
+  %input.save-kid{ id: "kid_name_#{ @index }", value: @name }
 
-  %label{ for: "kid_date_of_birth_#{@index}" } תאריך לידה
+  %label{ for: "kid_date_of_birth_#{ @index }" } תאריך לידה
   .date-field
-    %input{ id: "kid_date_of_birth_#{@index}" }
+    %input.save-kid{ id: "kid_date_of_birth_#{ @index }", type: "date", value: @date_of_birth }

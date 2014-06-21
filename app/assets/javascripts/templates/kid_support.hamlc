@@ -1,0 +1,13 @@
+%li.kdss-kid-info{ data: { index: @index } }
+  %label.kdss-kid-name= @name
+
+  %input{ id: "kid_under_my_supervision_#{ @index }", type: "checkbox" }
+  %label{ for: "kid_under_my_supervision_#{ @index }" } כן
+
+  .kdss-single-parent
+    %input{ id: "kid_single_parent_#{ @index }", type: "checkbox" }
+    %label{ for: "kid_single_parent_#{ @index }" } כן
+
+  .kdss-supported
+    %input{ id: "kid_supported_#{ @index }", type: "checkbox" }
+    %label{ for: "kid_supported_#{ @index }" } כן

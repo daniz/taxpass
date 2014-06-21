@@ -1,16 +1,16 @@
 - prefix = "spouse_" if spouse
 
-%label{ for: "#{prefix}birth_date" } תאריך לידה
+%label{ for: "#{ prefix }birth_date" } תאריך לידה
 .date-field
-  %input{ id: "#{prefix}birth_date", type: "date" }  
+  %input.save-request{ id: "#{ prefix }birth_date", type: "date" }  
 
-%label{ for: "#{prefix}gender" } מין
-%select{ id: "#{prefix}gender" } 
+%label{ for: "#{ prefix }gender" } מין
+%select.save-request{ id: "#{ prefix }gender" } 
   %option{ value: 1 } זכר
   %option{ value: 2 } נקבה
 
-%label{ for: "#{prefix}occupation" } עיסוק
-%select{ id: "#{prefix}occupation" }
+%label{ for: "#{ prefix }occupation" } עיסוק
+%select.save-request{ id: "#{ prefix }occupation" }
   %option{ value: 1 } גנן 
   %option{ value: 2 } שוטר 
   %option{ value: 3 } ירקן 

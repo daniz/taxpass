@@ -31,25 +31,25 @@
       %em.tax-year 2013
       אם בשנת המס שינית סטטוס אישי (חתונה פרידה או לצערינו התאלמנת) - ניתן לבחור ביותר מאפשרות אחת.
 
-    %input{ id: "is_single", type: "checkbox", value: "1" }
+    %input.save-request{ id: "is_single", type: "checkbox", value: "1" }
     %label{ for: "is_single" } רווק/ה
     
-    %input{ id: "is_married", type: "checkbox", value: "1" }
+    %input.save-request{ id: "is_married", type: "checkbox", value: "1" }
     %label{ for: "is_married" } נשוי/אה
 
-    %input{ id: "is_widowed", type: "checkbox", value: "1" }
+    %input.save-request{ id: "is_widowed", type: "checkbox", value: "1" }
     %label{ for: "is_widowed" } אלמנ/ה
 
-    %input{ id: "is_divorced", type: "checkbox", value: "1" }
+    %input.save-request{ id: "is_divorced", type: "checkbox", value: "1" }
     %label{ for: "is_divorced" } גרוש/ה
 
-    %input{ id: "is_seperated", type: "checkbox", value: "1" }
+    %input.save-request{ id: "is_seperated", type: "checkbox", value: "1" }
     %label{ for: "is_seperated" } פרוד/ה
 
-    %input{ id: "is_coupled", type: "checkbox", value: "1" }
+    %input.save-request{ id: "is_coupled", type: "checkbox", value: "1" }
     %label{ for: "is_coupled" } ברית הזוגיות
 
-    %input{ id: "is_same_sex_married", type: "checkbox", value: "1" }
+    %input.save-request{ id: "is_same_sex_married", type: "checkbox", value: "1" }
     %label{ for: "is_same_sex_married" } נישואים חד מיניים
   
 
@@ -64,7 +64,7 @@
     %button#mit-spouse-too{ type: "button" } גם עבור בן הזוג
     #mit-spouse-name-dialog
       אוקיי, אז מה השם הפרטי של בן/בת הזוג?
-      %input{ id: "spouse_name", type: "text" }
+      %input.save-request{ id: "spouse_name", type: "text" }
 
   %section#widowed-intro-section
     %p 
@@ -73,11 +73,11 @@
       פרטים נוספים על מקורות ההכנסה שנותרו או היו לבן/בת הזוג.
     
     %label{ for: "deceased_spouse_name" } שם בן/בת הזוג
-    %input{ id: "deceased_spouse_name", type: "text" }
+    %input.save-request{ id: "deceased_spouse_name", type: "text" }
 
     %label{ for: "spouse_death_date" } תאריך פטירה
     .date-field
-      %input{ id: "spouse_death_date", type: "date" }
+      %input.save-request{ id: "spouse_death_date", type: "date" }
 
   %section#personal-overview-section
     %p <em class="user-name">משה</em>, אנא מלא את הפרטים הבאים:
@@ -104,14 +104,14 @@
     %p <em class="user-name">משה</em>, סימנת שהתגוררת ביישוב מיוחד.
     .spouse
       אבל לפני זה, האם אתה ו<em class="spouse-name">רונית</em> גרתם יחד כל התקופה?
-      %input{ id: "lived_with_spouse_throughout", type: "checkbox", value: "1" }
+      %input.save-request{ id: "lived_with_spouse_throughout", type: "checkbox", value: "1" }
       %label{ for: "lived_with_spouse_throughout" } כן
     
     %label{ for: "city" } שם היישוב
-    %select{ id: "city" } 
+    %select.save-request{ id: "city" } 
       %option{ value: "1" } אביבים
       %option{ value: "2" } אילת
-      %option{ value: "3" } אפגניסטן
+      %option{ value: "3" } נווה עגבניות
       %option{ value: "4" } פרדסיה
       %option{ value: "5" } תל יוסף
 
@@ -125,10 +125,10 @@
       #spa-date-range
         מ-
         .date-field
-          %input{ id: "special_area_residency_start_date", type: "date" }
+          %input.save-request{ id: "special_area_residency_start_date", type: "date" }
         עד -
         .date-field
-          %input{ id: "special_area_residency_end_date", type: "date" }
+          %input.save-request{ id: "special_area_residency_end_date", type: "date" }
 
   %section#personal-medical-section
     %p <em class="user-name">משה</em>, האם אחד או יותר מהסטטוסים הללו תקף לגביך?
@@ -153,6 +153,14 @@
     %ul#kds-kids-list
        
     %a#kds-add-child{ href: "#" } הוסף ילד
+
+  %section#kids-spouse-section
+    %p האם כל הילדים משותפים לך ול<em class="spouse-name">רונית</em>?
+    %input#kdsp-common-kids{ type: "checkbox" }
+    %label{ for: "kdsp-common-kids" } כן
+
+  %section#kids-support-section
+    %ul#kdss-kids-list  
   
   %button#continue-button{ type: "button" } המשך
 

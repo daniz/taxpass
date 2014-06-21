@@ -2,35 +2,35 @@
 
 %ul
   %li
-    %input{ id: "#{prefix}retired", type: "checkbox", value: "1" }
+    %input.save-request{ id: "#{prefix}retired", type: "checkbox", value: "1" }
     %label{ for: "#{prefix}retired" } פנסיונר
 
   %li
-    %input{ id: "#{prefix}immigrant", type: "checkbox", value: "1" }
+    %input.save-request{ id: "#{prefix}immigrant", type: "checkbox", value: "1" }
     %label{ for: "#{prefix}immigrant" } עולה חדש
     %ul
       %li
-        %label{ id: "#{prefix}immigration_date" } תאריך עליה
+        %label.save-request{ id: "#{prefix}immigration_date" } תאריך עליה
         .date-field
-          %input{ id: "#{prefix}immigration_date", type: "date" }
+          %input.save-request{ id: "#{prefix}immigration_date", type: "date" }
 
   %li
-    %input{ id: "#{prefix}idf_service", type: "checkbox", value: "1" }
+    %input.save-request{ id: "#{prefix}idf_service", type: "checkbox", value: "1" }
     %label{ for: "#{prefix}idf_service" } שחרור משירות חובה
     %ul
       %li
-        %label{ id: "#{prefix}idf_discharge_date" } תאריך שחרור
+        %label.save-request{ id: "#{prefix}idf_discharge_date" } תאריך שחרור
         .date-field
-          %input{ id: "#{prefix}idf_discharge_date", type: "date" }
+          %input.save-request{ id: "#{prefix}idf_discharge_date", type: "date" }
     
       %li
-        %label{ id: "#{prefix}idf_service_duration" } מספר חודשי שירות
-        %input{ id: "#{prefix}idf_service_duration", type: "number" }
+        %label.save-request{ id: "#{prefix}idf_service_duration" } מספר חודשי שירות
+        %input.save-request{ id: "#{prefix}idf_service_duration", type: "number" }
 
   %li
-    %input{ id: "#{prefix}academic", type: "checkbox", value: "1" }
+    %input.save-request{ id: "#{prefix}academic", type: "checkbox", value: "1" }
     %label{ for: "#{prefix}academic" } בעל תואר אקדמי או לימודי תעודה
 
   %li
-    %input{ id: "#{prefix}special_area_resident", type: "checkbox", value: "1" }
+    %input.save-request{ id: "#{prefix}special_area_resident", type: "checkbox", value: "1" }
     %label{ for: "#{prefix}special_area_resident" } תושב אזור מיוחד (לרבות אילת)
