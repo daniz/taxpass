@@ -1,13 +1,16 @@
 %li.kdss-kid-info{ data: { index: @index } }
   %label.kdss-kid-name= @name
 
+  האם בחזקתך?
   %input{ id: "kid_under_my_supervision_#{ @index }", type: "checkbox" }
-  %label{ for: "kid_under_my_supervision_#{ @index }" } כן
+  %label{ for: "kid_under_my_supervision_#{ @index }", value: @under_my_supervision } כן
 
   .kdss-single-parent
+    האם אתה משמש כהורה יחיד לילד זה?
     %input{ id: "kid_single_parent_#{ @index }", type: "checkbox" }
-    %label{ for: "kid_single_parent_#{ @index }" } כן
+    %label{ for: "kid_single_parent_#{ @index }", value: @single_parent } כן
 
   .kdss-supported
+    האם אתה משתתף בכלכלתו?
     %input{ id: "kid_supported_#{ @index }", type: "checkbox" }
-    %label{ for: "kid_supported_#{ @index }" } כן
+    %label{ for: "kid_supported_#{ @index }", value: @supported } כן

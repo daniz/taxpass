@@ -2,7 +2,7 @@ class TaxPassView extends Backbone.View
   el: 'body'
 
   events:
-    'click #kds-add-child'    : 'onAddChildClick'
+    'click #kds-add-Kid'      : 'onAddKidClick'
     'click #continue-button'  : 'onContinueClick'
     'change .save-request'    : 'onRequestFieldChange'
     'change .save-kid'        : 'onKidFieldChange'
@@ -14,20 +14,23 @@ class TaxPassView extends Backbone.View
     @listenTo @kids, 'add', @onKidAdd
     @kids.add {}
 
-    window.view = this
-
   onKidAdd: (kid) ->
-    @addChildField kid
+    @addKidField kid
+    @addKidSupportField kid
 
-  addChildField: (kid) ->
-    html = JST['kid'].call this, kid.toJSON()
+  addKidField: (kid) ->
+    html = JST['kid'].call @, kid.toJSON()
     @$('#kds-kids-list').append html
+
+  addKidSupportField: (kid) ->
+    html = JST['kid_support'].call @, kid.toJSON()
+    @$('#kdss-kids-list').append html
 
   onContinueClick: (e) ->
     @$('section.is-active').removeClass('is-active')
       .next('section').addClass('is-active')
 
-  onAddChildClick: ->
+  onAddKidClick: ->
     @kids.add {}
     false
 
