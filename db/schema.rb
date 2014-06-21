@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140620140019) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "kids", force: true do |t|
     t.string  "name"
     t.date    "date_of_birth"
@@ -91,7 +94,7 @@ ActiveRecord::Schema.define(version: 20140620140019) do
     t.string   "phone"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
