@@ -82,27 +82,27 @@
     %p <em class="user-name">משה</em>, אנא מלא את הפרטים הבאים:
     = render partial: "personal_overview", locals: { spouse: false }
     .spouse
-      %p ולגבי <em class="spouse-name">רונית</em>?
+      %p ולגבי <em class="spouse-name"></em>?
       = render partial: "personal_overview", locals: { spouse: true }
 
   %section#personal-tax-status-section
     %p <em class="user-name">משה</em>, האם אחד או יותר מהסטטוסים הללו תקף לגביך?
     = render partial: "personal_tax_status", locals: { spouse: false }
     .spouse
-      %p ולגבי <em class="spouse-name">רונית</em>?
+      %p ולגבי <em class="spouse-name"></em>?
       = render partial: "personal_tax_status", locals: { spouse: true }
 
   %section#academia-section
     %p <em class="user-name">משה</em>, סימנת שסיימת תואר אקדמי, מס הכנסה מכיר רק בתארים מסויימים ממוסדות מסויימים
     = render partial: "academia", locals: { spouse: false }
     .spouse
-      %p ולגבי <em class="spouse-name">רונית</em>?
+      %p ולגבי <em class="spouse-name"></em>?
       = render partial: "academia", locals: { spouse: true }
 
   %section#special-area-section
     %p <em class="user-name">משה</em>, סימנת שהתגוררת ביישוב מיוחד.
     .spouse
-      אבל לפני זה, האם אתה ו<em class="spouse-name">רונית</em> גרתם יחד כל התקופה?
+      אבל לפני זה, האם אתה ו<em class="spouse-name"></em> גרתם יחד כל התקופה?
       %input.save-request{ id: "lived_with_spouse_throughout", type: "checkbox", value: "1" }
       %label{ for: "lived_with_spouse_throughout" } כן
     
@@ -133,14 +133,14 @@
     %p <em class="user-name">משה</em>, האם אחד או יותר מהסטטוסים הללו תקף לגביך?
     = render partial: "personal_medical", locals: { spouse: false }
     .spouse
-      %p ולגבי <em class="spouse-name">רונית</em>?
+      %p ולגבי <em class="spouse-name"></em>?
       = render partial: "personal_medical", locals: { spouse: true }
 
   %section#personal-residency-section
     %p <em class="user-name">משה</em>, האם היית תושב ישראל בשנת המס <em class="tax-year">1900</em>?
     = render partial: "personal_residence", locals: { spouse: false }
     .spouse
-      %p ולגבי <em class="spouse-name">רונית</em>?
+      %p ולגבי <em class="spouse-name"></em>?
       = render partial: "personal_residence", locals: { spouse: true }  
 
   %section#kids-section
@@ -155,7 +155,7 @@
       %a#kds-add-kid{ href: "#" } הוסף ילד
 
   %section#kids-spouse-section
-    %p האם כל הילדים משותפים לך ול<em class="spouse-name">רונית</em>?
+    %p האם כל הילדים משותפים לך ול<em class="spouse-name"></em>?
     %input#kdsp-common-kids{ type: "checkbox" }
     %label{ for: "kdsp-common-kids" } כן
 

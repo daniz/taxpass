@@ -99,6 +99,10 @@ class TaxPassView extends Backbone.View
     if attrs['spouse_name']?
       @$('.spouse-name').text attrs['spouse_name']
 
+    if attrs['deceased_spouse_name']?
+      @$('.spouse-name').text attrs['deceased_spouse_name']
+
+
   onOnlyMeClick: ->
     @onContinueClick()
 
