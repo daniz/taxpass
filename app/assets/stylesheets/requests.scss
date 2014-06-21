@@ -1,0 +1,11 @@
+body {
+  direction: rtl;
+}
+
+section {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
