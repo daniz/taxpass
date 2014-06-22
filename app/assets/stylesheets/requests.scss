@@ -210,12 +210,16 @@ a {
 
 #footer {
   margin: 40px auto;
-  padding: 12px 2px;
+  padding: 0 20px;
   max-width: 800px;
-  border-top: 1px solid #ccc;
   font-size: 13px;
   font-weight: 300;
   color: #333;
+}
+
+#footer-wrap {
+  padding: 12px 0;
+  border-top: 1px solid #ccc;
 }
 
 section {
