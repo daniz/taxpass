@@ -11,6 +11,11 @@ class TaxPassView extends Backbone.View
     'click #mit-spouse-too'   : 'onSpouseTooClick'
     'change #kds-has-kids'    : 'onHasKidsChange'
 
+    'click #about'            : 'onAboutClick'
+    'click #help'             : 'onHelpClick'
+    'click #instructions'     : 'onInstructionClick'
+    'click #dialog-ok-button' : 'onDialogOkClick'
+
   spouseIncluded: no
 
   initialize: ->
@@ -125,6 +130,28 @@ class TaxPassView extends Backbone.View
     hasKids = @$(e.currentTarget).prop 'checked'
     @$('#kds-kids').toggle hasKids
     @$('#kids-support-section').toggleClass 'disabled', !hasKids
+
+  onAboutClick: ->
+    $('#dialog-head').text 'אודות'
+    # $('#dialog-body').text ''
+    $('#dialog-dim').fadeIn 200
+    false
+
+  onHelpClick: ->
+    $('#dialog-head').text 'עזרה'
+    # $('#dialog-body').text ''
+    $('#dialog-dim').fadeIn 200
+    false
+  
+  onInstructionClick: ->
+    $('#dialog-head').text 'איך זה עובד?'
+    # $('#dialog-body').text ''
+    $('#dialog-dim').fadeIn 200
+    false
+
+  onDialogOkClick: ->
+    $('#dialog-dim').fadeOut 200
+    
 
 $ -> 
   window.view = new TaxPassView

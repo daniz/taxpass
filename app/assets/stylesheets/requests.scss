@@ -222,6 +222,43 @@ a {
   border-top: 1px solid #ccc;
 }
 
+#dialog-dim {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, .3);
+}
+
+#dialog {
+  position: absolute;
+  top: 200px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding: 20px 30px;
+  width: 400px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+}
+
+#dialog-head {
+  margin: 0;
+  font-size: 34px;
+}
+
+#dialog-ok-button {
+  float: left;
+}
+
+#dialog-body {
+  color: #888;
+  margin: 16px 0 22px;
+}
+
 section {
   display: none;
   padding: 30px 0;

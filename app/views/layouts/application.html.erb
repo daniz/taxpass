@@ -18,9 +18,9 @@
 
     <div id="header-links">
       
-      <a href="#">אודות</a> |
-      <a href="#">עזרה</a> |
-      <a href="#">איך זה עובד?</a>
+      <a id="about" href="#">אודות</a> |
+      <a id="help" href="#">עזרה</a> |
+      <a id="instructions" href="#">איך זה עובד?</a>
 
       <% if user_signed_in? %>
         | <span id="connected-as">מחובר כ<strong><%= current_user.name %></strong>.</span>
@@ -34,6 +34,16 @@
 
 <div id="content">
   <%= yield %>
+</div>
+
+<div id="dialog-dim">
+  <div id="dialog">
+    <h3 id="dialog-head"></h3>
+    <p id="dialog-body">
+       חברת כרטיסי האשראי כאל תמכור עד 5 ביולי כרטיס קולנוע ב-9 שקלים, בהגבלה ל-4 כרטיסים ובלי לשלם עמלת אינטרנט. "זו בקשה של הלקוחות שלנו וברור למה - בילוי בקולנוע כולל פופקורן עולה היום 100 שקל לאדם". בגלל יוקר הבילוי, תמיד עדיף שלא לשלם מחיר מלא: אפשר לקנות כרטיסים ב-1+1 במבצעים קבועים של המתחרות, או להביא פופקורן מהבית
+    </p>
+    <button id="dialog-ok-button" class="button button-blue">סבבה</button>
+  </div>
 </div>
 
 <footer id="footer">
