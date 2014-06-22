@@ -12,10 +12,21 @@
 </head>
 <body>
 
-  <% if user_signed_in? %>
-    מחובר כ- <strong><%= current_user.name %></strong>
-    <%= link_to 'התנתק', destroy_user_session_path, method: :delete %>
-  <% end %>
+<header id="header">
+  <span id="header-logo">TaxPass</span>
+
+  <div id="header-links">
+    <% if user_signed_in? %>
+      מחובר כ- <strong><%= current_user.name %></strong>
+      <%= link_to 'התנתק', destroy_user_session_path, method: :delete %>
+    <% end %>
+
+    <a href="#">אודות</a>
+    <a href="#">עזרה</a>
+    <a href="#">איך זה עובד?</a>
+  </div>
+
+</header>
 
 <%= yield %>
 
