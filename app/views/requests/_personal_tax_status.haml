@@ -1,6 +1,6 @@
 - prefix = "spouse_" if spouse
 
-%ul
+%ul#pts-main-list
   %li
     %input.save-request{ id: "#{prefix}retired", type: "checkbox", value: "1" }
     %label{ for: "#{prefix}retired" } פנסיונר
@@ -8,23 +8,23 @@
   %li
     %input.save-request{ id: "#{prefix}immigrant", type: "checkbox", value: "1" }
     %label{ for: "#{prefix}immigrant" } עולה חדש
-    %ul
+    %ul.dependant-fields
       %li
-        %label.save-request{ id: "#{prefix}immigration_date" } תאריך עליה
+        %label.inner-label{ id: "#{prefix}immigration_date" } תאריך עליה
         .date-field
           %input.save-request{ id: "#{prefix}immigration_date", type: "date" }
 
   %li
     %input.save-request{ id: "#{prefix}idf_service", type: "checkbox", value: "1" }
     %label{ for: "#{prefix}idf_service" } שחרור משירות חובה
-    %ul
+    %ul.dependant-fields
       %li
-        %label.save-request{ id: "#{prefix}idf_discharge_date" } תאריך שחרור
+        %label.inner-label{ id: "#{prefix}idf_discharge_date" } תאריך שחרור
         .date-field
           %input.save-request{ id: "#{prefix}idf_discharge_date", type: "date" }
     
       %li
-        %label.save-request{ id: "#{prefix}idf_service_duration" } מספר חודשי שירות
+        %label.inner-label{ id: "#{prefix}idf_service_duration" } מספר חודשי שירות
         %input.save-request{ id: "#{prefix}idf_service_duration", type: "number" }
 
   %li
