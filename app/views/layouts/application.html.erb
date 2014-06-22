@@ -17,14 +17,16 @@
     <span id="header-logo">TaxPass</span>
 
     <div id="header-links">
+      
+      <a href="#">אודות</a> |
+      <a href="#">עזרה</a> |
+      <a href="#">איך זה עובד?</a>
+
       <% if user_signed_in? %>
-        מחובר כ- <strong><%= current_user.name %></strong>
-        <%= link_to 'התנתק', destroy_user_session_path, method: :delete %>
+        | <span id="connected-as">מחובר כ<strong><%= current_user.name %></strong>.</span>
+        <%= link_to 'התנתק', destroy_user_session_path, method: :delete, id: 'sign-out' %>
       <% end %>
 
-      <a href="#">אודות</a>
-      <a href="#">עזרה</a>
-      <a href="#">איך זה עובד?</a>
     </div>
   </div>
 
