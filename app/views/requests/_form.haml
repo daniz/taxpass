@@ -88,9 +88,11 @@
       %input.save-request{ id: "spouse_death_date", type: "date" }
 
   %section#personal-overview-section
-    %p <em class="user-name">
-    = "#{current_user.name},"
-    </em> אנא מלא את הפרטים הבאים:
+    %p 
+      <em class="user-name">
+      = "#{current_user.name},"
+      </em> אנא מלא את הפרטים הבאים:
+
     = render partial: "personal_overview", locals: { spouse: false }
     .spouse
       %p ולגבי <em class="spouse-name"></em>?
