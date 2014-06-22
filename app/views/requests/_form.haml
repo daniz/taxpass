@@ -19,48 +19,57 @@
         %h4 סיכום
 
   %section#tax-year-section.active
-    %p על איזו שנת מס אנחנו מדברים?
+    %h3.section-title על איזו שנת מס אנחנו מדברים?
     %select.save-request{ id: "tax_year" }
       - (1..5).map{ |n| n.years.ago.year }.each do |y|
         %option{ value: y }= y
     
   %section#marital-status-section
-    %p 
+    %h3.section-title מצב משפחתי
+    %p.section-description
       הדבר הכי חשוב בחיים הוא גם הכי חשוב לצרכי מס הכנסה, לכן חשוב לנו מה המצב המשפחתי שלך בשנת המס
       <em class="tax-year">1900</em>? אם בשנת המס שינית סטטוס אישי (חתונה פרידה או לצערינו התאלמנת) - ניתן לבחור
       ביותר מאפשרות אחת.
 
-    %input.save-request{ id: "is_single", type: "checkbox", value: "1" }
-    %label{ for: "is_single" } רווק/ה
+    %div.mss-field
+      %input.save-request{ id: "is_single", type: "checkbox", value: "1" }
+      %label{ for: "is_single" } רווק/ה
     
-    %input.save-request{ id: "is_married", type: "checkbox", value: "1" }
-    %label{ for: "is_married" } נשוי/אה
+    %div.mss-field 
+      %input.save-request{ id: "is_married", type: "checkbox", value: "1" }
+      %label{ for: "is_married" } נשוי/אה
 
-    %input.save-request{ id: "is_widowed", type: "checkbox", value: "1" }
-    %label{ for: "is_widowed" } אלמנ/ה
+    %div.mss-field
+      %input.save-request{ id: "is_widowed", type: "checkbox", value: "1" }
+      %label{ for: "is_widowed" } אלמנ/ה
 
-    %input.save-request{ id: "is_divorced", type: "checkbox", value: "1" }
-    %label{ for: "is_divorced" } גרוש/ה
+    %div.mss-field
+      %input.save-request{ id: "is_divorced", type: "checkbox", value: "1" }
+      %label{ for: "is_divorced" } גרוש/ה
 
-    %input.save-request{ id: "is_seperated", type: "checkbox", value: "1" }
-    %label{ for: "is_seperated" } פרוד/ה
+    %div.mss-field
+      %input.save-request{ id: "is_seperated", type: "checkbox", value: "1" }
+      %label{ for: "is_seperated" } פרוד/ה
 
-    %input.save-request{ id: "is_coupled", type: "checkbox", value: "1" }
-    %label{ for: "is_coupled" } ברית הזוגיות
+    %div.mss-field
+      %input.save-request{ id: "is_coupled", type: "checkbox", value: "1" }
+      %label{ for: "is_coupled" } ברית הזוגיות
 
-    %input.save-request{ id: "is_same_sex_married", type: "checkbox", value: "1" }
-    %label{ for: "is_same_sex_married" } נישואים חד מיניים
-  
+    %div.mss-field
+      %input.save-request{ id: "is_same_sex_married", type: "checkbox", value: "1" }
+      %label{ for: "is_same_sex_married" } נישואים חד מיניים
 
   %section#married-intro-section
-    %p 
-      <em class="user-name">משה</em>, האם ברצונך למלא את החזר המס גם בעבור החצי השני שלך?
+    %p.section-description
+      <em class="user-name">
+      = "#{current_user.name},"
+      </em> האם ברצונך למלא את החזר המס גם בעבור החצי השני שלך?
       מומלץ למלא עבור הזוג, ואז בסוף התהליך נבדוק האם כדאי להגיש עבורך בלבד או בשם בשניכם.
       הערה: אם יש לך עסק והתיק שלך מסווג כעוסק מורשה או עוסק פטור, ושני בני הזוג עובדים בעסק, חובה
       למלא עבור שני בני הזוג.
     
-    %button#mit-only-me{ type: "button" } לא, עליי בלבד
-    %button#mit-spouse-too{ type: "button" } גם עבור בן הזוג
+    %button#mit-only-me.button.button-gray{ type: "button" } לא, עליי בלבד
+    %button#mit-spouse-too.button.button-blue{ type: "button" } גם עבור בן הזוג
     #mit-spouse-name-dialog.spouse
       אוקיי, אז מה השם הפרטי של בן/בת הזוג?
       %input.save-request{ id: "spouse_name", type: "text" }
@@ -79,7 +88,9 @@
       %input.save-request{ id: "spouse_death_date", type: "date" }
 
   %section#personal-overview-section
-    %p <em class="user-name">משה</em>, אנא מלא את הפרטים הבאים:
+    %p <em class="user-name">
+    = "#{current_user.name},"
+    </em> אנא מלא את הפרטים הבאים:
     = render partial: "personal_overview", locals: { spouse: false }
     .spouse
       %p ולגבי <em class="spouse-name"></em>?

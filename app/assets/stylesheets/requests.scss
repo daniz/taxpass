@@ -10,6 +10,19 @@ h2 {
   margin: 0;
 }
 
+em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+input {
+  padding: 12px;
+  font-size: 16px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 #header {
   background-color: #428bca;
 }
@@ -95,6 +108,16 @@ h2 {
   cursor: pointer;
 }
 
+.button-gray {
+  background-color: #ddd;
+  color: #666;
+
+  &:hover {
+    background-color: #ccc;
+    color: #555;
+  }
+}
+
 .button-green {
   background-color: #5cb85c;
 
@@ -129,6 +152,7 @@ h2 {
   }
 }
 
+
 #registration-form, #login-form {
   margin: 40px auto;
   width: 330px;
@@ -141,13 +165,11 @@ h2 {
   input:not([type=submit]) {    
     box-sizing: border-box;
     margin: 0;
-    padding: 12px;
     width: 100%;
-    border: 1px solid #ccc;
+    
     border-top: none;
-    font-size: 16px;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-
+    border-radius: 0;
+    
     &:first-of-type {
       border-top: 1px solid #ccc;
       border-radius: 5px 5px 0 0;
@@ -174,15 +196,27 @@ h2 {
   border-top: 1px solid #ccc;
   font-size: 13px;
   font-weight: 300;
-  color: #aaa;
+  color: #333;
 }
 
 section {
   display: none;
+  padding: 30px 0;
 
   &.active {
     display: block;
   }
+}
+
+.section-title {
+  margin: 20px 0;
+  font-size: 28px;
+}
+
+.section-description {
+  margin-bottom: 24px;
+  max-width: 600px;
+  color: #888;
 }
 
 .spouse {
@@ -195,6 +229,26 @@ section {
 
 .date-field {
   display: inline;
+}
+
+#tax_year {
+  font-size: 26px;
+}
+
+.mss-field {
+  padding: 4px 0;
+}
+
+#mit-only-me,
+#mit-spouse-too {
+  font-size: 16px;
+}
+
+#mit-spouse-name-dialog {
+  input {
+    margin-right: 20px;
+    width: 200px;
+  }
 }
 
 #kds-kids {
