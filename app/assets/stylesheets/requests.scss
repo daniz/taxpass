@@ -29,8 +29,17 @@ input {
   border-radius: 5px;
 }
 
+input[type=date] {
+  padding: 9px 12px;
+}
+
 ul {
+  padding: 0;
   list-style-type: none;
+}
+
+a {
+  color: #428bca;
 }
 
 #header {
@@ -274,9 +283,9 @@ section {
     margin-top: 10px;
   }
 
-  #spouse_death_date {
-    padding: 10px 12px;
-  }
+  // #spouse_death_date {
+  //   padding: 10px 12px;
+  // }
 }
 
 #personal-overview-section {
@@ -309,6 +318,8 @@ section {
 #personal-tax-status-section {
   .dependant-fields {
     display: none;
+    padding-right: 60px;
+    padding-bottom: 20px;
   }
 
   input:checked ~ .dependant-fields {
@@ -324,9 +335,9 @@ section {
     width: 200px;
   }
 
-  input[type=date] {
-    padding: 10px 12px;
-  }
+  // input[type=date] {
+  //   padding: 10px 12px;
+  // }
 
   #pts-main-list > li {
     padding: 6px 0;
@@ -358,6 +369,30 @@ section {
 
 
 #kds-kids {
+  display: none;
+}
+
+.kdss-kid-info {
+  margin-top: 20px;
+}
+
+.kdss-kid-name {
+  display: block;
+  margin: 0;
+  font-size: 30px;
+  font-weight: 700;
+  color: #428bca;
+}
+
+.kdss-single-parent {
+  display: none;
+
+  .kdss-under-my-supervision:checked ~ & {
+    display: block;
+  }
+}
+
+.kdss-under-my-supervision:checked ~ .kdss-supported {
   display: none;
 }
 

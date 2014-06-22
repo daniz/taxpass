@@ -58,6 +58,8 @@ class TaxPassView extends Backbone.View
     @$('#married-intro-section').toggleClass 'disabled', !!m.is_widowed or !m.is_married
     @$('#academia-section').toggleClass 'disabled', !m.academic and !m.spouse_academic
     @$('#special-area-section').toggleClass 'disabled', !m.special_area_resident and !m.spouse_special_area_resident
+    @$('#kids-spouse-section').toggleClass 'disabled', !m.is_married
+
 
     @$('section.active').removeClass('active')
       .nextAll('section:not(.disabled)').first().addClass('active')

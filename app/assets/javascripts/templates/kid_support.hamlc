@@ -1,8 +1,8 @@
 %li.kdss-kid-info{ data: { index: @index } }
-  %label.kdss-kid-name= @name
+  %h4.kdss-kid-name= @name ? "ילד #{ @index }"
 
   האם בחזקתך?
-  %input{ id: "kid_under_my_supervision_#{ @index }", type: "checkbox" }
+  %input.kdss-under-my-supervision{ id: "kid_under_my_supervision_#{ @index }", type: "checkbox" }
   %label{ for: "kid_under_my_supervision_#{ @index }", value: @under_my_supervision } כן
 
   .kdss-single-parent
