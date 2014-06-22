@@ -257,6 +257,23 @@ section {
   }
 }
 
+#widowed-intro-section {
+  label {
+    display: inline-block;
+    margin-right: 50px;
+    width: 110px;
+  }
+
+  input{
+    width: 206px;    
+    margin-top: 10px;
+  }
+
+  #spouse_death_date {
+    padding: 10px 12px;
+  }
+}
+
 #personal-overview-section {
   p {
     margin: 20px 0 10px;
@@ -266,7 +283,7 @@ section {
     @include border-box;
 
     display: inline-block;
-    margin-bottom: 1px;
+    margin-bottom: 2px;
     padding-right: 15px;
     width: 330px;
     line-height: 48px;
