@@ -60,13 +60,20 @@ class TaxPassView extends Backbone.View
     @$('#special-area-section').toggleClass 'disabled', !m.special_area_resident and !m.spouse_special_area_resident
     @$('#kids-spouse-section').toggleClass 'disabled', !m.is_married
 
+    $current = @$('section.active')
+    $next = $current.nextAll('section:not(.disabled)').first()
 
-    @$('section.active').removeClass('active')
-      .nextAll('section:not(.disabled)').first().addClass('active')
+    if $next.is '#under-construction-section'
+      @$('#continue-button').hide()
+
+    $current.removeClass('active')
+    $next.addClass('active')
 
   onBackClick: ->
     $current = @$('section.active')
     $prev = $current.prevAll('section:not(.disabled)').first()
+
+    @$('#continue-button').show()
 
     if $prev.length
       $current.removeClass('active')
@@ -117,6 +124,7 @@ class TaxPassView extends Backbone.View
   onHasKidsChange: (e) ->
     hasKids = @$(e.currentTarget).prop 'checked'
     @$('#kds-kids').toggle hasKids
+    @$('#kids-support-section').toggleClass 'disabled', !hasKids
 
 $ -> 
   window.view = new TaxPassView
