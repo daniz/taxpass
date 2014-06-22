@@ -3,6 +3,7 @@ body {
   padding: 0;
   margin: 0;
   color: #333;
+  background-color: #f0f0f0;
 }
 
 h2 {
@@ -96,6 +97,51 @@ h2 {
   }
 }
 
+.button-blue {
+  background-color: #428bca;
+
+  &:hover {
+    background-color: #327bba;
+  }
+}
+
+#registration-form {
+  margin: 40px auto;
+  width: 330px;
+
+  h2 {
+    font-size: 30px;
+    margin-bottom: 7px;
+  }
+
+  input:not([type=submit]) {    
+    box-sizing: border-box;
+    margin: 0;
+    padding: 12px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-top: none;
+    font-size: 16px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+
+    &:first-of-type {
+      border-top: 1px solid #ccc;
+      border-radius: 5px 5px 0 0;
+    }
+
+    &:last-of-type {
+      border-radius: 0 0 5px 5px;
+    }
+  }
+
+  .button {
+    margin-top: 20px;
+    padding: 10px 0;
+    width: 100%;
+    border: 1px solid #357ebd;
+    font-size: 18px;
+  }
+}
 
 section {
   display: none;
