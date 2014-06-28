@@ -1,0 +1,16 @@
+%p 
+  <em class="user-name">
+  = "#{ @current_user },"
+  </em> האם יש לך ילדים?
+
+%p יש לסמן כן גם אם ילדים שלך אך לא בחזקתך ילדים שאינם שלך אך נמצאים בחזקתך
+
+%input#kds-has-kids{ type: "checkbox" }
+%label{ for: "kds-has-kids" } כן
+
+#kds-kids
+  %ul#kds-kids-list
+  - @kids.each (kid) ->
+    != JST['kid'] kid.toJSON()
+
+  %a#kds-add-kid{ href: "#" } הוסף ילד

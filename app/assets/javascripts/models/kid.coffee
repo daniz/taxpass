@@ -1,5 +1,5 @@
-class App.Kid extends Backbone.Model
+class App.Models.Kid extends Backbone.Model
   index: 1
 
   initialize: ->
-    @set 'index', App.Kid::index++
+    @set 'index', App.Models.Kid::index++

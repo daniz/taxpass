@@ -1,4 +1,4 @@
 #= require ./kid
 
-class App.Kids extends Backbone.Collection
-  model: App.Kid
+class App.Collections.Kids extends Backbone.Collection
+  model: App.Models.Kid

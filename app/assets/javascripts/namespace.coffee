@@ -1,1 +1,4 @@
-window.App = {}
+window.App =
+  Views       : {}
+  Models      : {}
+  Collections : {}

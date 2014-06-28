@@ -1,0 +1,16 @@
+- console.log @
+%p.section-description
+  <em class="user-name">
+  = "#{ @current_user },"
+  </em> אנחנו מצטערים לשמוע על אבדנך, ומאחלים לך חיים ארוכים.
+  כאלמנ/ה ייתכן ותהיה זכאי להחזרי מס. לצורך כך, אנחנו צריכים כרגע 2 פרטים, ואחרי שנבדוק, ייתכן שנצטרך
+  פרטים נוספים על מקורות ההכנסה שנותרו או היו לבן/בת הזוג.
+
+%label{ for: "deceased_spouse_name" } שם בן/בת הזוג
+%input.request-data{ id: "deceased_spouse_name", type: "text" }
+
+%br
+
+%label{ for: "spouse_death_date" } תאריך פטירה
+.date-field
+  %input.request-data{ id: "spouse_death_date", type: "date" }

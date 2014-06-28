@@ -1,0 +1,25 @@
+- @mssField = (id, label, checked) =>
+  %div.mss-field
+    != App.Helpers.checkbox id: id, label: label, className: "request-data", model: @
+
+%h3.section-title מצב משפחתי
+%p.section-description
+  הדבר הכי חשוב בחיים הוא גם הכי חשוב לצרכי מס הכנסה, לכן חשוב לנו מה המצב המשפחתי שלך בשנת המס
+  <em class="tax-year">
+  = @tax_year
+  </em>? אם בשנת המס שינית סטטוס אישי (חתונה פרידה או לצערינו התאלמנת) - ניתן לבחור
+  ביותר מאפשרות אחת.
+
+= @mssField "is_single", "רווק/ה", @is_single
+
+= @mssField "is_married", "נשוי/אה", @is_married
+
+= @mssField "is_widowed", "אלמנ/ה", @is_widowed
+
+= @mssField "is_divorced", "גרוש/ה", @is_divorced
+
+= @mssField "is_seperated", "פרוד/ה", @is_seperated
+
+= @mssField "is_coupled", "ברית הזוגיות", @is_coupled
+
+= @mssField "is_same_sex_married", "נישואים חד מיניים", @is_same_sex_married

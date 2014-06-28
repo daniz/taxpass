@@ -1,0 +1,27 @@
+- @renderPartial = (o) =>
+  - prefix = "spouse_" if spouse
+
+  %input.request-data{ id:  "#{ prefix }blind", type: "checkbox", value: "1" }
+  %label{ for: "#{ prefix }blind" } עיוור בעל תעודת עיוור
+
+  %br
+
+  %input.request-data{ id:  "#{ prefix }disabled", type: "checkbox", value: "1" }
+  %label{ for: "#{ prefix }disabled" } נכה, מוכר ע״י המוסד לביטוח לאומי 90% לפחות
+
+
+
+%p
+  <em class="user-name">
+  = "#{ @current_user },"
+  </em> האם אחד או יותר מהסטטוסים הללו תקף לגביך?
+
+= @renderPartial spouse: no
+
+- if @is_married
+  .spouse
+    %p 
+      ולגבי <em class="spouse-name">
+      = @spouse_name
+      </em>?
+    = @renderPartial spouse: yes

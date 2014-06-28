@@ -1,0 +1,22 @@
+- @renderPartial = (o) =>
+  - prefix = "spouse_" if spouse
+
+  %input.request-data{ id:  "#{ prefix }israeli_resident", type: "checkbox", value: "1" }
+  %label{ for: "#{ prefix }israeli_resident" } כן
+
+%p 
+  <em class="user-name">
+  = "#{ @current_user },"
+  </em> האם היית תושב ישראל בשנת המס <em class="tax-year">
+  = @tax_year
+  </em>?
+
+= @renderPartial spouse: no
+
+- if @is_married
+  .spouse
+    %p 
+      ולגבי <em class="spouse-name">
+      = @spouse_name
+      </em>?
+    = @renderPartial spouse: yes

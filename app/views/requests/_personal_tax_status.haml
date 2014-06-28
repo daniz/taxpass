@@ -2,35 +2,35 @@
 
 %ul#pts-main-list
   %li
-    %input.save-request{ id: "#{prefix}retired", type: "checkbox", value: "1" }
-    %label{ for: "#{prefix}retired" } פנסיונר
+    %input.request-data{ id: "#{ prefix }retired", type: "checkbox", value: "1" }
+    %label{ for: "#{ prefix }retired" } פנסיונר
 
   %li
-    %input.save-request{ id: "#{prefix}immigrant", type: "checkbox", value: "1" }
-    %label{ for: "#{prefix}immigrant" } עולה חדש
+    %input.request-data{ id: "#{ prefix }immigrant", type: "checkbox", value: "1" }
+    %label{ for: "#{ prefix }immigrant" } עולה חדש
     %ul.dependant-fields
       %li
-        %label.inner-label{ id: "#{prefix}immigration_date" } תאריך עליה
+        %label.inner-label{ id: "#{ prefix }immigration_date" } תאריך עליה
         .date-field
-          %input.save-request{ id: "#{prefix}immigration_date", type: "date" }
+          %input.request-data{ id: "#{ prefix }immigration_date", type: "date" }
 
   %li
-    %input.save-request{ id: "#{prefix}idf_service", type: "checkbox", value: "1" }
-    %label{ for: "#{prefix}idf_service" } שחרור משירות חובה
+    %input.request-data{ id: "#{ prefix }idf_service", type: "checkbox", value: "1" }
+    %label{ for: "#{ prefix }idf_service" } שחרור משירות חובה
     %ul.dependant-fields
       %li
-        %label.inner-label{ id: "#{prefix}idf_discharge_date" } תאריך שחרור
+        %label.inner-label{ id: "#{ prefix }idf_discharge_date" } תאריך שחרור
         .date-field
-          %input.save-request{ id: "#{prefix}idf_discharge_date", type: "date" }
+          %input.request-data{ id: "#{ prefix }idf_discharge_date", type: "date" }
     
       %li
-        %label.inner-label{ id: "#{prefix}idf_service_duration" } מספר חודשי שירות
-        %input.save-request{ id: "#{prefix}idf_service_duration", type: "number" }
+        %label.inner-label{ id: "#{ prefix }idf_service_duration" } מספר חודשי שירות
+        %input.request-data{ id: "#{ prefix }idf_service_duration", type: "number" }
 
   %li
-    %input.save-request{ id: "#{prefix}academic", type: "checkbox", value: "1" }
-    %label{ for: "#{prefix}academic" } בעל תואר אקדמי או לימודי תעודה
+    %input.request-data{ id: "#{ prefix }academic", type: "checkbox", value: "1" }
+    %label{ for: "#{ prefix }academic" } בעל תואר אקדמי או לימודי תעודה
 
   %li
-    %input.save-request{ id: "#{prefix}special_area_resident", type: "checkbox", value: "1" }
-    %label{ for: "#{prefix}special_area_resident" } תושב אזור מיוחד (לרבות אילת)
+    %input.request-data{ id: "#{ prefix }special_area_resident", type: "checkbox", value: "1" }
+    %label{ for: "#{ prefix }special_area_resident" } תושב אזור מיוחד (לרבות אילת)

@@ -1,0 +1,64 @@
+- @checkbox = (id, label) => App.Helpers.checkbox id: id, label: label, className: "request-data", model: @
+
+- @renderPartial = (o) =>
+  - prefix = "spouse_" if o.spouse
+
+  %ul#pts-main-list
+    %li
+      != @checkbox "#{ prefix }retired", "פנסיונר"
+      / != App.Helpers.checkbox id: "#{ prefix }retired", label: "פנסיונר", className: "request-data", model: @
+      / %input.request-data{ id: "#{ prefix }retired", type: "checkbox", value: "1" }
+      / %label{ for: "#{ prefix }retired" } פנסיונר
+
+    %li
+      != @checkbox "#{ prefix }immigrant", "עולה חדש"
+      / != App.Helpers.checkbox id: "#{ prefix }immigrant", label: "עולה חדש", className: "request-data", model: @
+      / %input.request-data{ id: "#{ prefix }immigrant", type: "checkbox", value: "1" }
+      / %label{ for: "#{ prefix }immigrant" } עולה חדש
+
+      %ul.dependant-fields
+        %li
+          %label.inner-label{ id: "#{ prefix }immigration_date" } תאריך עליה
+          .date-field
+            %input.request-data{ id: "#{ prefix }immigration_date", type: "date" }
+
+    %li
+      != @checkbox "#{ prefix }idf_service", "שחרור משירות חובה"
+      / %input.request-data{ id: "#{ prefix }idf_service", type: "checkbox", value: "1" }
+      / %label{ for: "#{ prefix }idf_service" } שחרור משירות חובה
+      %ul.dependant-fields
+        %li
+          %label.inner-label{ id: "#{ prefix }idf_discharge_date" } תאריך שחרור
+          .date-field
+            %input.request-data{ id: "#{ prefix }idf_discharge_date", type: "date" }
+      
+        %li
+          %label.inner-label{ id: "#{ prefix }idf_service_duration" } מספר חודשי שירות
+          %input.request-data{ id: "#{ prefix }idf_service_duration", type: "number" }
+
+    %li
+      != @checkbox "#{ prefix }academic", "בעל תואר אקדמי או לימודי תעודה"
+      / %input.request-data{ id: "#{ prefix }academic", type: "checkbox", value: "1" }
+      / %label{ for: "#{ prefix }academic" } בעל תואר אקדמי או לימודי תעודה
+
+    %li
+      / %input.request-data{ id: "#{ prefix }special_area_resident", type: "checkbox", value: "1" }
+      / %label{ for: "#{ prefix }special_area_resident" } תושב אזור מיוחד (לרבות אילת)
+      != @checkbox #{ prefix }special_area_resident", "תושב אזור מיוחד (לרבות אילת)"
+
+%p
+  <em class="user-name">
+  = "#{ @current_user },"
+  </em> האם אחד או יותר מהסטטוסים הללו תקף לגביך?
+
+= @renderPartial spouse: no
+
+- if @is_married
+  .spouse
+    %p 
+      ולגבי <em class="spouse-name">
+      = @spouse_name
+      </em>?
+
+    = @renderPartial spouse: yes
+

@@ -4,7 +4,13 @@
           box-sizing: border-box;
 }
 
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
+  min-width: 650px;
   direction: rtl;
   padding: 0;
   margin: 0;
@@ -259,13 +265,10 @@ a {
   margin: 16px 0 22px;
 }
 
-section {
-  display: none;
-  padding: 30px 0;
 
-  &.active {
-    display: block;
-  }
+
+section {
+  padding: 30px 0;
 }
 
 .section-title {
@@ -280,12 +283,8 @@ section {
 }
 
 .spouse {
-  display: none;
+  // display: none;
   margin-top: 20px;
-
-  .spouse-included & {
-    display: block;
-  }
 }
 
 .date-field {
@@ -294,6 +293,10 @@ section {
 
 #tax_year {
   font-size: 26px;
+}
+
+#nav-sidebar {
+  display: none;
 }
 
 .mss-field {
@@ -306,6 +309,7 @@ section {
 }
 
 #mit-spouse-name-dialog {
+  display: none;
   input {
     margin-right: 20px;
     width: 200px;

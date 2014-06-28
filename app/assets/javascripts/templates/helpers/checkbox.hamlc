@@ -1,0 +1,4 @@
+- @_checked = @checked ? @model?[ @id ]
+
+%input{ "class": @className, id: @id, type: "checkbox", value: "1", checked: !!@_checked }
+%label{ for: @id }= @label

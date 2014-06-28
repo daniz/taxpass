@@ -3,6 +3,8 @@
 //= require hamlcoffee
 //= require turbolinks
 //= require namespace
+//= require helpers
 //= require_tree ./models
+//= require_tree ./views
 //= require_tree ./templates
 //= require_tree .

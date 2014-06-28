@@ -58,6 +58,9 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.1.0)
+    gon (5.0.4)
+      actionpack (>= 2.3.0)
+      json
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -152,6 +155,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   execjs
+  gon
   haml-rails
   haml_coffee_assets!
   jbuilder (~> 2.0)
