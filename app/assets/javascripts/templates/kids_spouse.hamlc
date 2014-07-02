@@ -1,5 +1,6 @@
-%p האם כל הילדים משותפים לך ול<em class="spouse-name">
+%p 
+  האם כל הילדים משותפים לך ול<em class="spouse-name">
   = @spouse_name
-</em>?
+  </em>?
 %input#kdsp-common-kids{ type: "checkbox" }
 %label{ for: "kdsp-common-kids" } כן

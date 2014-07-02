@@ -33,7 +33,7 @@
   .spouse
     %p 
       ולגבי <em class="spouse-name">
-      = @spouse_name
+      = @spouse_name ? @deceased_spouse_name
       </em>?
 
     = @renderPartial spouse: yes

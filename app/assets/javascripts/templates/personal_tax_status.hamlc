@@ -6,16 +6,10 @@
   %ul#pts-main-list
     %li
       != @checkbox "#{ prefix }retired", "פנסיונר"
-      / != App.Helpers.checkbox id: "#{ prefix }retired", label: "פנסיונר", className: "request-data", model: @
-      / %input.request-data{ id: "#{ prefix }retired", type: "checkbox", value: "1" }
-      / %label{ for: "#{ prefix }retired" } פנסיונר
 
     %li
       != @checkbox "#{ prefix }immigrant", "עולה חדש"
-      / != App.Helpers.checkbox id: "#{ prefix }immigrant", label: "עולה חדש", className: "request-data", model: @
-      / %input.request-data{ id: "#{ prefix }immigrant", type: "checkbox", value: "1" }
-      / %label{ for: "#{ prefix }immigrant" } עולה חדש
-
+      
       %ul.dependant-fields
         %li
           %label.inner-label{ id: "#{ prefix }immigration_date" } תאריך עליה
@@ -24,8 +18,7 @@
 
     %li
       != @checkbox "#{ prefix }idf_service", "שחרור משירות חובה"
-      / %input.request-data{ id: "#{ prefix }idf_service", type: "checkbox", value: "1" }
-      / %label{ for: "#{ prefix }idf_service" } שחרור משירות חובה
+      
       %ul.dependant-fields
         %li
           %label.inner-label{ id: "#{ prefix }idf_discharge_date" } תאריך שחרור
@@ -38,13 +31,9 @@
 
     %li
       != @checkbox "#{ prefix }academic", "בעל תואר אקדמי או לימודי תעודה"
-      / %input.request-data{ id: "#{ prefix }academic", type: "checkbox", value: "1" }
-      / %label{ for: "#{ prefix }academic" } בעל תואר אקדמי או לימודי תעודה
 
     %li
-      / %input.request-data{ id: "#{ prefix }special_area_resident", type: "checkbox", value: "1" }
-      / %label{ for: "#{ prefix }special_area_resident" } תושב אזור מיוחד (לרבות אילת)
-      != @checkbox #{ prefix }special_area_resident", "תושב אזור מיוחד (לרבות אילת)"
+      != @checkbox "#{ prefix }special_area_resident", "תושב אזור מיוחד (לרבות אילת)"
 
 %p
   <em class="user-name">

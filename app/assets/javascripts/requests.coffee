@@ -61,6 +61,14 @@ class TaxPassView extends Backbone.View
 
     kid.on 'change:name', -> $html.find('.kdss-kid-name').text kid.get('name')
 
+  getFieldValue: ($input) ->
+    if $input.attr('type') is 'checkbox'
+      $input.prop 'checked'
+    else
+      $input.val()
+
+    
+
   onKidAdd: (kid) ->
     console.log 'kidadd'
     @addKidField kid
