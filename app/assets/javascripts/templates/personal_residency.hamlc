@@ -1,5 +1,5 @@
 - @renderPartial = (o) =>
-  - prefix = "spouse_" if spouse
+  - prefix = if o.spouse then "spouse_" else ""
 
   %input.request-data{ id:  "#{ prefix }israeli_resident", type: "checkbox", value: "1" }
   %label{ for: "#{ prefix }israeli_resident" } כן
@@ -13,7 +13,7 @@
 
 = @renderPartial spouse: no
 
-- if @is_married
+- if @spouse_name
   .spouse
     %p 
       ולגבי <em class="spouse-name">

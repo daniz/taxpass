@@ -5,7 +5,7 @@
   = "#{ @current_user },"
   </em> סימנת שהתגוררת ביישוב מיוחד.
 
-- if @is_married
+- if @spouse_name
   .spouse
     אבל לפני זה, האם אתה ו<em class="spouse-name">
     = @spouse_name

@@ -1,5 +1,5 @@
 - @renderPartial = (o) => 
-  - prefix = "spouse_" if o.spouse
+  - prefix = if o.spouse then "spouse_" else ""
   .field
     %label{ for: "#{ prefix }birth_date" } תאריך לידה
     .date-field
@@ -29,7 +29,7 @@
 
 = @renderPartial spouse: no
 
-- if @is_married
+- if @spouse_name
   .spouse
     %p 
       ולגבי <em class="spouse-name">

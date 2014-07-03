@@ -1,1 +1,3 @@
 %ul#kdss-kids-list
+  - @kids.each (kid) ->
+    != JST['kid_support'] kid.toJSON() 

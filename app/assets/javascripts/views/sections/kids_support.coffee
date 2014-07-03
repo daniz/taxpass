@@ -8,10 +8,10 @@ class App.Views.KidsSupportSection extends App.Views.Section
   isEnabled: ->
     !!@model.get('kids')?.length
 
-  render: ->
-    super
-    @model.get('kids').each (kid) =>
-      $html = $ JST['kid_support'].call(@, kid.toJSON())
-      @$('#kdss-kids-list').append $html
+  # render: ->
+  #   super
+  #   @model.get('kids').each (kid) =>
+  #     $html = $ JST['kid_support'].call(@, kid.toJSON())
+  #     @$('#kdss-kids-list').append $html
 
-    this
+  #   this

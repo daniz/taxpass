@@ -1,7 +1,7 @@
 - @checkbox = (id, label) => App.Helpers.checkbox id: id, label: label, className: "request-data", model: @
 
 - @renderPartial = (o) =>
-  - prefix = "spouse_" if o.spouse
+  - prefix = if o.spouse then "spouse_" else ""
 
   %ul#pts-main-list
     %li
@@ -42,7 +42,7 @@
 
 = @renderPartial spouse: no
 
-- if @is_married
+- if @spouse_name
   .spouse
     %p 
       ולגבי <em class="spouse-name">

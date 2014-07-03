@@ -1,0 +1,12 @@
+%li.kdd-kid-disabled{ data: { index: @index } }
+  %h4.kdd-kid-name= @name ? "ילד #{ @index }"
+
+  האם נטול יכולת?
+  %input.kdd-disabled{ id: "kid_disabled_#{ @index }", type: "checkbox" }
+  %label{ for: "kid_disabled_#{ @index }" } כן
+
+  %br
+
+  האם נמצא במוסד טיפולי מיוחד?
+  %input.kdd-institution{ id: "kid_institution_#{ @index }", type: "checkbox" }
+  %label{ for: "kid_institution_#{ @index }" } כן
