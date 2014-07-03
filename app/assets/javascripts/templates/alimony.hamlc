@@ -1,0 +1,15 @@
+%p
+  <em class="user-name">
+  = "#{ @current_user },"
+  </em> האם היית נשוי בעבר?
+
+%input#almn-married-before{ type: "checkbox" }
+%label{ for: "almn-married-before" } כן
+
+#almn-paying-wrap
+  %p
+    האם אתה משלם דמי מזונות לבן/בת הזוג (לא כולל ילדים)?
+  %input#almn-paying{ type: "checkbox" }
+  %label{ for: "almn-paying" } כן
+
+

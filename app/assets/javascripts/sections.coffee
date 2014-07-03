@@ -13,6 +13,7 @@ class App.Views.Sections extends Backbone.View
     App.Views.KidsSpouseSection
     App.Views.KidsSupportSection
     App.Views.KidsDisabledSection
+    App.Views.AlimonySection
   ]
 
   initialize: ->

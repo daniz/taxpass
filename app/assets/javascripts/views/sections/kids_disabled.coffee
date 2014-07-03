@@ -5,9 +5,8 @@ class App.Views.KidsDisabledSection extends App.Views.Section
   id: 'kids-disabled-section'
   templateName: 'kids_disabled'
 
-  events: {
+  events:
     'change #kdd-any-disabled' : 'onAnyDisabledChange'
-  }
 
   isEnabled: ->
     !!@model.get('kids')?.length
