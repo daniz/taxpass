@@ -15,6 +15,9 @@ class App.Views.Form106Section extends App.Views.Section
     @forms = @model.get 'form106s'
     @spouseForms = @model.get 'spouseForm106s'
 
+  isEnabled: ->
+    @model.get 'employed'
+
   render: ->
     super
     @$('#f106-num-workplaces, #spouse_f106-num-workplaces').trigger 'change'
@@ -44,7 +47,6 @@ class App.Views.Form106Section extends App.Views.Section
     if toAdd > 0
       for i in [forms.length + 1..num]
         forms.add new Backbone.Model(index: i)
-
     else
       toRemove = -toAdd
       _(toRemove).times ->
@@ -52,25 +54,6 @@ class App.Views.Form106Section extends App.Views.Section
 
   onNumWorkplacesChange: (e) ->
     @handleNumWorkplacesChange e, spouse: no
-    # num = parseInt $(e.currentTarget).val()
-    # fields = for i in [1..num]
-    #   JST['form_106_upload'].call @, index: i, prefix: ''
-
-    # @$('#f106-workplaces').html fields
-
-    # window.forms = @forms;
-
-    # toAdd = num - @forms.length
-    # length = @forms.length
-
-    # if toAdd > 0
-    #   for i in [@forms.length + 1..num]
-    #     @forms.add new Backbone.Model(index: i)
-
-    # else
-    #   toRemove = -toAdd
-    #   _(toRemove).times ->
-    #     @forms.remove @forms.last()
 
   onSpouseNumWorkplacesChange: (e) ->
     @handleNumWorkplacesChange e, spouse: yes

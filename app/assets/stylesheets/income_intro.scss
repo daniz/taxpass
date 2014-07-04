@@ -88,16 +88,17 @@
   }
 
   input:checked + label {
-    background: #2c78c3;
-    color: #fff;
+    // background: #2c78c3;
+    // color: #fff;
 
     .fa-check {
       color: #ff8900;
-      border-color: #1c68b3;
+      // border-color: #1c68b3;
+      // border-color: #aaa;
     }
 
     i {
-      color: #fff;
+      // color: #fff;
     }
   }
 

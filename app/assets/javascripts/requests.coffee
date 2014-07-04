@@ -24,10 +24,11 @@ class TaxPassView extends Backbone.View
   initialize: ->
     @kids = new App.Collections.Kids
     @form106s = new App.Collections.Form106s
+    @spouseForm106s = new App.Collections.Form106s
     @model = new App.Models.Request 
-      kids        : @kids
-      form106s    : @form106s
-      spouseForm  : @spouseForm106s
+      kids            : @kids
+      form106s        : @form106s
+      spouseForm106s  : @spouseForm106s
 
     @listenTo @kids, 'add', @onKidAdd
     # @listenTo @model, 'change', @onModelChange

@@ -3,5 +3,3 @@
   %input{ id: "#{ @prefix }f106_file_#{ @index }", type: "file" }
   %button.f106-upload-button.button.button-empty{ type: "button" } העלה קובץ 106
   %button.f106-manual-button.button.button-empty{ type: "button", data: { index: @index, prefix: @prefix } } הזן ידנית
-
-
