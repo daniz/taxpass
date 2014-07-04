@@ -1,0 +1,38 @@
+- @renderPartial = (o) =>
+  - prefix = if o.spouse then "spouse_" else ""
+
+  %select{ id: "#{ prefix }f106-num-workplaces" }
+    %option{ selected: "selected" } 1
+    %option 2
+    %option 3
+    %option 4
+    %option 5
+    %option 6
+    %option 7
+    %option 8
+    %option 9
+    %option 10
+
+  %ul{ id: "#{ prefix }f106-workplaces" }
+
+
+%p
+  משה, על פי חוק כל מעביד מחוייב לתת לך טופס שנקרא 106 או טופס חלופי. הטופס הזה מרכז את סך המשכורות והניכויים בשנה. רוב המעבידים שולחים אותו בחודש מרץ של השנה העוקבת. אם אינך בידך את הטופס, יש לפנות למחלקת שכר של המעביד ולבקש העתק. כעת את סרוק את הטפסים בעזרת המצלמה של הסמארטפון שלך.
+
+%p
+  <em class="user-name">
+  = "#{ @current_user },"
+  </em> כמה מקומות עבודה היו לך בשנת המס 
+  <em class="tax-year">
+  = @tax_year
+  </em>?
+
+= @renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    ול<em class="spouse-name">
+      = @spouse_name ? @deceased_spouse_name
+      </em>?
+
+    = @renderPartial spouse: yes

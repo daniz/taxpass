@@ -9,8 +9,6 @@
   %input.request-data{ id:  "#{ prefix }disabled", type: "checkbox", value: "1" }
   %label{ for: "#{ prefix }disabled" } נכה, מוכר ע״י המוסד לביטוח לאומי 90% לפחות
 
-
-
 %p
   <em class="user-name">
   = "#{ @current_user },"
