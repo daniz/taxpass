@@ -1,0 +1,10 @@
+@mixin no-select {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;  
+}
+
+@mixin no-tap-highlight {
+  -webkit-tap-highlights-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlights-color: transparent;
+}

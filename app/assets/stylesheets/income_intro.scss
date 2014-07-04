@@ -1,0 +1,119 @@
+@import "mixins";
+
+#income-intro-section {
+  // text-align: center;
+}
+
+#ii-description-main {
+  font-size: 28px;
+  color: #333;
+}
+
+#ii-description-secondary {
+  margin: 18px 0;
+  font-size: 16px;
+  color: #888;
+}
+
+#ii-options {
+  width: 300px;
+  text-align: right;
+  @include no-select;
+}
+
+.ii-option {
+  position: relative;
+  margin-top: 1px;
+  overflow: hidden;
+  // background: #f0f0f0 linear-gradient(to bottom, #f6f6f6 0, #eee 100%);
+  cursor: pointer;
+
+  // background: #f8f8f8; /* Old browsers */
+  // background: -moz-linear-gradient(top,  #f8f8f8 0%, #f0f0f0 100%); /* FF3.6+ */
+  // background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f8f8f8), color-stop(100%,#f0f0f0)); /* Chrome,Safari4+ */
+  // background: -webkit-linear-gradient(top,  #f8f8f8 0%,#f0f0f0 100%); /* Chrome10+,Safari5.1+ */
+  // background: -o-linear-gradient(top,  #f8f8f8 0%,#f0f0f0 100%); /* Opera 11.10+ */
+  // background: -ms-linear-gradient(top,  #f8f8f8 0%,#f0f0f0 100%); /* IE10+ */
+  // background: linear-gradient(to bottom,  #f8f8f8 0%,#f0f0f0 100%); /* W3C */
+  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#f0f0f0',GradientType=0 ); /* IE6-9 */
+
+
+  &:first-child {
+    border-radius: 5px 5px 0 0;
+
+    label {
+      border-radius: 5px 5px 0 0;     
+    }
+  }
+
+  &:last-child {
+    border-radius: 0 0 5px 5px;
+
+    label {
+      border-radius: 5px 5px 0 0;     
+    }
+  }
+
+  label {
+    padding-right: 74px;
+    display: block;
+    line-height: 44px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;  
+  }
+
+  i {
+    position: absolute;
+    top: 15px;
+    right: 42px;
+    font-size: 16px;
+
+    &.fa-check {
+      top: 10px;
+      right: 10px;
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
+      border: 1px solid #e2e2e2;
+      border-radius: 3px;
+      font-size: 20px;
+      color: #fff;
+      background-color: #fff;
+    }
+  }
+
+  input[type=checkbox] {
+    display: none;
+  }
+
+  input:checked + label {
+    background: #2c78c3;
+    color: #fff;
+
+    .fa-check {
+      color: #ff8900;
+      border-color: #1c68b3;
+    }
+
+    i {
+      color: #fff;
+    }
+  }
+
+  @include no-tap-highlight;
+}
+
+.ii-options-kids {
+  .fa-male, .fa-female {
+    font-size: 14px;
+  }
+
+  .fa-male {
+    right: 13px;
+  }
+
+  .fa-female {
+    right: 21px;
+  }
+}

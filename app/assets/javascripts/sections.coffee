@@ -14,6 +14,7 @@ class App.Views.Sections extends Backbone.View
     App.Views.KidsSupportSection
     App.Views.KidsDisabledSection
     App.Views.AlimonySection
+    App.Views.IncomeIntroSection
     App.Views.Form106Section
   ]
 
