@@ -41,7 +41,7 @@
     %label{ for: "other" }
       הכנסות אחרות
       %i.fa.fa-fw.fa-check
-      %i.fa.fa-fw.fa-present
+      %i.fa.fa-fw.fa-gift
 
   /   = check_box :request, :is_married
   /   = label :request, :is_married  do
