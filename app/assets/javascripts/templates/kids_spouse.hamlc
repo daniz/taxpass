@@ -1,6 +1,8 @@
-%p 
+%p.kids-spouse-question
   האם כל הילדים משותפים לך ול<em class="spouse-name">
   = @spouse_name
   </em>?
-%input#kdsp-common-kids{ type: "checkbox" }
-%label{ for: "kdsp-common-kids" } כן
+
+/ %input#kdsp-common-kids{ type: "checkbox" }
+/ %label{ for: "kdsp-common-kids" } כן
+!= App.Helpers.toggleButton id: "kdsp-common-kids"

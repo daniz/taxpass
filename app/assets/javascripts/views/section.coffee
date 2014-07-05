@@ -11,6 +11,7 @@ class App.Views.Section extends Backbone.View
   render: ->
     data = @templateJSON()
     @$el.html @template(data)
+    @delegateEvents()
     this
 
   collectData: ->
