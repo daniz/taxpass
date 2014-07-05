@@ -296,7 +296,7 @@ a {
   right: 0;
   left: 0;
   margin: auto;
-  padding: 20px 30px;
+  padding: 15px 24px;
   width: 400px;
   border-radius: 5px;
   background-color: #fff;
@@ -314,7 +314,8 @@ a {
 
 #dialog-ok-button {
   float: left;
-  font-size: 18px;
+  padding: 12px 20px;
+  font-size: 15px;
 }
 
 #dialog-body {
@@ -539,11 +540,20 @@ section {
   }
 }
 
+#f106-manual {
+
+}
+
 .f106-manual-field {
   margin-bottom: 20px;
 
-  label {
+  label, input {
     display: block;
+    font-size: 12px;
+  }
+
+  input {
+    padding: 8px;
   }
 }
 

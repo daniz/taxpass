@@ -10,6 +10,10 @@ class App.Views.KidsSection extends App.Views.Section
     'click #kds-add-kid'    : 'onAddKidClick'
     'change .save-kid'      : 'onKidFieldChange'
 
+  render: ->
+    super
+    this
+
   initialize: ->
     @kids = @model.get 'kids'
     @listenTo @kids, 'add', @addKidField
