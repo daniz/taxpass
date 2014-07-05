@@ -12,15 +12,16 @@ class App.Views.IncomePensionSection extends App.Views.Section
     @model.get 'pension'
 
   onOptionChange: (e) ->
-    console.log 'change'
+    $t = $ e.currentTarget
+    @$('#pns-automated').toggle $t.is('#pns-option-automated')
 
   render: ->
     super
     ac = ->
       $('#pns-search-box').autocomplete
-        position:
-          my: "right top"
-          at: "right bottom"
+        position  :
+          my      : 'right top'
+          at      : 'right bottom'
 
         source: [
           "אחר"

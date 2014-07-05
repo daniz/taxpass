@@ -26,3 +26,16 @@
 
 #pns-automated
   %input#pns-search-box{ type: "text", placeholder: "חפש את המוסד הפיננסי הרצוי" }
+
+  %p או בחר מרשימת החיפושים הנפוצים
+
+  %ul
+    %li
+    %li
+    %li
+    %li
+    %li
+    %li
+    %li
+    %li
+    %li
