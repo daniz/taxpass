@@ -31,6 +31,12 @@ class App.Views.Sections extends Backbone.View
     @currSection = section
     @$el.html @currSection.render().el
 
+  hasNext: ->
+    @getNextSection()?
+
+  hasPrev: ->
+    @getPrevSection()?
+
   next: ->
     @changeSection 'next'
 
