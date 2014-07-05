@@ -1,16 +1,21 @@
 %li.kdss-kid-info{ data: { index: @index } }
   %h4.kdss-kid-name= @name ? "ילד #{ @index }"
 
-  האם בחזקתך?
-  %input.kdss-under-my-supervision{ id: "kid_under_my_supervision_#{ @index }", type: "checkbox" }
-  %label{ for: "kid_under_my_supervision_#{ @index }" } כן
+  %p.kdss-question האם בחזקתך?
+  != App.Helpers.toggleButton id: "kid_under_my_supervision_#{ @index }"
+
+  / %input.kdss-under-my-supervision{ id: "kid_under_my_supervision_#{ @index }", type: "checkbox" }
+  / %label{ for: "kid_under_my_supervision_#{ @index }" } כן
 
   .kdss-single-parent
-    האם אתה משמש כהורה יחיד לילד זה?
-    %input{ id: "kid_single_parent_#{ @index }", type: "checkbox" }
-    %label{ for: "kid_single_parent_#{ @index }" } כן
+    %p.kdss-question האם אתה משמש כהורה יחיד לילד זה?
+    != App.Helpers.toggleButton id: "kid_single_parent_#{ @index }"
+    / %input{ id: "kid_single_parent_#{ @index }", type: "checkbox" }
+    / %label{ for: "kid_single_parent_#{ @index }" } כן
 
   .kdss-supported
-    האם אתה משתתף בכלכלתו?    
-    %input{ id: "kid_supported_#{ @index }", type: "checkbox" }
-    %label{ for: "kid_supported_#{ @index }" } כן
+    %p.kdss-question האם אתה משתתף בכלכלתו?
+    != App.Helpers.toggleButton id: "kid_supported_#{ @index }" 
+
+    / %input{ id: "kid_supported_#{ @index }", type: "checkbox" }
+    / %label{ for: "kid_supported_#{ @index }" } כן
