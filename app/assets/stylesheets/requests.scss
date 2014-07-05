@@ -541,7 +541,9 @@ section {
 }
 
 #f106-manual {
-
+  max-height: 300px;
+  overflow: auto;
+  overflow-x: hidden;
 }
 
 .f106-manual-field {
