@@ -29,13 +29,22 @@
 
   %p או בחר מרשימת החיפושים הנפוצים
 
-  %ul
+  %ul#pns-freq-searches
     %li
+      %img{ src: "/stolen/Althsooler_Small.png" }  
     %li
+      %img{ src: "/stolen/Clal_Small.png" }
     %li
+      %img{ src: "/stolen/Excellence_Small.png" }
     %li
+      %img{ src: "/stolen/Harel_Small.png" }
     %li
+      %img{ src: "/stolen/Meitav_Small.png" }
     %li
+      %img{ src: "/stolen/Menora_Small.png" }
     %li
+      %img{ src: "/stolen/Migdal_Small.png" }
     %li
+      %img{ src: "/stolen/Psagot_Small.png" }
     %li
+      %img{ src: "/stolen/Yalin_Lapidot_Small.png" }

@@ -581,6 +581,27 @@ section {
   width: 320px;
 }
 
+#pns-freq-searches {
+  width: 400px;
+
+  li {
+    display: inline-block;
+    margin-bottom: 4px;
+    padding-top: 14px;
+    width: 120px;
+    height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #aaa;
+    }
+  }
+}
+
 #back-button,
 #continue-button {
   position: absolute;
