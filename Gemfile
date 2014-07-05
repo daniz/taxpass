@@ -38,6 +38,8 @@ gem 'execjs'
 
 gem 'rails_12factor', group: :production
 
+gem 'jquery-ui-rails'
+
 ruby "2.0.0"
 
 # Use ActiveModel has_secure_password

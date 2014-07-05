@@ -81,6 +81,12 @@ a {
   color: #428bca;
 }
 
+.ui-autocomplete {
+  max-height: 300px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
 #header {
   background-color: #428bca;
 }
@@ -383,7 +389,7 @@ section {
     width: 330px;
     line-height: 48px;
     // background-color: rgba(0, 0, 0, .05);
-    box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .1);
+    // box-shadow: inset 0px 0px 3px rgba(0, 0, 0, .1);
     border-radius: 4px;
 
     label {
