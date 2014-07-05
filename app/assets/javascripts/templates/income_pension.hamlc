@@ -1,0 +1,28 @@
+%p.section-title פנסיה
+
+%p.section-description
+  <em class="user-name">
+    = "#{ @current_user },"
+    </em> איך בפנסיה? נהנים? בכל מקרה, התשלום החודשי שמועבר לבנק שלך מקרן הפנסיה או מביטוח המנהלים, או מהארגון בו עבדת (אופייני במגזר הציבורי) חייב במס, כן במדינת ישראל לוקחים מס מכולם....
+    בכל מקרה, כדי לעמוד בחובת הדיווח לרשות המיסים, יש להביא מידע על גובה התשלום החודשי לבנק. יש כמה אפשרויות:
+
+%label
+  %input#pns-option-automated{ type: "radio", name: "pns-options" }
+  דיגיטלי/אוטומטי
+
+%br
+
+%label
+  %input#pns-option-scan{ type: "radio", name: "pns-options" }
+  סרוק טופס 106 או 161
+
+%br
+
+%label
+  %input#pns-option-manual{ type: "radio", name: "pns-options" }
+  הקלד ידנית
+
+%br
+
+#pns-automated
+  %input#pns-search-box{ type: "text", placeholder: "חפש את המוסד הפיננסי הרצוי" }

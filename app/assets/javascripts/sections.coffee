@@ -16,6 +16,7 @@ class App.Views.Sections extends Backbone.View
     App.Views.AlimonySection
     App.Views.IncomeIntroSection
     App.Views.Form106Section
+    App.Views.IncomePensionSection
   ]
 
   initialize: ->

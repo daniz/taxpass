@@ -1,3 +1,5 @@
+@import "mixins";
+
 @mixin border-box {  
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -325,6 +327,7 @@ a {
 
 section {
   padding: 30px 0 40px;
+  @include no-select;
 }
 
 .section-title {
@@ -420,6 +423,7 @@ section {
 #personal-tax-status-section {
   .dependant-fields {
     display: none;
+    padding-top: 20px;
     padding-right: 60px;
     padding-bottom: 20px;
   }
@@ -430,7 +434,7 @@ section {
 
   .inner-label {
     display: inline-block;
-    width: 125px;
+    width: 135px;
   }
 
   input:not([type=checkbox]) {
