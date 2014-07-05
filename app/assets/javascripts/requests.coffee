@@ -11,7 +11,7 @@ class TaxPassView extends Backbone.View
 
     'click #about'            : 'onAboutClick'
     'click #help'             : 'onHelpClick'
-    'click #instructions'     : 'onInstructionClick'
+    'click #support'          : 'onSupportClick'
     'click #dialog-ok-button' : 'onDialogOkClick'
 
   
@@ -28,8 +28,19 @@ class TaxPassView extends Backbone.View
 
     @sections = new App.Views.Sections el: '#active-section', model: @model
 
+    _.delay @showSupportBalloon, 500
+
     window.model = @model
-    
+
+  showSupportBalloon: =>
+    offset = @$('#support').offset()
+    top = offset.top + 40
+    left = offset.left - 100
+    $balloon = @$('#support-balloon')
+    $balloon.css(top: top, left: left).fadeIn 400
+
+    _.delay ( -> $balloon.fadeOut 400), 5000
+
   render: ->
     @sections.next()
   
@@ -61,11 +72,12 @@ class TaxPassView extends Backbone.View
   onHelpClick: ->
     @showDialog 'עזרה'
     false
-  
-  onInstructionClick: ->
-    @showDialog 'אז איך זה עובד?'
-    false
 
+  onSupportClick: ->
+    @showDialog 'תמיכה אנושית'
+    false
+  
+  
   showDialog: (text) ->
     $('#dialog').css top: 200
     $('#dialog-head').text text

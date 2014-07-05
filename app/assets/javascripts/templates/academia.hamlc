@@ -35,7 +35,7 @@
   = "#{ @current_user },"
   </em> סימנת שסיימת תואר אקדמי, מס הכנסה מכיר רק בתארים מסויימים ממוסדות מסויימים
 
-= render partial: "academia", locals: { spouse: false }
+= render partial: "academia", locals: { spouse: no }
 
 - if @spouse_name
   .spouse
@@ -43,4 +43,4 @@
       ולגבי <em class="spouse-name">
       = @spouse_name
       </em>?
-    = render partial: "academia", locals: { spouse: true }
+    = render partial: "academia", locals: { spouse: yes }

@@ -13,5 +13,3 @@
     האם אתה משלם דמי מזונות לבן/בת הזוג (לא כולל ילדים)?
   %input#almn-paying{ type: "checkbox" }
   %label{ for: "almn-paying" } כן
-
-

@@ -11,6 +11,6 @@
     %label{ for: "kid_single_parent_#{ @index }" } כן
 
   .kdss-supported
-    האם אתה משתתף בכלכלתו?
+    האם אתה משתתף בכלכלתו?    
     %input{ id: "kid_supported_#{ @index }", type: "checkbox" }
     %label{ for: "kid_supported_#{ @index }" } כן
