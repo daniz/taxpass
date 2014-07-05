@@ -9,7 +9,9 @@
 / %label{ for: "almn-married-before" } כן
 
 #almn-paying-wrap
-  %p
+  %p.almn-question
     האם אתה משלם דמי מזונות לבן/בת הזוג (לא כולל ילדים)?
-  %input#almn-paying{ type: "checkbox" }
-  %label{ for: "almn-paying" } כן
+  / %input#almn-paying{ type: "checkbox" }
+  / %label{ for: "almn-paying" } כן
+
+  != App.Helpers.toggleButton id: "almn-paying"
