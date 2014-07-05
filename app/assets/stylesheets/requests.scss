@@ -416,9 +416,17 @@ section {
   }
 }
 
-
 #kds-kids {
   display: none;
+
+  .section-description {
+    font-size: 14px;
+  }
+}
+
+.kds-question {
+  float: right;
+  margin-left: 30px;
 }
 
 .kdss-kid-info {
@@ -448,6 +456,16 @@ section {
 
 #kdd-kids-list {
   display: none;
+}
+
+.kdd-question {
+  float: right;
+  margin-left: 30px;
+}
+
+.almn-question {
+  float: right;
+  margin-left: 30px;
 }
 
 #form-106-section {

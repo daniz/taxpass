@@ -1,10 +1,12 @@
-%p
+%p.almn-question
   <em class="user-name">
   = "#{ @current_user },"
   </em> האם היית נשוי בעבר?
 
-%input#almn-married-before{ type: "checkbox" }
-%label{ for: "almn-married-before" } כן
+!= App.Helpers.toggleButton id: "almn-married-before"
+
+/ %input#almn-married-before{ type: "checkbox" }
+/ %label{ for: "almn-married-before" } כן
 
 #almn-paying-wrap
   %p
