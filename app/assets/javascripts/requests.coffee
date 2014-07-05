@@ -6,13 +6,12 @@ class TaxPassView extends Backbone.View
   events:
     'click #continue-button'  : 'onContinueClick'
     'click #back-button'      : 'onBackClick'
-    
     'click #mit-only-me'      : 'onOnlyMeClick'
-
     'click #about'            : 'onAboutClick'
     'click #help'             : 'onHelpClick'
     'click #support'          : 'onSupportClick'
     'click #dialog-ok-button' : 'onDialogOkClick'
+    'change input'            : 'updateNavButtons'
 
   
   spouseIncluded: no
@@ -51,7 +50,7 @@ class TaxPassView extends Backbone.View
       $input.val()
 
   updateNavButtons: ->
-    @$('#continue-button').toggle @sections.hasNext()
+    # @$('#continue-button').toggle @sections.hasNext()
     @$('#back-button').toggle @sections.hasPrev()
 
   onContinueClick: ->
