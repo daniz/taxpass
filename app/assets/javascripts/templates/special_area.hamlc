@@ -10,8 +10,11 @@
     אבל לפני זה, האם אתה ו<em class="spouse-name">
     = @spouse_name
     </em> גרתם יחד כל התקופה?
-    %input.request-data{ id: "lived_with_spouse_throughout", type: "checkbox", value: "1" }
-    %label{ for: "lived_with_spouse_throughout" } כן
+    
+    / %input.request-data{ id: "lived_with_spouse_throughout", type: "checkbox", value: "1" }
+    / %label{ for: "lived_with_spouse_throughout" } כן
+
+    != App.Helpers.toggleButton id: "lived_with_spouse_throughout", className: "request-data"
 
 %label{ for: "city" } שם היישוב
 %select.request-data{ id: "city" } 

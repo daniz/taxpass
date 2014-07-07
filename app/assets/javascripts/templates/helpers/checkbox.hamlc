@@ -1,4 +1,8 @@
-- @_checked = @checked ? @model?[ @id ]
+- checked   = @checked ? @model?[ @id ]
+- name      = @name ? @id
+- className = @className ? "request-data"
 
-%input{ "class": @className, id: @id, type: "checkbox", value: "1", checked: !!@_checked }
-%label{ for: @id }= @label
+%input{ "class": className, id: @id, name: name, type: "checkbox", value: "1", checked: !!checked }
+
+- if @label
+  %label{ for: @id }= @label

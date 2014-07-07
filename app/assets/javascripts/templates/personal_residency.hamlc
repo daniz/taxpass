@@ -1,8 +1,10 @@
 - @renderPartial = (o) =>
   - prefix = if o.spouse then "spouse_" else ""
 
-  %input.request-data{ id:  "#{ prefix }israeli_resident", type: "checkbox", value: "1" }
-  %label{ for: "#{ prefix }israeli_resident" } כן
+  / %input.request-data{ id:  "#{ prefix }israeli_resident", type: "checkbox", value: "1" }
+  / %label{ for: "#{ prefix }israeli_resident" } כן
+
+  != App.Helpers.toggleButton id: "#{ prefix }israeli_resident"
 
 %p 
   <em class="user-name">

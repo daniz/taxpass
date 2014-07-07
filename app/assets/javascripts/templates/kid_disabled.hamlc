@@ -2,13 +2,9 @@
   %h4.kdd-kid-name= @name ? "ילד #{ @index }"
 
   %p.kdd-question האם נטול יכולת?
-  / %input.kdd-disabled{ id: "kid_disabled_#{ @index }", type: "checkbox" }
-  / %label{ for: "kid_disabled_#{ @index }" } כן
   != App.Helpers.toggleButton id: "kid_disabled_#{ @index }"
 
   %br
 
   %p.kdd-question האם נמצא במוסד טיפולי מיוחד?
-  != App.Helpers.toggleButton id: "kid_institution_#{ @index }"  
-  / %input.kdd-institution{ id: "kid_institution_#{ @index }", type: "checkbox" }
-  / %label{ for: "kid_institution_#{ @index }" } כן
+  != App.Helpers.toggleButton id: "kid_institution_#{ @index }"

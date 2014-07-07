@@ -5,9 +5,6 @@
 
 != App.Helpers.toggleButton id: "kdd-any-disabled"
 
-/ %input#kdd-any-disabled{ type: "checkbox" }
-/ %label{ for: "kdd-any-disabled" } כן
-
 #kdd-kids
   %ul#kdd-kids-list
     - @kids.each (kid) ->

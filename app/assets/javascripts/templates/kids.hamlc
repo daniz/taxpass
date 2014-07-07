@@ -7,9 +7,6 @@
 
 %p.section-description (יש לסמן כן גם אם ילדים שלך אך לא בחזקתך, או ילדים שאינם שלך אך נמצאים בחזקתך)
 
-/ %input#kds-has-kids{ type: "checkbox" }
-/ %label{ for: "kds-has-kids" } כן
-
 #kds-kids
   %ul#kds-kids-list
   - @kids.each (kid) ->

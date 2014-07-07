@@ -1,6 +1,6 @@
 - @mssField = (id, label, checked) =>
   %div.mss-field
-    != App.Helpers.checkbox id: id, label: label, className: "request-data", model: @
+    != App.Helpers.checkbox id: id, label: label, model: @
 
 %h3.section-title מצב משפחתי
 %p.section-description
