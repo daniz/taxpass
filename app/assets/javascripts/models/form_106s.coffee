@@ -1,2 +1,4 @@
+#= require ./form_106
+
 class App.Collections.Form106s extends Backbone.Collection
-  model: Backbone.Model
+  model: App.Models.Form106

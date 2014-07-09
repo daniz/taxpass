@@ -1,7 +1,6 @@
 %p.kdd-question
-  <em class="user-name">
-  = "#{ @current_user },"
-  </em> האם מישהו מהילדים נטולח יכולת?
+  %em.user-name= "#{ @current_user },"
+  האם מישהו מהילדים נטולח יכולת?
 
 != App.Helpers.toggleButton id: "kdd-any-disabled"
 

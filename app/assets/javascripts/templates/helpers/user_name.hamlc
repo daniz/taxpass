@@ -1,0 +1,3 @@
+<em class="user-name">
+= "#{ @current_user },"
+</em>

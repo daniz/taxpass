@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140620140019) do
+ActiveRecord::Schema.define(version: 20140708071116) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "form_106s", force: true do |t|
+    t.integer  "field_158",  default: 0
+    t.integer  "field_244",  default: 0
+    t.integer  "field_248",  default: 0
+    t.integer  "field_042",  default: 0
+    t.integer  "field_045",  default: 0
+    t.integer  "field_011",  default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "request_id"
+  end
 
   create_table "kids", force: true do |t|
     t.string  "name"
@@ -75,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140620140019) do
     t.boolean  "spouse_disabled"
     t.boolean  "israeli_resident"
     t.string   "spouse_israeli_resident"
+    t.boolean  "paying_alimony"
   end
 
   create_table "users", force: true do |t|

@@ -1,9 +1,8 @@
 - @thisYear = (new Date).getFullYear()
 
 %p 
-  <em class="user-name">
-  = "#{ @current_user },"
-  </em> סימנת שהתגוררת ביישוב מיוחד.
+  %em.user-name= "#{ @current_user },"
+  סימנת שהתגוררת ביישוב מיוחד.
 
 - if @spouse_name
   .spouse
@@ -14,89 +13,12 @@
     / %input.request-data{ id: "lived_with_spouse_throughout", type: "checkbox", value: "1" }
     / %label{ for: "lived_with_spouse_throughout" } כן
 
-    != App.Helpers.toggleButton id: "lived_with_spouse_throughout", className: "request-data"
+    != App.Helpers.toggleButton id: "lived_with_spouse_throughout", className: "request-data", model: @
 
-%label{ for: "city" } שם היישוב
-%select.request-data{ id: "city" } 
-  %option אביבים
-  %option אבירים
-  %option אבן מנחם
-  %option אדמית
-  %option אור הגנוז
-  %option אילון
-  %option אלקוש
-  %option בית הלל
-  %option ברעם
-  %option בצת
-  %option בר יוחאי
-  %option גורן
-  %option גוש חלב
-  %option געתון
-  %option גרנות הגליל
-  %option גשר הזיו
-  %option דובב
-  %option דישון
-  %option דלתון
-  %option דן
-  %option דפנה
-  %option הגושרים
-  %option הילה
-  %option זיו הגליל
-  %option זרעית
-  %option חוסן
-  %option חניתה
-  %option חורפיש
-  %option יערה
-  %option יפתח
-  %option יראון
-  %option כברי
-  %option כפר בלום
-  %option כפר גלעדי
-  %option כפר יובל
-  %option כפר סאלד
-  %option כרם בן זמרה
-  %option לימן
-  %option מטולה
-  %option מירון
-  %option מלכיה
-  %option מנות
-  %option מנרה
-  %option מעונה
-  %option מעיליה
-  %option מעין ברוך
-  %option מעלות תרשיחא
-  %option מצובה
-  %option מרגליות
-  %option משגב עם
-  %option מתת
-  %option נאות מרדכי
-  %option נהריה
-  %option נטועה
-  %option סאסא
-  %option סער
-  %option ספסופה
-  %option עבדון
-  %option עין יעקב
-  %option עלמה
-  %option עמיר
-  %option עראמשה
-  %option פאסוטה
-  %option פקיעין
-  %option פקיעין החדשה
-  %option צבעון
-  %option צוריאל
-  %option ראג'ר
-  %option ראש הנקרה
-  %option ריחניה
-  %option רמות נפתלי
-  %option שאר ישוב
-  %option שדה אליעזר
-  %option שדה נחמיה
-  %option שומרה
-  %option שלומי
-  %option שמיר
-  %option שניר
-  %option שתולה
+/ %label{ for: "city" } שם היישוב
+/ %select.request-data{ id: "city" } 
+!= App.Helpers.select id: "city", label: "שם היישוב", options: App.Enums.SpecialCities, model: @
+  
 
 %p#spa-lived-there גרתי שם:
 %input#spa-lived-throughout{ type: "radio", checked: "checked", name: "spa-residence-dates" }
@@ -106,9 +28,11 @@
   %input#spa-lived-in-dates{ type: "radio", name: "spa-residence-dates" }
   %label{ for: "spa-lived-in-dates" } בין התאריכים:
   #spa-date-range
-    מ-
-    .date-field
-      %input.request-data{ id: "special_area_residency_start_date", type: "date", value: "#{ @thisYear }-01-01" }
-    עד -
-    .date-field
-      %input.request-data{ id: "special_area_residency_end_date", type: "date", value: "#{ @thisYear }-12-31" }
+    / מ-
+    / .date-field
+    /   %input.request-data{ id: "special_area_residency_start_date", type: "date", value: "#{ @thisYear }-01-01" }
+    / עד -
+    / .date-field
+    /   %input.request-data{ id: "special_area_residency_end_date", type: "date", value: "#{ @thisYear }-12-31" }
+    != App.Helpers.date id: "special_area_residency_start_date", value: "#{ @thisYear }-01-01", label: "מ-", model: @
+    != App.Helpers.date id: "special_area_residency_end_date", value: "#{ @thisYear }-12-31", label: "עד -", model: @

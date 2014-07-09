@@ -4,12 +4,12 @@
   / %input.request-data{ id:  "#{ prefix }israeli_resident", type: "checkbox", value: "1" }
   / %label{ for: "#{ prefix }israeli_resident" } כן
 
-  != App.Helpers.toggleButton id: "#{ prefix }israeli_resident"
+  != App.Helpers.toggleButton id: "#{ prefix }israeli_resident", className: "request-data"
 
 %p 
-  <em class="user-name">
-  = "#{ @current_user },"
-  </em> האם היית תושב ישראל בשנת המס <em class="tax-year">
+  %em.user-name= "#{ @current_user },"
+  האם היית תושב ישראל בשנת המס
+  <em class="tax-year">
   = @tax_year
   </em>?
 

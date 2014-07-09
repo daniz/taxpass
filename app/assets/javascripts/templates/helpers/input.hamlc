@@ -1,0 +1,7 @@
+- name      = @name ? @id
+- value     = @value ? @model?[name]
+- className = @className ? "request-data"
+- type      = @type ? "text"
+
+%label{ for: @id }= @label
+%input{ id: @id, name: name, "class": className, value: value, type: type }

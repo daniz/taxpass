@@ -1,7 +1,11 @@
 %li.kds-kid-info{ data: { index: @index } } 
-  %label{ for: "kid_name_#{ @index }" } שם הילד
-  %input.save-kid{ id: "kid_name_#{ @index }", value: @name }
+  / %label{ for: "kid_name_#{ @index }" } שם הילד
+  / %input.kid-data{ id: "kid_name_#{ @index }", value: @name }
 
-  %label{ for: "kid_date_of_birth_#{ @index }" } תאריך לידה
-  .date-field
-    %input.save-kid{ id: "kid_date_of_birth_#{ @index }", type: "date", value: @date_of_birth }
+  != App.Helpers.input name: "name", label: "שם הילד", className: "kid-data", model: @
+
+  / %label{ for: "kid_date_of_birth_#{ @index }" } תאריך לידה
+  / .date-field
+  /   %input.kid-data{ id: "kid_date_of_birth_#{ @index }", type: "date", value: @date_of_birth } 
+
+  != App.Helpers.date name: "date_of_birth", label: "תאריך לידה", className: "kid-data", model: @

@@ -12,18 +12,24 @@ class App.Views.Section extends Backbone.View
     data = @templateJSON()
     @$el.html @template(data)
     @delegateEvents()
+    @onRender()
     this
+
+  onRender: ->
 
   collectData: ->
     @$('.request-data').each (i, input) =>
       $input = $(input)
-      @model.set $input.attr('id'), @getFieldValue $input
+      @model.set $input.attr('name'), @getFieldValue $input
 
-      console.log "model.set #{ $input.attr('id') }, #{ @getFieldValue $input }"
+      console.log "model.set #{ $input.attr('name') }, #{ @getFieldValue $input }"
 
-  getFieldValue: ($input) ->
+  getFieldValue: (input) ->
+    $input = $(input)
     if $input.attr('type') is 'checkbox'
       $input.prop 'checked'
+    else if $input.is 'select' or $input.attr('type') is 'number'
+      parseInt $input.val()
     else
       $input.val()
 

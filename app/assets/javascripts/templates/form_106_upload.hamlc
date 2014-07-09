@@ -1,5 +1,8 @@
-%li
-  %input{ id: "#{ @prefix }f106_workplace_#{ @index }", type: "text", placeholder: "מקום העבודה" }
-  %input{ id: "#{ @prefix }f106_file_#{ @index }", type: "file" }
-  %button.f106-upload-button.button.button-empty{ type: "button" } העלה קובץ 106
-  %button.f106-manual-button.button.button-empty{ type: "button", data: { index: @index, prefix: @prefix } } הזן ידנית
+- prefix = if @spouse then "spouse_" else "" 
+
+%input{ "class": "#{ prefix }workplace", type: "text", placeholder: "מקום העבודה" }
+%input{ "class": "#{ prefix }106_file_#{ @index }", type: "file" }
+%button.f106-upload-button.button.button-empty{ type: "button" } העלה קובץ 106
+  %i.fa.fa-check
+%button.f106-manual-button.button.button-empty{ type: "button" } הזן ידנית
+  %i.fa.fa-check

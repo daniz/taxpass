@@ -2,9 +2,7 @@
   %h4.kdd-kid-name= @name ? "ילד #{ @index }"
 
   %p.kdd-question האם נטול יכולת?
-  != App.Helpers.toggleButton id: "kid_disabled_#{ @index }"
-
-  %br
+  != App.Helpers.toggleButton name: "disabled", model: @
 
   %p.kdd-question האם נמצא במוסד טיפולי מיוחד?
-  != App.Helpers.toggleButton id: "kid_institution_#{ @index }"
+  != App.Helpers.toggleButton name: "institution", model: @

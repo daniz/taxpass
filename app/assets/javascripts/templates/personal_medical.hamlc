@@ -14,9 +14,8 @@
   != App.Helpers.checkbox id: "#{ prefix }disabled", label: "נכה, מוכר ע״י המוסד לביטוח לאומי 90% לפחות", model: @  
 
 %p
-  <em class="user-name">
-  = "#{ @current_user },"
-  </em> האם אחד או יותר מהסטטוסים הללו תקף לגביך?
+  %em.user-name= "#{ @current_user },"
+  האם אחד או יותר מהסטטוסים הללו תקף לגביך?
 
 = @renderPartial spouse: no
 

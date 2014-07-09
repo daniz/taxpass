@@ -1,5 +1,5 @@
-- checked   = @checked ? @model?[ @id ]
 - name      = @name ? @id
+- checked   = @checked ? @model?[name]
 - className = @className ? "request-data"
 
 %input{ "class": className, id: @id, name: name, type: "checkbox", value: "1", checked: !!checked }

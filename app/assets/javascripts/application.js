@@ -4,6 +4,7 @@
 //= require hamlcoffee
 //= require turbolinks
 //= require namespace
+//= require enums
 //= require helpers
 //= require_tree ./models
 //= require_tree ./views

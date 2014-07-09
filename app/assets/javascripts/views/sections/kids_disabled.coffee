@@ -1,6 +1,6 @@
-# require ../section
+# require ../kids_section
 
-class App.Views.KidsDisabledSection extends App.Views.Section
+class App.Views.KidsDisabledSection extends App.Views.KidsSection
 
   id: 'kids-disabled-section'
   templateName: 'kids_disabled'
@@ -9,7 +9,7 @@ class App.Views.KidsDisabledSection extends App.Views.Section
     'change #kdd-any-disabled' : 'onAnyDisabledChange'
 
   isEnabled: ->
-    !!@model.get('kids')?.length
+    @model.hasKids()
 
   onAnyDisabledChange: (e) ->
     @$('#kdd-kids-list').toggle $(e.currentTarget).prop('checked')

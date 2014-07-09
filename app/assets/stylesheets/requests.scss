@@ -441,10 +441,10 @@ section {
     display: block;
   }
 
-  .inner-label {
-    display: inline-block;
-    width: 135px;
-  }
+  // .inner-label {
+  //   display: inline-block;
+  //   width: 135px;
+  // }
 
   input:not([type=checkbox]) {
     width: 200px;
@@ -460,6 +460,20 @@ section {
     &:first-child {
       padding-top: 0;
     }
+  }
+}
+
+.pts-immigrant {
+    label {
+    display: inline-block;
+    margin-left: 20px;
+  }
+}
+
+.pts-idf-service {
+  label {
+    display: inline-block;
+    width: 135px;
   }
 }
 
@@ -516,18 +530,25 @@ section {
 .kdss-single-parent {
   display: none;
 
-  .kdss-under-my-supervision:checked ~ & {
-    display: block;
-  }
+  // .kdss-under-my-supervision:checked ~ & {
+  //   display: block;
+  // }
 }
 
-.kdss-under-my-supervision:checked ~ .kdss-supported {
-  display: none;
-}
+// .kdss-under-my-supervision:checked ~ .kdss-supported {
+//   display: none;
+// }
 
 .kdss-question {
   float: right;
   width: 260px;
+}
+
+.kdss-supported,
+.kdss-single-parent {
+  .kdss-question {
+    margin-top: 10px;
+  }
 }
 
 #kdd-kids-list {
@@ -557,10 +578,14 @@ section {
     display: none;
   }
 
-  .button {
-    font-size: 16px;
-    padding: 13px 24px;
-  }
+  // .button {
+  //   font-size: 16px;
+  //   padding: 13px 24px;
+  // }
+}
+
+#f106-workplaces li {
+  padding: 1px 0;
 }
 
 #f106-manual {
@@ -580,6 +605,43 @@ section {
   input {
     padding: 8px;
   }
+}
+
+.f106-upload-button,
+.f106-manual-button {
+  padding: 12px 0;
+  text-align: center;
+  font-size: 16px;
+
+  i {
+    display: none;
+  }
+
+  &.done {
+    border-color: #327bba;
+    color: #fff;
+    background-color: #428bca;
+
+    i {
+      display: inline;  
+    }
+  }
+
+  &.disabled {
+    opacity: .5;
+
+    &:hover {
+      background: transparent;
+    }
+  }
+}
+
+.f106-upload-button {
+  width: 180px;
+}
+
+.f106-manual-button {
+  width: 150px;
 }
 
 #pns-automated {

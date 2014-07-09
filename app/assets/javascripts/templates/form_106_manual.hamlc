@@ -4,34 +4,34 @@
     %label
       משכורת 
       %small (שדה 158)
-    %input.form_106_field_158{ type: "text" }
+    %input.form_106_field_158.form-data{ name: "field_158", type: "number" }
 
   .f106-manual-field
     %label
       הכנסה מבוטחת 
       %small (שדה 244)
-    %input.form_106_field_244{ type: "text" }
+    %input.form_106_field_244.form-data{ name: "field_244", type: "number" }
 
   .f106-manual-field
     %label
       סה״כ הפרשות המעסיק לקופ״ג כולל מרכיב פיצויים 
       %small (שדה 248)
-    %input.form_106_field_248{ type: "text" }
+    %input.form_106_field_248.form-data{ name: "field_248", type: "number" }
 
   .f106-manual-field
     %label
       מס הכנסה 
       %small (שדה 042)
-    %input.form_106_field_042{ type: "text"  }
+    %input.form_106_field_042.form-data{ name: "field_042", type: "number"  }
 
   .f106-manual-field
     %label
       קצבה כעמית שכיר 
       %small (שדה 045)
-    %input.form_106_field_045{ type: "text" }
+    %input.form_106_field_045.form-data{ name: "field_045", type: "number" }
 
   .f106-manual-field
     %label
       השתתפות זמנית
       %small (שדה 011)
-    %input.form_106_field_011{ type: "text" }
+    %input.form_106_field_011.form-data{ name: "field_011", type: "number" }

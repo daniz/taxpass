@@ -1,5 +1,8 @@
+- name = @name ? @id
+- checked = @checked ? @model?[name]
+
 %label.toggle-button-wrap
-  %input{ id: @id, "class": @className, type: "checkbox", value: "1", checked: @checked ? no }
+  %input{ id: @id, "class": @className, name: name, type: "checkbox", value: "1", checked: checked ? no }
   .toggle-button
     %span.toggle-button-off לא
     %span.toggle-button-knob

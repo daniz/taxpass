@@ -2,79 +2,49 @@
 
 %ul#ii-options
   %li.ii-option.ii-options-employed
-    %input.request-data{ id: "employed", type: "checkbox" }
+    / %input.request-data{ id: "employed", type: "checkbox" }
+    != App.Helpers.checkbox id: "employed", model: @
     %label{ for: "employed" }
       שכיר/ה
       %i.fa.fa-fw.fa-check
       %i.fa.fa-fw.fa-briefcase
 
   %li.ii-option.ii-options-author
-    %input.request-data{ id: "author", type: "checkbox" }
+    / %input.request-data{ id: "author", type: "checkbox" }
+    != App.Helpers.checkbox id: "author", model: @
     %label{ for: "author" }
       סופר/מרצה/דירקטור
       %i.fa.fa-fw.fa-check
       %i.fa.fa-fw.fa-university
 
   %li.ii-option.ii-options-stock
-    %input.request-data{ id: "stock", type: "checkbox" }
+    / %input.request-data{ id: "stock", type: "checkbox" }
+    != App.Helpers.checkbox id: "stock", model: @
     %label{ for: "stock" }
       השקעתי בבורסה
       %i.fa.fa-fw.fa-check
       %i.fa.fa-fw.fa-bar-chart-o
 
   %li.ii-option.ii-options-lottery
-    %input.request-data{ id: "lottery", type: "checkbox" }
+    / %input.request-data{ id: "lottery", type: "checkbox" }
+    != App.Helpers.checkbox id: "lottery", model: @
     %label{ for: "lottery" }
       פרסים והגרלות
       %i.fa.fa-fw.fa-check
       %i.fa.fa-fw.fa-trophy
 
   %li.ii-option.ii-options-pension
-    %input.request-data{ id: "pension", type: "checkbox" }
+    / %input.request-data{ id: "pension", type: "checkbox" }
+    != App.Helpers.checkbox id: "pension", model: @
     %label{ for: "pension" }
       אני מקבל קצבה
       %i.fa.fa-fw.fa-check
       %i.fa.fa-fw.fa-shield
 
   %li.ii-option.ii-options-other
-    %input.request-data{ id: "other", type: "checkbox" }
+    / %input.request-data{ id: "other", type: "checkbox" }
+    != App.Helpers.checkbox id: "other", model: @
     %label{ for: "other" }
       הכנסות אחרות
       %i.fa.fa-fw.fa-check
       %i.fa.fa-fw.fa-gift
-
-  /   = check_box :request, :is_married
-  /   = label :request, :is_married  do
-  /     אני נשוי
-  /     %i.fa.fa-fw.fa-check
-  /     %i.fa.fa-fw.fa-heart
-
-  / %li.ii-option.ii-options-kids
-  /   = check_box :request, :has_kids
-  /   = label :request, :has_kids do
-  /     יש לי ילדים 
-  /     %i.fa.fa-fw.fa-check
-  /     %i.fa.fa-male
-  /     %i.fa.fa-female
-
-  / %li.ii-option.ii-options-special
-  /   = check_box :request, :is_special
-  /   = label :request, :is_special do
-  /     אני סופר/מרצה/דירקטור 
-  /     %i.fa.fa-fw.fa-check
-  /     %i.fa.fa-fw.fa-briefcase
-
-  / %li.ii-option.ii-options-house
-  /   = check_box :request, :has_house
-  /   = label :request, :has_house do
-  /     יש בבעלותי דירה 
-  /     %i.fa.fa-fw.fa-check
-  /     %i.fa.fa-fw.fa-home
-
-  / %li.ii-option.ii-options-stock
-  /   = check_box :request, :lost_stock
-  /   = label :request, :lost_stock do
-  /     השקעתי בבורסה 
-  /     %i.fa.fa-fw.fa-check
-  /     %i.fa.fa-fw.fa-bar-chart-o
-

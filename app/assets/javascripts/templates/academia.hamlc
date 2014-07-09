@@ -2,38 +2,42 @@
   - prefix = if o.spouse then "spouse_" else ""
 
   .field
-    %label{ for: "#{ prefix }academia_graduation_date" } שנת סיום
-    .date-field
-      %input.request-data{ id: "#{ prefix }academia_graduation_date", type: "date" }
+    / %label{ for: "#{ prefix }academia_graduation_date" } שנת סיום
+    / .date-field
+    /   %input.request-data{ id: "#{ prefix }academia_graduation_date", type: "date" }
+    != App.Helpers.date id: "#{ prefix }academia_graduation_date", model: @
   %br
 
   .field
-    %label{ for: "#{ prefix }academia_institution" } מוסד אקדמי
-    %select.request-data{ id: "#{ prefix }academia_institution" }
-      %option{ value: "1" } אונ׳ תל אביב
-      %option{ value: "2" } טכניון
-      %option{ value: "3" } אונ׳ בן גוריון
+    / %label{ for: "#{ prefix }academia_institution" } מוסד אקדמי
+    / %select.request-data{ id: "#{ prefix }academia_institution" }
+    /   %option{ value: "1" } אונ׳ תל אביב
+    /   %option{ value: "2" } טכניון
+    /   %option{ value: "3" } אונ׳ בן גוריון
+    != App.Helpers.select id: "#{ prefix }academia_institution", options: App.Enums.AcademicInstitutions, model: @
   %br
 
   .field
-    %label{ for: "#{ prefix }academia_degree" } סוג התואר
-    %select.request-data{ id: "#{ prefix }academia_degree" }
-      %option{ value: "1" } מדעי המחשב
-      %option{ value: "2" } מדעי החיים
-      %option{ value: "3" } מדעי קשקבל
+    / %label{ for: "#{ prefix }academia_degree" } סוג התואר
+    / %select.request-data{ id: "#{ prefix }academia_degree" }
+    /   %option{ value: "1" } מדעי המחשב
+    /   %option{ value: "2" } מדעי החיים
+    /   %option{ value: "3" } מדעי קשקבל
+    != App.Helpers.select id: "#{ prefix }academia_degree", options: App.Enums.AcademicDegrees, model: @
   %br
 
   .field
-    %label{ for: "#{ prefix }academia_years" } שנות לימוד
-    %select.request-data{ id: "#{ prefix }academia_years" }
-      %option{ value: "1" } 12
-      %option{ value: "2" } 13
-      %option{ value: "3" } 14
+    / %label{ for: "#{ prefix }academia_years" } שנות לימוד
+    / %select.request-data{ id: "#{ prefix }academia_years" }
+    /   %option{ value: "1" } 12
+    /   %option{ value: "2" } 13
+    /   %option{ value: "3" } 14
+
+    != App.Helpers.select id: "#{ prefix }academia_years", model: @
 
 %p
-  <em class="user-name">
-  = "#{ @current_user },"
-  </em> סימנת שסיימת תואר אקדמי, מס הכנסה מכיר רק בתארים מסויימים ממוסדות מסויימים
+  %em.user-name= "#{ @current_user },"
+  סימנת שסיימת תואר אקדמי, מס הכנסה מכיר רק בתארים מסויימים ממוסדות מסויימים
 
 = render partial: "academia", locals: { spouse: no }
 

@@ -7,27 +7,31 @@
     %li
       != @checkbox "#{ prefix }retired", "פנסיונר"
 
-    %li
+    %li.pts-immigrant
       != @checkbox "#{ prefix }immigrant", "עולה חדש"
       
       %ul.dependant-fields
         %li
-          %label.inner-label{ id: "#{ prefix }immigration_date" } תאריך עליה
-          .date-field
-            %input.request-data{ id: "#{ prefix }immigration_date", type: "date" }
+          / %label.inner-label{ id: "#{ prefix }immigration_date" } תאריך עליה
+          / .date-field
+          /   %input.request-data{ id: "#{ prefix }immigration_date", type: "date" }
+          != App.Helpers.date id: "#{ prefix }immigration_date", label: "תאריך עליה", model: @
 
-    %li
+    %li.pts-idf-service
       != @checkbox "#{ prefix }idf_service", "שחרור משירות חובה"
       
       %ul.dependant-fields
         %li
-          %label.inner-label{ id: "#{ prefix }idf_discharge_date" } תאריך שחרור
-          .date-field
-            %input.request-data{ id: "#{ prefix }idf_discharge_date", type: "date" }
+          / %label.inner-label{ id: "#{ prefix }idf_discharge_date" } תאריך שחרור
+          / .date-field
+          /   %input.request-data{ id: "#{ prefix }idf_discharge_date", type: "date" }
+
+          != App.Helpers.date id: "#{ prefix }idf_discharge_date", label: "תאריך שחרור", model: @
       
         %li
-          %label.inner-label{ id: "#{ prefix }idf_service_duration" } מספר חודשי שירות
-          %input.request-data{ id: "#{ prefix }idf_service_duration", type: "number" }
+          / %label.inner-label{ id: "#{ prefix }idf_service_duration" } מספר חודשי שירות
+          / %input.request-data{ id: "#{ prefix }idf_service_duration", type: "number" }
+          != App.Helpers.input id: "#{ prefix }idf_service_duration", label: "מספר חודשי שירות", type: "number", model: @
 
     %li
       != @checkbox "#{ prefix }academic", "בעל תואר אקדמי או לימודי תעודה"
@@ -36,9 +40,8 @@
       != @checkbox "#{ prefix }special_area_resident", "תושב אזור מיוחד (לרבות אילת)"
 
 %p
-  <em class="user-name">
-  = "#{ @current_user },"
-  </em> האם אחד או יותר מהסטטוסים הללו תקף לגביך?
+  %em.user-name= "#{ @current_user },"
+  האם אחד או יותר מהסטטוסים הללו תקף לגביך?
 
 = @renderPartial spouse: no
 

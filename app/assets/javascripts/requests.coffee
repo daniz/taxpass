@@ -10,7 +10,7 @@ class TaxPassView extends Backbone.View
     'click #about'            : 'onAboutClick'
     'click #help'             : 'onHelpClick'
     'click #support'          : 'onSupportClick'
-    'click #dialog-ok-button' : 'onDialogOkClick'
+    # 'click #dialog-ok-button' : 'onDialogOkClick'
     'change input'            : 'updateNavButtons'
 
   
@@ -75,19 +75,24 @@ class TaxPassView extends Backbone.View
   onSupportClick: ->
     @showDialog 'תמיכה אנושית'
     false
-  
-  
-  showDialog: (text) ->
-    $('#dialog').css top: 200
-    $('#dialog-head').text text
-    $('#dialog-body').text text
-    $('#dialog-ok-button').text 'סבבה'
-    $('#dialog-dim').fadeIn 200
 
-  onDialogOkClick: ->
-    $('#dialog-dim').fadeOut 200
+  showDialog: (text) ->
+    # $('#dialog').css top: 200
+    # $('#dialog-head').text text
+    # $('#dialog-body').text text
+    # $('#dialog-ok-button').text 'סבבה'
+    # $('#dialog-dim').fadeIn 200
+    App.Dialog.show
+      head      : text
+      body      : text
+      okButton  : 'סבבה'
+
+
+  # onDialogOkClick: ->
+  #   $('#dialog-dim').fadeOut 200
     
 
 $ -> 
+  App.Dialog = new App.Views.Dialog
   window.view = new TaxPassView
   view.render()

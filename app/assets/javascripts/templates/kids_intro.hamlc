@@ -1,15 +1,14 @@
 %p.kds-question
-  <em class="user-name">
-  = "#{ @current_user },"
-  </em> האם יש לך ילדים?
+  %em.user-name= "#{ @current_user },"
+  האם יש לך ילדים?
 
-!= App.Helpers.toggleButton id: "kds-has-kids"
+!= App.Helpers.toggleButton id: "kds-has-kids", checked: @kids.any()
 
 %p.section-description (יש לסמן כן גם אם ילדים שלך אך לא בחזקתך, או ילדים שאינם שלך אך נמצאים בחזקתך)
 
 #kds-kids
   %ul#kds-kids-list
-  - @kids.each (kid) ->
-    != JST['kid'] kid.toJSON()
+    - @kids.each (kid) ->
+      != JST['kid'] kid.toJSON()
 
   %a#kds-add-kid{ href: "#" } הוסף ילד
