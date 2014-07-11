@@ -10,21 +10,12 @@ class TaxPassView extends Backbone.View
     'click #about'            : 'onAboutClick'
     'click #help'             : 'onHelpClick'
     'click #support'          : 'onSupportClick'
-    # 'click #dialog-ok-button' : 'onDialogOkClick'
     'change input'            : 'updateNavButtons'
 
   
   spouseIncluded: no
 
   initialize: ->
-    @kids = new App.Collections.Kids
-    @form106s = new App.Collections.Form106s
-    @spouseForm106s = new App.Collections.Form106s
-    @model = new App.Models.Request 
-      kids            : @kids
-      form106s        : @form106s
-      spouseForm106s  : @spouseForm106s
-
     @sections = new App.Views.Sections el: '#active-section', model: @model
 
     _.delay @showSupportBalloon, 500
@@ -77,22 +68,22 @@ class TaxPassView extends Backbone.View
     false
 
   showDialog: (text) ->
-    # $('#dialog').css top: 200
-    # $('#dialog-head').text text
-    # $('#dialog-body').text text
-    # $('#dialog-ok-button').text 'סבבה'
-    # $('#dialog-dim').fadeIn 200
     App.Dialog.show
       head      : text
       body      : text
       okButton  : 'סבבה'
 
 
-  # onDialogOkClick: ->
-  #   $('#dialog-dim').fadeOut 200
-    
-
 $ -> 
   App.Dialog = new App.Views.Dialog
-  window.view = new TaxPassView
+
+  model = new Backbone.Model
+    request : new App.Models.Request 
+      kids            : new App.Collections.Kids
+      form106s        : new App.Collections.Form106s
+      spouseForm106s  : new App.Collections.Form106s
+
+  window.view = new TaxPassView model: model
   view.render()
+
+

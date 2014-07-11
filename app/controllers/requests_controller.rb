@@ -26,7 +26,8 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-    @request = Request.new(request_params)
+    data = JSON.parse params[:request]
+    @request = Request.new(data)
 
     respond_to do |format|
       if @request.save
@@ -42,7 +43,6 @@ class RequestsController < ApplicationController
   # PATCH/PUT /requests/1
   # PATCH/PUT /requests/1.json
   def update
-    debugger
     respond_to do |format|
       if @request.update(request_params)
         format.html { redirect_to @request, notice: 'Request was successfully updated.' }
@@ -72,6 +72,17 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params[:request]
+      params[:request].permit :tax_year, :is_single, :is_married, :is_widowed, :is_divorced, :is_seperated, :is_coupled,
+        :is_same_sex_married, :spouse_name, :spouse_death_date, :birth_date, :gender, :occupation, :spouse_birth_date,
+        :spouse_gender, :spouse_occupation, :retired, :spouse_retired, :immigrant, :spouse_immigrant, :immigration_date,
+        :spouse_immigration_date, :idf_service, :spouse_idf_service, :idf_discharge_date, :spouse_idf_discharge_date,
+        :idf_service_duration, :spouse_idf_service_duration, :academic, :spouse_academic, :special_area_resident,
+        :spouse_special_area_resident, :academia_graduation_date, :spouse_academia_graduation_date, :academia_institution,
+        :spouse_academia_institution, :academia_degree, :spouse_academia_degree, :academia_years, :spouse_academia_years,
+        :lived_with_spouse_throughout, :special_area_residency_start_date, :special_area_residency_end_date,
+        :city, :blind, :disabled, :spouse_blind, :spouse_disabled, :israeli_resident, :spouse_israeli_resident,
+        :paying_alimony, :employed, :author, :stock, :lottery, :pension, :other,
+        :spouse_employed, :spouse_author, :spouse_stock, :spouse_lottery, :spouse_pension, :spouse_other
+
     end
 end

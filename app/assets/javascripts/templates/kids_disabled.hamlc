@@ -1,5 +1,5 @@
 %p.kdd-question
-  %em.user-name= "#{ @current_user },"
+  %em.user-name= "#{ gon['current_user'] },"
   האם מישהו מהילדים נטולח יכולת?
 
 != App.Helpers.toggleButton id: "kdd-any-disabled"

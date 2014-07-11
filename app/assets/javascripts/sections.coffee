@@ -17,10 +17,11 @@ class App.Views.Sections extends Backbone.View
     App.Views.IncomeIntroSection
     App.Views.Form106Section
     App.Views.IncomePensionSection
+    App.Views.EndingSection
   ]
 
   initialize: ->
-    @sections = @sections.map (S) => new S model: @model
+    @sections = @sections.map (S) => new S model: @model.get 'request'
     
   changeSection: (section) ->
     @currSection?.collectData()

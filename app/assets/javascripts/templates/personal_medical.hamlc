@@ -1,20 +1,14 @@
 - @renderPartial = (o) =>
   - prefix = if o.spouse then "spouse_" else ""
 
-  / %input.request-data{ id:  "#{ prefix }blind", type: "chec,kbox", value: "1" }
-  / %label{ for: "#{ prefix }blind" } עיוור בעל תעודת עיוור
-
   != App.Helpers.checkbox id: "#{ prefix }blind", label: "עיוור בעל תעודת עיוור", model: @
 
   %br
-
-  / %input.request-data{ id:  "#{ prefix }disabled", type: "checkbox", value: "1" }
-  / %label{ for: "#{ prefix }disabled" } נכה, מוכר ע״י המוסד לביטוח לאומי 90% לפחות
-
+  
   != App.Helpers.checkbox id: "#{ prefix }disabled", label: "נכה, מוכר ע״י המוסד לביטוח לאומי 90% לפחות", model: @  
 
 %p
-  %em.user-name= "#{ @current_user },"
+  %em.user-name= "#{ gon['current_user'] },"
   האם אחד או יותר מהסטטוסים הללו תקף לגביך?
 
 = @renderPartial spouse: no

@@ -1,0 +1,7 @@
+%p.section-title סיום
+
+%p.section-description לסיום התהליך לחץ על כפתור שלח....
+
+%input{ id: "data-input", type: "hidden", name: "request" }
+
+%input{ id: "submit-button", type: "submit", value: "שלח!" } 
