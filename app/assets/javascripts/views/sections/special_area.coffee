@@ -1,4 +1,4 @@
-# require ../section
+
 
 class App.Views.SpecialAreaSection extends App.Views.Section
 

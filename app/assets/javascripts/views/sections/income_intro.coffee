@@ -1,4 +1,4 @@
-# require ../section
+
 
 class App.Views.IncomeIntroSection extends App.Views.Section
 

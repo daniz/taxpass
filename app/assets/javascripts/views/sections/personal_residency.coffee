@@ -1,4 +1,4 @@
-# require ../section
+
 
 class App.Views.AcademiaSection extends App.Views.Section
 

@@ -7,6 +7,9 @@
 //= require enums
 //= require helpers
 //= require_tree ./models
+//= require_tree ./views/sections/base
+//= require_tree ./views/sections
 //= require_tree ./views
 //= require_tree ./templates
+//= require router
 //= require_tree .

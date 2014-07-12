@@ -1,4 +1,4 @@
-# require ../section
+
 
 class App.Views.PersonalOverviewSection extends App.Views.Section
 

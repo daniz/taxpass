@@ -11,6 +11,10 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
+    gon.request         = @request
+    gon.kids            = @request.kids
+    gon.form106s        = @request.form106s.where spouse: false
+    gon.spouseForm106s  = @request.form106s.where spouse: true
   end
 
   # GET /requests/new
@@ -27,11 +31,33 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create
     data = JSON.parse params[:request]
+
+    kids = data["kids"]
+    data.delete "kids"
+
+    form106s = data["form106s"]
+    data.delete "form106s"
+
+    spouseForm106s = data["spouseForm106s"]
+    data.delete "spouseForm106s"
+
     @request = Request.new(data)
+
+    kids.each do |k|
+      @request.kids.new k.except("index")
+    end
+
+    form106s.each do |f|
+      @request.form106s.new f.except("index").merge spouse: false
+    end
+
+    spouseForm106s.each do |f|
+      @request.form106s.new f.except("index").merge spouse: true
+    end
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
+        format.html { redirect_to @request, notice: 'בקשתך נשמרה בהצלחה.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }

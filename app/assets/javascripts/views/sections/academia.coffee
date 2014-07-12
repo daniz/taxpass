@@ -1,5 +1,3 @@
-# require ../section
-
 class App.Views.AcademiaSection extends App.Views.Section
 
   id: 'academia-section'

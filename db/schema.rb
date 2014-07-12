@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140711151115) do
+ActiveRecord::Schema.define(version: 20140712181854) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,12 +26,16 @@ ActiveRecord::Schema.define(version: 20140711151115) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "request_id"
+    t.boolean  "spouse"
   end
 
   create_table "kids", force: true do |t|
     t.string  "name"
     t.date    "date_of_birth"
     t.integer "request_id"
+    t.boolean "under_my_supervision"
+    t.boolean "single_parent"
+    t.boolean "supported"
   end
 
   create_table "requests", force: true do |t|

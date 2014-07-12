@@ -1,4 +1,4 @@
-# require ../section
+
 
 class App.Views.PersonalTaxStatusSection extends App.Views.Section
 

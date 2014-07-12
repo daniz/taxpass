@@ -1,4 +1,4 @@
-# require ../section
+
 
 class App.Views.TaxYearSection extends App.Views.Section
 

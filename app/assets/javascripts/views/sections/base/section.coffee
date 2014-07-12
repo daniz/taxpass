@@ -34,5 +34,3 @@ class App.Views.Section extends Backbone.View
       $input.val()
 
   isEnabled: -> yes
-  
-

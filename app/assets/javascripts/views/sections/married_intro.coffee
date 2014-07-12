@@ -1,4 +1,4 @@
-# require ../section
+
 
 class App.Views.MarriedIntroSection extends App.Views.Section
 

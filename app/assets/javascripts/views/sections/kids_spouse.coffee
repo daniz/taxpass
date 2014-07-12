@@ -1,4 +1,4 @@
-# require ../section
+
 
 class App.Views.KidsSpouseSection extends App.Views.Section
 
@@ -6,4 +6,4 @@ class App.Views.KidsSpouseSection extends App.Views.Section
   templateName: 'kids_spouse'
 
   isEnabled: ->
-    @model.get 'is_married'
+    @model.get 'is_married' and @model.hasKids()
