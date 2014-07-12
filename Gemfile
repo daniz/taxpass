@@ -40,6 +40,10 @@ gem 'rails_12factor', group: :production
 
 gem 'jquery-ui-rails'
 
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'aws-sdk'
+
+
 ruby "2.0.0"
 
 # Use ActiveModel has_secure_password

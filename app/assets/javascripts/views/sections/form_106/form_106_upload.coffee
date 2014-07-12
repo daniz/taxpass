@@ -44,8 +44,10 @@ class App.Views.Form106Upload extends Backbone.View
     return if @$(e.currentTarget).is '.disabled'
     @$('[type=file]').click()
 
-  onFileInputChange: ->
+  onFileInputChange: (e) ->
+    @model.set 'files', @$(e.currentTarget).prop 'files'
     @$('.f106-upload-button').addClass 'done'
-    @$('.f106-manual-button').addClass 'disabled'    
+    @$('.f106-manual-button').addClass 'disabled'
+
 
   

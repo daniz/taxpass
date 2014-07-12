@@ -13,8 +13,8 @@ class RequestsController < ApplicationController
   def show
     gon.request         = @request
     gon.kids            = @request.kids
-    gon.form106s        = @request.form106s.where spouse: false
-    gon.spouseForm106s  = @request.form106s.where spouse: true
+    gon.form106s        = @request.form106s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.spouseForm106s  = @request.form106s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
   end
 
   # GET /requests/new
@@ -30,6 +30,8 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
+    debugger
+
     data = JSON.parse params[:request]
 
     kids = data["kids"]
@@ -48,7 +50,8 @@ class RequestsController < ApplicationController
     end
 
     form106s.each do |f|
-      @request.form106s.new f.except("index").merge spouse: false
+      file = params["form106_#{ f['index'] }"]
+      @request.form106s.new f.except("index").merge spouse: false, file: file
     end
 
     spouseForm106s.each do |f|

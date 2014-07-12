@@ -11,22 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140712181854) do
+ActiveRecord::Schema.define(version: 20140712211047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "form_106s", force: true do |t|
-    t.integer  "field_158",  default: 0
-    t.integer  "field_244",  default: 0
-    t.integer  "field_248",  default: 0
-    t.integer  "field_042",  default: 0
-    t.integer  "field_045",  default: 0
-    t.integer  "field_011",  default: 0
+    t.integer  "field_158",         default: 0
+    t.integer  "field_244",         default: 0
+    t.integer  "field_248",         default: 0
+    t.integer  "field_042",         default: 0
+    t.integer  "field_045",         default: 0
+    t.integer  "field_011",         default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "request_id"
     t.boolean  "spouse"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "kids", force: true do |t|

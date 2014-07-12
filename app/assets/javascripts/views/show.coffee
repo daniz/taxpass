@@ -27,7 +27,10 @@ class App.Show extends Backbone.View
         @$el.append "<br />"
         _.each f, (val, attr) =>
           if val
-            @$el.append "#{attr}: #{val}", "<br />"
+            if attr is 'file'
+              @$el.append $('<img>', src: val)
+            else
+              @$el.append "#{attr}: #{val}", "<br />"
 
     if o.spouseForm106s.length
       @$el.append "<br />"
