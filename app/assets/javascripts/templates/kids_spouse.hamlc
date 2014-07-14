@@ -1,6 +1,5 @@
 %p.kids-spouse-question
-  האם כל הילדים משותפים לך ול<em class="spouse-name">
-  = @spouse_name
-  </em>?
-
-!= App.Helpers.toggleButton id: "kdsp-common-kids"
+  האם כל הילדים משותפים לך ול
+  != App.help 'spouse_name', @
+  
+!= App.help 'toggle_button', id: "kdsp-common-kids"

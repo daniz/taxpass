@@ -2,7 +2,7 @@
 
 %p 
   / %em.user-name= "#{ gon['current_user'] },"
-  != App.Helpers.userName()
+  != App.help 'user_name'
   סימנת שהתגוררת ביישוב מיוחד.
 
 - if @spouse_name
@@ -14,11 +14,11 @@
     / %input.request-data{ id: "lived_with_spouse_throughout", type: "checkbox", value: "1" }
     / %label{ for: "lived_with_spouse_throughout" } כן
 
-    != App.Helpers.toggleButton id: "lived_with_spouse_throughout", className: "request-data", model: @
+    != App.help 'toggle_button', id: "lived_with_spouse_throughout", className: "request-data", model: @
 
 / %label{ for: "city" } שם היישוב
 / %select.request-data{ id: "city" } 
-!= App.Helpers.select id: "city", label: "שם היישוב", options: App.Enums.SpecialCities, model: @
+!= App.help 'select', id: "city", label: "שם היישוב", options: App.Enums.SpecialCities, model: @
   
 
 %p#spa-lived-there גרתי שם:
@@ -35,5 +35,5 @@
     / עד -
     / .date-field
     /   %input.request-data{ id: "special_area_residency_end_date", type: "date", value: "#{ @thisYear }-12-31" }
-    != App.Helpers.date id: "special_area_residency_start_date", value: "#{ @thisYear }-01-01", label: "מ-", model: @
-    != App.Helpers.date id: "special_area_residency_end_date", value: "#{ @thisYear }-12-31", label: "עד -", model: @
+    != App.help 'date', id: "special_area_residency_start_date", value: "#{ @thisYear }-01-01", label: "מ-", model: @
+    != App.help 'date', id: "special_area_residency_end_date", value: "#{ @thisYear }-12-31", label: "עד -", model: @

@@ -1,6 +1,6 @@
 %p.section-description
   / %em.user-name= "#{ gon['current_user'] },"
-  != App.Helpers.userName()
+  != App.help 'user_name'
   האם ברצונך למלא את החזר המס גם בעבור החצי השני שלך?
   מומלץ למלא עבור הזוג, ואז בסוף התהליך נבדוק האם כדאי להגיש עבורך בלבד או בשם בשניכם.
   הערה: אם יש לך עסק והתיק שלך מסווג כעוסק מורשה או עוסק פטור, ושני בני הזוג עובדים בעסק, חובה
@@ -11,4 +11,4 @@
 
 #mit-spouse-name-dialog
   אוקיי, אז מה השם הפרטי של בן/בת הזוג?
-  != App.Helpers.input id: "spouse_name", model: @
+  != App.help 'input', id: "spouse_name", model: @

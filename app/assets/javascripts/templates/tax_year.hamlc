@@ -7,4 +7,4 @@
 /     %option{ selected: selected }= y
 - thisYear = (new Date).getFullYear()
 - years = [1..7].map (i) -> (thisYear - i)
-!= App.Helpers.select id: "tax_year", options: years, model: @
+!= App.help 'select', id: "tax_year", options: years, model: @

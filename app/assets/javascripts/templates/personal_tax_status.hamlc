@@ -1,4 +1,4 @@
-- @checkbox = (id, label) => App.Helpers.checkbox id: id, label: label, className: "request-data", model: @
+- @checkbox = (id, label) => App.help 'checkbox', id: id, label: label, className: "request-data", model: @
 
 - @renderPartial = (o) =>
   - prefix = if o.spouse then "spouse_" else ""
@@ -12,26 +12,17 @@
       
       %ul.dependant-fields
         %li
-          / %label.inner-label{ id: "#{ prefix }immigration_date" } תאריך עליה
-          / .date-field
-          /   %input.request-data{ id: "#{ prefix }immigration_date", type: "date" }
-          != App.Helpers.date id: "#{ prefix }immigration_date", label: "תאריך עליה", model: @
+          != App.help 'date', id: "#{ prefix }immigration_date", label: "תאריך עליה", model: @
 
     %li.pts-idf-service
       != @checkbox "#{ prefix }idf_service", "שחרור משירות חובה"
       
       %ul.dependant-fields
         %li
-          / %label.inner-label{ id: "#{ prefix }idf_discharge_date" } תאריך שחרור
-          / .date-field
-          /   %input.request-data{ id: "#{ prefix }idf_discharge_date", type: "date" }
-
-          != App.Helpers.date id: "#{ prefix }idf_discharge_date", label: "תאריך שחרור", model: @
+          != App.help 'date', id: "#{ prefix }idf_discharge_date", label: "תאריך שחרור", model: @
       
         %li
-          / %label.inner-label{ id: "#{ prefix }idf_service_duration" } מספר חודשי שירות
-          / %input.request-data{ id: "#{ prefix }idf_service_duration", type: "number" }
-          != App.Helpers.input id: "#{ prefix }idf_service_duration", label: "מספר חודשי שירות", type: "number", model: @
+          != App.help 'input', id: "#{ prefix }idf_service_duration", label: "מספר חודשי שירות", type: "number", model: @
 
     %li
       != @checkbox "#{ prefix }academic", "בעל תואר אקדמי או לימודי תעודה"
@@ -40,8 +31,7 @@
       != @checkbox "#{ prefix }special_area_resident", "תושב אזור מיוחד (לרבות אילת)"
 
 %p
-  / %em.user-name= "#{ gon['current_user'] },"
-  != App.Helpers.userName()
+  != App.help 'user_name'
   האם אחד או יותר מהסטטוסים הללו תקף לגביך?
 
 = @renderPartial spouse: no
@@ -49,9 +39,8 @@
 - if @spouse_name
   .spouse
     %p 
-      ולגבי <em class="spouse-name">
-      = @spouse_name
-      </em>?
-
+      ולגבי
+      != App.help 'spouse_name', @
+      
     = @renderPartial spouse: yes
 

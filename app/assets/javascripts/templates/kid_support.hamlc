@@ -2,12 +2,12 @@
   %h4.kdss-kid-name= @name ? "ילד #{ @index }"
 
   %p.kdss-question האם בחזקתך?
-  != App.Helpers.toggleButton name: "under_my_supervision", className: "kid-data", model: @
+  != App.help 'toggle_button', name: "under_my_supervision", className: "kid-data", model: @
 
   .kdss-single-parent
     %p.kdss-question האם אתה משמש כהורה יחיד לילד זה?
-    != App.Helpers.toggleButton name: "single_parent", className: "kid-data", model: @
+    != App.help 'toggle_button', name: "single_parent", className: "kid-data", model: @
     
   .kdss-supported
     %p.kdss-question האם אתה משתתף בכלכלתו?
-    != App.Helpers.toggleButton name: "supported", className: "kid-data", model: @
+    != App.help 'toggle_button', name: "supported", className: "kid-data", model: @
