@@ -7,5 +7,5 @@ class App.Index extends Backbone.View
     @$el.css({direction: 'ltr'})
 
     @collection.each (req) =>
-      @$el.append "#{ req.get('id') }"
-      @$el.append "<br />"
+      @$('tbody').append JST['index/request'].call @, req.toJSON()
+      

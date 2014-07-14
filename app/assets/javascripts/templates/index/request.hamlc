@@ -1,0 +1,5 @@
+%tr
+  %td= @id
+  %td
+    - url = "/requests/#{ @id }"
+    %a{ href: url, target: "_blank" }= url
