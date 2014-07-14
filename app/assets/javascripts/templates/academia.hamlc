@@ -26,7 +26,10 @@
 - if @spouse_name
   .spouse
     %p 
-      ולגבי <em class="spouse-name">
-      = @spouse_name
-      </em>?
+      ולגבי 
+      != App.Helpers
+      / <em class="spouse-name">
+      / = @spouse_name
+      / </em>?
+
     = render partial: "academia", locals: { spouse: yes }

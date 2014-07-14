@@ -47,3 +47,12 @@
 סמן את מקורות ההכנסה שלך:
 
 = @renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    ולגבי
+    <em class="spouse-name">
+      = @spouse_name ? @deceased_spouse_name
+      </em>?
+
+    = @renderPartial spouse: yes

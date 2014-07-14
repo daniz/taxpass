@@ -22,8 +22,10 @@
 - if @spouse_name
   .spouse
     %p 
-      ולגבי <em class="spouse-name">
-      = @spouse_name ? @deceased_spouse_name
-      </em>?
+      ולגבי 
+      / <em class="spouse-name">
+      / = @spouse_name ? @deceased_spouse_name
+      / </em>?
+      != App.Helpers.spouseName @
 
     = @renderPartial spouse: yes
