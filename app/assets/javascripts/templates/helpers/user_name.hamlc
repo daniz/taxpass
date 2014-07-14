@@ -1,3 +1,2 @@
-<em class="user-name">
-= "#{ gon['current_user'] },"
-</em>
+- comma = @comma ? yes
+%em.user-name= "#{ gon['current_user'] }#{ if comma then ',' else '' }"

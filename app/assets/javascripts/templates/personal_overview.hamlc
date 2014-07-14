@@ -13,7 +13,8 @@
 / --------------------- /
 
 %p
-  %em.user-name= "#{ gon['current_user'] },"
+  / %em.user-name= "#{ gon['current_user'] },"
+  != App.Helpers.userName()
   אנא מלא את הפרטים הבאים:
 
 = @renderPartial spouse: no

@@ -7,7 +7,8 @@
   != App.Helpers.toggleButton id: "#{ prefix }israeli_resident", className: "request-data"
 
 %p 
-  %em.user-name= "#{ gon['current_user'] },"
+  / %em.user-name= "#{ gon['current_user'] },"
+  != App.Helpers.userName()
   האם היית תושב ישראל בשנת המס
   <em class="tax-year">
   = @tax_year

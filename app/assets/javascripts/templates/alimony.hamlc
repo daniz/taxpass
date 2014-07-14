@@ -1,5 +1,6 @@
 %p.almn-question
-  %em.user-name= "#{ gon['current_user'] },"
+  / %em.user-name= "#{ gon['current_user'] },"
+  != App.Helpers.userName()
   האם היית נשוי בעבר?
 
 != App.Helpers.toggleButton id: "almn-married-before"

@@ -15,5 +15,8 @@ App.Helpers =
   input: ->
     @_helper('input').apply @, arguments
 
+  userName: ->
+    @_helper('user_name').apply @, arguments
+
   _helper: (name) ->
     JST["helpers/#{ name }"]

@@ -1,7 +1,8 @@
 - @thisYear = (new Date).getFullYear()
 
 %p 
-  %em.user-name= "#{ gon['current_user'] },"
+  / %em.user-name= "#{ gon['current_user'] },"
+  != App.Helpers.userName()
   סימנת שהתגוררת ביישוב מיוחד.
 
 - if @spouse_name

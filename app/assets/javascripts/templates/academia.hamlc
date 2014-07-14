@@ -17,7 +17,8 @@
     != App.Helpers.select id: "#{ prefix }academia_years", model: @
 
 %p
-  %em.user-name= "#{ gon['current_user'] },"
+  / %em.user-name= "#{ gon['current_user'] },"
+  != App.Helpers.userName()
   סימנת שסיימת תואר אקדמי, מס הכנסה מכיר רק בתארים מסויימים ממוסדות מסויימים
 
 = render partial: "academia", locals: { spouse: no }

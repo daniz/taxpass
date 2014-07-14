@@ -40,7 +40,8 @@
       != @checkbox "#{ prefix }special_area_resident", "תושב אזור מיוחד (לרבות אילת)"
 
 %p
-  %em.user-name= "#{ gon['current_user'] },"
+  / %em.user-name= "#{ gon['current_user'] },"
+  != App.Helpers.userName()
   האם אחד או יותר מהסטטוסים הללו תקף לגביך?
 
 = @renderPartial spouse: no

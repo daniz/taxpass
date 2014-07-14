@@ -1,5 +1,6 @@
 %p.kds-question
-  %em.user-name= "#{ gon['current_user'] },"
+  / %em.user-name= "#{ gon['current_user'] },"
+  != App.Helpers.userName()
   האם יש לך ילדים?
 
 != App.Helpers.toggleButton id: "kds-has-kids", checked: @kids.any()
