@@ -1,8 +1,13 @@
 class App.Router extends Backbone.Router
 
   routes:
-    'requests/new' : 'new'
-    'requests/:id' : 'show'
+    '/'               : 'home'
+    'requests'        : 'index'
+    'requests/new'    : 'new'
+    'requests/:id'    : 'show'
+
+  home: ->
+    console.log 'home' # doesnt work
 
   new: ->
     App.Dialog = new App.Views.Dialog
@@ -15,6 +20,11 @@ class App.Router extends Backbone.Router
 
     window.view = new App.Views.Create model: model
     view.render()
+
+  index: ->
+    reqs = new Backbone.Collection gon['requests']
+    new App.Index collection: reqs
+
 
   show: (id) ->
     model = new App.Models.Request gon['request']

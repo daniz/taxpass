@@ -4,8 +4,7 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
-    gon.current_user = ''
-    @requests = Request.all
+    gon.requests = Request.all
   end
 
   # GET /requests/1
