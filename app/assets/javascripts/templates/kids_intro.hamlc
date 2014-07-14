@@ -1,9 +1,8 @@
 %p.kds-question
-  / %em.user-name= "#{ gon['current_user'] },"
-  != App.help 'user_name'
+  != App.help "user_name"
   האם יש לך ילדים?
 
-!= App.help 'toggle_button', id: "kds-has-kids", checked: @kids.any()
+!= App.help "toggle_button", id: "kds-has-kids", checked: @kids.any()
 
 %p.section-description (יש לסמן כן גם אם ילדים שלך אך לא בחזקתך, או ילדים שאינם שלך אך נמצאים בחזקתך)
 

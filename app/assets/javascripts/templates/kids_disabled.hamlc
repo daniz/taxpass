@@ -1,9 +1,8 @@
 %p.kdd-question
-  / %em.user-name= "#{ gon['current_user'] },"
-  != App.help 'user_name'
+  != App.help "user_name"
   האם מישהו מהילדים נטולח יכולת?
 
-!= App.help 'toggle_button', id: "kdd-any-disabled"
+!= App.help "toggle_button", id: "kdd-any-disabled"
 
 #kdd-kids
   %ul#kdd-kids-list

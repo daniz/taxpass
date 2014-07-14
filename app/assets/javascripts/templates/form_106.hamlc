@@ -8,12 +8,9 @@
   על פי חוק כל מעביד מחוייב לתת לך טופס שנקרא 106 או טופס חלופי. הטופס הזה מרכז את סך המשכורות והניכויים בשנה. רוב המעבידים שולחים אותו בחודש מרץ של השנה העוקבת. אם אינך בידך את הטופס, יש לפנות למחלקת שכר של המעביד ולבקש העתק. כעת את סרוק את הטפסים בעזרת המצלמה של הסמארטפון שלך.
 
 %p
-  != App.help 'user_name'
+  != App.help "user_name"
   הזן את פרטי טופס 106 עבור כל אחד ממקומות העבודה שהיו לך בשנת המס
-  / <em class="tax-year">
-  / = @tax_year
-  / </em>
-  != App.help 'tax_year', @
+  != App.help "tax_year", @
   :
 
   = @renderPartial spouse: no
@@ -21,6 +18,6 @@
 - if @spouse_name
   .spouse
     ול
-    != App.help 'spouse_name', @
+    != App.help "spouse_name", @
 
     = @renderPartial spouse: yes

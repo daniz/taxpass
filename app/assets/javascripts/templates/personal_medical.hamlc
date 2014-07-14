@@ -1,14 +1,14 @@
 - @renderPartial = (o) =>
   - prefix = if o.spouse then "spouse_" else ""
 
-  != App.help 'checkbox', id: "#{ prefix }blind", label: "עיוור בעל תעודת עיוור", model: @
+  != App.help "checkbox", id: "#{ prefix }blind", label: "עיוור בעל תעודת עיוור", model: @
 
   %br
   
-  != App.help 'checkbox', id: "#{ prefix }disabled", label: "נכה, מוכר ע״י המוסד לביטוח לאומי 90% לפחות", model: @  
+  != App.help "checkbox", id: "#{ prefix }disabled", label: "נכה, מוכר ע״י המוסד לביטוח לאומי 90% לפחות", model: @  
 
 %p
-  != App.help 'user_name'
+  != App.help "user_name"
   האם אחד או יותר מהסטטוסים הללו תקף לגביך?
 
 = @renderPartial spouse: no
@@ -17,6 +17,6 @@
   .spouse
     %p 
       ולגבי
-      != App.help 'spouse_name', @ 
+      != App.help "spouse_name", @ 
       
     = @renderPartial spouse: yes

@@ -12,17 +12,17 @@
       
       %ul.dependant-fields
         %li
-          != App.help 'date', id: "#{ prefix }immigration_date", label: "תאריך עליה", model: @
+          != App.help "date", id: "#{ prefix }immigration_date", label: "תאריך עליה", model: @
 
     %li.pts-idf-service
       != @checkbox "#{ prefix }idf_service", "שחרור משירות חובה"
       
       %ul.dependant-fields
         %li
-          != App.help 'date', id: "#{ prefix }idf_discharge_date", label: "תאריך שחרור", model: @
+          != App.help "date", id: "#{ prefix }idf_discharge_date", label: "תאריך שחרור", model: @
       
         %li
-          != App.help 'input', id: "#{ prefix }idf_service_duration", label: "מספר חודשי שירות", type: "number", model: @
+          != App.help "input", id: "#{ prefix }idf_service_duration", label: "מספר חודשי שירות", type: "number", model: @
 
     %li
       != @checkbox "#{ prefix }academic", "בעל תואר אקדמי או לימודי תעודה"
@@ -31,7 +31,7 @@
       != @checkbox "#{ prefix }special_area_resident", "תושב אזור מיוחד (לרבות אילת)"
 
 %p
-  != App.help 'user_name'
+  != App.help "user_name"
   האם אחד או יותר מהסטטוסים הללו תקף לגביך?
 
 = @renderPartial spouse: no
@@ -40,7 +40,7 @@
   .spouse
     %p 
       ולגבי
-      != App.help 'spouse_name', @
+      != App.help "spouse_name", @
       
     = @renderPartial spouse: yes
 

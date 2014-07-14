@@ -1,12 +1,11 @@
 %p.almn-question
-  / %em.user-name= "#{ gon['current_user'] },"
-  != App.help 'user_name'
+  != App.help "user_name"
   האם היית נשוי בעבר?
 
-!= App.help 'toggleButton', id: "almn-married-before"
+!= App.help "toggle_button", id: "almn-married-before"
 
 #almn-paying-wrap
   %p.almn-question
     האם אתה משלם דמי מזונות לבן/בת הזוג (לא כולל ילדים)?
     
-  != App.help 'toggleButton', id: "paying_alimony", className: "request-data"
+  != App.help "toggle_button", id: "paying_alimony", className: "request-data"

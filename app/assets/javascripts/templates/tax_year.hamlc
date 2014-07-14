@@ -1,10 +1,5 @@
 %h3.section-title על איזו שנת מס אנחנו מדברים?
-/ %select.request-data{ id: "tax_year" }
-/   - thisYear = (new Date).getFullYear()
-/   - years = [1..7].map (i) -> (thisYear - i)
-/   - for y in years
-/     - selected = y is @tax_year
-/     %option{ selected: selected }= y
+
 - thisYear = (new Date).getFullYear()
 - years = [1..7].map (i) -> (thisYear - i)
-!= App.help 'select', id: "tax_year", options: years, model: @
+!= App.help "select", id: "tax_year", options: years, model: @

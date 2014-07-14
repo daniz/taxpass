@@ -1,5 +1,5 @@
 %li.kds-kid-info{ data: { index: @index } } 
   
-  != App.help 'input', name: "name", label: "שם הילד", className: "kid-data", model: @
+  != App.help "input", name: "name", label: "שם הילד", className: "kid-data", model: @
 
-  != App.help 'date', name: "date_of_birth", label: "תאריך לידה", className: "kid-data", model: @
+  != App.help "date", name: "date_of_birth", label: "תאריך לידה", className: "kid-data", model: @

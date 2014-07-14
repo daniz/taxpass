@@ -2,7 +2,7 @@
   %h4.kdd-kid-name= @name ? "ילד #{ @index }"
 
   %p.kdd-question האם נטול יכולת?
-  != App.help 'toggle_button', name: "disabled", model: @
+  != App.help "toggle_button", name: "disabled", model: @
 
   %p.kdd-question האם נמצא במוסד טיפולי מיוחד?
-  != App.help 'toggle_button', name: "institution", model: @
+  != App.help "toggle_button", name: "institution", model: @

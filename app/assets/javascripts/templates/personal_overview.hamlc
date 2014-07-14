@@ -1,19 +1,19 @@
 - @renderPartial = (o) => 
   - prefix = if o.spouse then "spouse_" else ""
   .field
-    != App.help 'date', id: "#{ prefix }birth_date", label: "תאריך לידה", model: @
+    != App.help "date", id: "#{ prefix }birth_date", label: "תאריך לידה", model: @
   %br
   .field
-    != App.help 'select', id: "#{ prefix }gender", label: "מין", options: [{value: 1, text: "זכר"}, {value: 2, text: "נקבה"}], model: @
+    != App.help "select", id: "#{ prefix }gender", label: "מין", options: [{value: 1, text: "זכר"}, {value: 2, text: "נקבה"}], model: @
   %br
   .field
-    != App.help 'input', id: "#{ prefix }occupation", label: "עיסוק", model: @
+    != App.help "input", id: "#{ prefix }occupation", label: "עיסוק", model: @
   %br
 
 / --------------------- /
 
 %p
-  != App.help 'user_name'
+  != App.help "user_name"
   אנא מלא את הפרטים הבאים:
 
 = @renderPartial spouse: no
@@ -22,6 +22,6 @@
   .spouse
     %p 
       ולגבי 
-      != App.help 'spouse_name', @
+      != App.help "spouse_name", @
 
     = @renderPartial spouse: yes

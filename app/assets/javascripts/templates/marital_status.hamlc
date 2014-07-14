@@ -1,14 +1,11 @@
 - @mssField = (id, label, checked) =>
   %div.mss-field
-    != App.help 'checkbox', id: id, label: label, model: @
+    != App.help "checkbox", id: id, label: label, model: @
 
 %h3.section-title מצב משפחתי
 %p.section-description
   הדבר הכי חשוב בחיים הוא גם הכי חשוב לצרכי מס הכנסה, לכן חשוב לנו מה המצב המשפחתי שלך בשנת המס
-  / <em class="tax-year">
-  / = @tax_year
-  / </em>
-  != App.help 'tax_year', @
+  != App.help "tax_year", @
   ? אם בשנת המס שינית סטטוס אישי (חתונה פרידה או לצערינו התאלמנת) - ניתן לבחור
   ביותר מאפשרות אחת.
 
