@@ -10,9 +10,11 @@
 %p
   != App.help 'user_name'
   הזן את פרטי טופס 106 עבור כל אחד ממקומות העבודה שהיו לך בשנת המס
-  <em class="tax-year">
-  = @tax_year
-  </em>:
+  / <em class="tax-year">
+  / = @tax_year
+  / </em>
+  != App.help 'tax_year', @
+  :
 
   = @renderPartial spouse: no
 

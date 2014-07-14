@@ -44,7 +44,10 @@
         %i.fa.fa-fw.fa-check
         %i.fa.fa-fw.fa-gift
 
-סמן את מקורות ההכנסה שלך:
+!= App.help 'user_name'
+סמן מה רלוונטי אליך בשנת
+!= App.help 'tax_year', @
+?
 
 = @renderPartial spouse: no
 

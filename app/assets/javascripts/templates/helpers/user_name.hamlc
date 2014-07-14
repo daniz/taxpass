@@ -1,2 +1,2 @@
 - comma = @comma ? yes
-%em.spouse-name= "#{ gon['current_user'] }#{ if comma then ',' else '' }"
+%em.user-name= "#{ gon['current_user'] }#{ if comma then ',' else '' }"

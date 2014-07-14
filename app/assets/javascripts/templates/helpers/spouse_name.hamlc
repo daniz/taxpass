@@ -1,3 +1,2 @@
 - question = @question ? yes
-- console.log @
 %em.spouse-name= "#{ @spouse_name ? @deceased_spouse_name }#{ if question then '?' else '' }"
