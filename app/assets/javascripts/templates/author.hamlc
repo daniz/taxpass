@@ -2,16 +2,16 @@
   - prefix = if o.spouse then "spouse_" else ""
 
   != App.help "checkbox", id: "#{ prefix }ath-profession", name: "", className: "", label: "מרצה או סופר/ת או דירקטורי/ת או אמן/ית או ספורטאי/ת"
-  %div.ath-857-form{ id: "#{ prefix }ath-857-form" }
+  .ath-857-form{ id: "#{ prefix }ath-857-form" }
 
   != App.help "checkbox", id: "#{ prefix }ath-other", name: "", className: "", label: "מקצוע אחר"
-
+  .ath-other-text{ id: "#{ prefix }ath-other-text" }
+    מה המקצוע שלך?
+    != App.help "input", id: "#{ prefix }profession", @
 
 %p.section-description
   != App.help 'user_name'
-  לצרכי מס ישנם מספר סיווגים של עצמאים, ולכן
-  הרשימה הבאה עלולה להראות לך מעט מוזרה אבל היא מאוד
-  חשובה. האם המקצוע שלך הוא:
+  לצרכי מס ישנם מספר סיווגים של עצמאים, ולכן הרשימה הבאה עלולה להראות לך מעט מוזרה אבל היא מאוד חשובה. האם המקצוע שלך הוא:
 
 = renderPartial spouse: no
 

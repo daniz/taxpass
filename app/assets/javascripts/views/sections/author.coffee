@@ -6,6 +6,9 @@ class App.Views.AuthorSection extends App.Views.Section
   events:
     'change #ath-profession'        : 'onProfessionChange'
     'change #spouse_ath-profession' : 'onSpouseProfessionChange'
+    'change #ath-other'             : 'onOtherChange'
+    'change #spouse_ath-other'      : 'onSpouseOtherChange'
+
 
   isEnabled: ->
     @model.get 'author'
@@ -46,7 +49,13 @@ class App.Views.AuthorSection extends App.Views.Section
     @model.set 'spouseForm857', 
       if checked then new Backbone.Model else false
 
+  onOtherChange: (e) ->
+    checked = @$(e.currentTarget).prop 'checked'
+    @$('#ath-other-text').toggle checked
 
+  onSpouseOtherChange: (e) ->
+    checked = @$(e.currentTarget).prop 'checked'
+    @$('#spouse_ath-other-text').toggle checked
 
 
 
