@@ -1,5 +1,3 @@
-
-
 class App.Views.AlimonySection extends App.Views.Section
 
   id: 'alimony-section'

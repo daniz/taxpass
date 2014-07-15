@@ -1,4 +1,4 @@
-- @renderPartial = (o) =>
+- renderPartial = (o) =>
   - prefix = if o.spouse then "spouse_" else ""
 
   != App.help "toggle_button", id: "#{ prefix }israeli_resident", className: "request-data"
@@ -9,7 +9,7 @@
   != App.help "tax_year", @
   ?
 
-= @renderPartial spouse: no
+= renderPartial spouse: no
 
 - if @spouse_name
   .spouse
@@ -17,4 +17,4 @@
       ולגבי 
       != App.help "spouse_name", @
       
-    = @renderPartial spouse: yes
+    = renderPartial spouse: yes

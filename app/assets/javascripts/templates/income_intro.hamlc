@@ -1,4 +1,4 @@
-- @renderPartial = (o) => 
+- renderPartial = (o) => 
   - prefix = if o.spouse then "spouse_" else ""
 
   %ul#ii-options
@@ -49,11 +49,11 @@
 != App.help "tax_year", @
 ?
 
-= @renderPartial spouse: no
+= renderPartial spouse: no
 
 - if @spouse_name
   .spouse
     ולגבי
     != App.help "spouse_name", @
     
-    = @renderPartial spouse: yes
+    = renderPartial spouse: yes

@@ -1,6 +1,6 @@
-#f106-manual
+.form-manual
 
-  .f106-manual-field
+  .form-manual-field
     %label
       משכורת 
       %small (שדה 158)

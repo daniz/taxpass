@@ -1,0 +1,4 @@
+%p
+  צלם את טופס 857 או הקלד:
+
+!= JST['form_upload'].call this, @

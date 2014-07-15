@@ -1,4 +1,4 @@
-- @renderPartial = (o) =>
+- renderPartial = (o) =>
   - prefix = if o.spouse then "spouse_" else ""
 
   .field

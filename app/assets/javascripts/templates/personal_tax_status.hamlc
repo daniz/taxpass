@@ -1,6 +1,6 @@
 - @checkbox = (id, label) => App.help 'checkbox', id: id, label: label, className: "request-data", model: @
 
-- @renderPartial = (o) =>
+- renderPartial = (o) =>
   - prefix = if o.spouse then "spouse_" else ""
 
   %ul#pts-main-list
@@ -34,7 +34,7 @@
   != App.help "user_name"
   האם אחד או יותר מהסטטוסים הללו תקף לגביך?
 
-= @renderPartial spouse: no
+= renderPartial spouse: no
 
 - if @spouse_name
   .spouse
@@ -42,5 +42,5 @@
       ולגבי
       != App.help "spouse_name", @
       
-    = @renderPartial spouse: yes
+    = renderPartial spouse: yes
 

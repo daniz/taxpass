@@ -588,13 +588,13 @@ section {
   padding: 1px 0;
 }
 
-#f106-manual {
+.form-manual {
   max-height: 300px;
   overflow: auto;
   overflow-x: hidden;
 }
 
-.f106-manual-field {
+.form-manual-field {
   margin-bottom: 20px;
 
   label, input {
@@ -607,8 +607,8 @@ section {
   }
 }
 
-.f106-upload-button,
-.f106-manual-button {
+.form-upload-button,
+.form-manual-button {
   padding: 12px 0;
   text-align: center;
   font-size: 16px;
@@ -637,11 +637,11 @@ section {
   }
 }
 
-.f106-upload-button {
+.form-upload-button {
   width: 180px;
 }
 
-.f106-manual-button {
+.form-manual-button {
   width: 150px;
 }
 
@@ -672,6 +672,25 @@ section {
     &:hover {
       border-color: #aaa;
     }
+  }
+}
+
+#author-section {
+  [type=file] {
+    display: none;
+  }
+}
+
+.ath-857-form {
+  padding-right: 42px;
+  padding-bottom: 30px;
+
+  p {
+    margin-bottom: 6px;
+  }
+
+  &:empty {
+    padding: 0;
   }
 }
 
