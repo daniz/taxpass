@@ -14,6 +14,8 @@ class RequestsController < ApplicationController
     gon.kids            = @request.kids
     gon.form106s        = @request.form106s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     gon.spouseForm106s  = @request.form106s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.form857s        = @request.form857s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.spouseForm857s  = @request.form857s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
   end
 
   # GET /requests/new
@@ -29,7 +31,6 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-    debugger
 
     data = JSON.parse params[:request]
 
@@ -41,6 +42,12 @@ class RequestsController < ApplicationController
 
     spouseForm106s = data["spouseForm106s"]
     data.delete "spouseForm106s"
+
+    form857 = data["form857"]
+    data.delete "form857"
+
+    spouseForm857 = data["spouseForm857"]
+    data.delete "spouseForm857"
 
     @request = Request.new(data)
 
@@ -54,7 +61,18 @@ class RequestsController < ApplicationController
     end
 
     spouseForm106s.each do |f|
-      @request.form106s.new f.except("index").merge spouse: true
+      file = params["spouse_form106_#{ f['index'] }"]
+      @request.form106s.new f.except("index").merge spouse: true, file: file
+    end
+
+    if form857
+      file = params['form857']
+      @request.form857.new form857.merge spouse: false, file: file
+    end
+
+    if spouseForm857
+      file = params['spouse_form857']
+      @request.form857s.new form857.merge spouse: true, file: file
     end
 
     respond_to do |format|

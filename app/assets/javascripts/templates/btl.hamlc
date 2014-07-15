@@ -1,0 +1,32 @@
+- renderPartial = (o) =>
+  - prefix = if o.spouse then "spouse_" else ""
+
+  != App.help "checkbox", id: "#{ prefix }btl-birth", name: "", className: "", label: ""
+  .btl-birth-form{ id: "#{ prefix }btl-birth-form" }
+
+  != App.help "checkbox", id: "#{ prefix }btl-pregnancy", name: "", className: "", label: ""
+  .btl-pregnancy-form{ id: "#{ prefix }btl-pregnancy-form" }
+
+  != App.help "checkbox", id: "#{ prefix }btl-unemployment", name: "", className: "", label: ""
+  .btl-unemployment-form{ id: "#{ prefix }btl-unemployment-form" }
+
+  != App.help "checkbox", id: "#{ prefix }btl-job", name: "", className: "", label: ""
+  .btl-job-form{ id: "#{ prefix }btl-job-form" }
+
+  != App.help "checkbox", id: "#{ prefix }btl-miluim", name: "", className: "", label: ""
+  .btl-miluim-form{ id: "#{ prefix }btl-miluim-form" }
+
+
+%p.section-description
+  != App.help 'user_name'
+  מסך זה נועד רק עבור מי שקיבל כסף מביטוח לאומי עבור אחד מהמקרים הבאים בלבד: דמי לידה, שמירת הריון, דמי אבטלה, דמי פגיעה בעבודה. לגבי דמי מילואים- לא מה שקיבלת דרך מקום העבודה אלא רק אם ביטוח לאומי העביר !ישירות לחשבון הבנק שלך ואגב, במיסים כמו בצבא אם יש ספק, אין ספק... ולכן ניתן להתייעץ עם מחלקת .התמיכה בצ'אט למעלה
+
+= renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    %p 
+      ולגבי 
+      != App.help "spouse_name", @
+      
+    = renderPartial spouse: yes

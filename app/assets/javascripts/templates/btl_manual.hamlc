@@ -1,0 +1,11 @@
+.form-manual
+
+  .form-manual-field
+    %label
+      כמה קיבלתי 
+    %input.ath-manual-income.form-data{ name: "income", type: "number" }
+
+  .form-manual-field
+    %label
+      כמה מס שולם
+    %input.ath-manual-tax.form-data{ name: "tax", type: "number" }
