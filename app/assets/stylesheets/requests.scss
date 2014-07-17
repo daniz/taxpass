@@ -700,6 +700,20 @@ section {
   padding-bottom: 30px;
 }
 
+#btl-section {
+  [type=file] {
+    display: none;
+  }
+
+  .btl-form {
+    padding: 14px 40px 20px;
+
+    &:empty {
+      padding: 0;
+    }
+  }
+}
+
 #back-button,
 #continue-button {
   position: absolute;

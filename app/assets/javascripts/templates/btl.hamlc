@@ -1,21 +1,17 @@
+- btlField = (name, label, prefix) =>
+  .btl-field
+    - checkId = "#{ prefix }btl-#{ name }"
+    != App.help "checkbox", id: checkId, className: "#{ prefix }btl-check", label: label, type: name, name: ""
+    %div{ "class": "#{ prefix }btl-form", data: { type: name } }
+
 - renderPartial = (o) =>
   - prefix = if o.spouse then "spouse_" else ""
 
-  != App.help "checkbox", id: "#{ prefix }btl-birth", name: "", className: "", label: ""
-  .btl-birth-form{ id: "#{ prefix }btl-birth-form" }
-
-  != App.help "checkbox", id: "#{ prefix }btl-pregnancy", name: "", className: "", label: ""
-  .btl-pregnancy-form{ id: "#{ prefix }btl-pregnancy-form" }
-
-  != App.help "checkbox", id: "#{ prefix }btl-unemployment", name: "", className: "", label: ""
-  .btl-unemployment-form{ id: "#{ prefix }btl-unemployment-form" }
-
-  != App.help "checkbox", id: "#{ prefix }btl-job", name: "", className: "", label: ""
-  .btl-job-form{ id: "#{ prefix }btl-job-form" }
-
-  != App.help "checkbox", id: "#{ prefix }btl-miluim", name: "", className: "", label: ""
-  .btl-miluim-form{ id: "#{ prefix }btl-miluim-form" }
-
+  = btlField "birth", "דמי לידה", prefix
+  = btlField "pregnancy", "שמירת הריון", prefix
+  = btlField "unemployment", "דמי אבטלה", prefix
+  = btlField "job", "דמי פגיעה בעבודה", prefix
+  = btlField "miluim", "דמי מילואים", prefix
 
 %p.section-description
   != App.help 'user_name'
