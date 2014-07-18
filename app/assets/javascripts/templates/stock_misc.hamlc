@@ -1,11 +1,13 @@
 .section-description
-  האם היו לך הפסדים בשנים קודמות?
+  %p.stm-question
+    האם היו לך הפסדים בשנים קודמות?
   != App.help "toggle_button", id: "stm-losses"
 
 #stm-form
   
 .section-description
-  האם יש לך חשבון ניירות ערך אצל גוף לא ישראלי?
+  %p.stm-question
+    האם יש לך חשבון ניירות ערך אצל גוף לא ישראלי?
   != App.help "toggle_button", id: "stm-stock-account-abroad"
 
 #stm-abroad
