@@ -1,0 +1,115 @@
+%p.section-description
+  זהו, דף אחרון בחלק הזה.
+  
+%table
+  %thead
+    %tr
+      %th שיעור המס
+      %th 0%
+      %th 15%
+      %th 20%
+      %th 25%
+  %tbody
+    %tr
+      %td הכנסה מדיבידנד לפני קיזוז הפסדים
+      %td
+        != App.help "input", type: "number", id: "pre_deduction_dividend_0", model: @
+      %td
+        != App.help "input", type: "number", id: "pre_deduction_dividend_15", model: @
+      %td
+        != App.help "input", type: "number", id: "pre_deduction_dividend_20", model: @
+      %td
+        != App.help "input", type: "number", id: "pre_deduction_dividend_25", model: @
+
+    %tr
+      %td הכנסה מדיבידנד בחו״ל
+      %td
+        != App.help "input", type: "number", id: "dividend_income_abroad_0", model: @
+      %td
+        != App.help "input", type: "number", id: "dividend_income_abroad_15", model: @
+      %td
+        != App.help "input", type: "number", id: "dividend_income_abroad_20", model: @
+      %td
+        != App.help "input", type: "number", id: "dividend_income_abroad_25", model: @
+
+    %tr
+      %td רווחים פטורים
+      %td
+        != App.help "input", type: "number", id: "exempt_profit_0", model: @
+      %td
+        != App.help "input", type: "number", id: "exempt_profit_15", model: @
+      %td
+        != App.help "input", type: "number", id: "exempt_profit_20", model: @
+      %td
+        != App.help "input", type: "number", id: "exempt_profit_25", model: @
+
+    %tr
+      %td מס ששולם בחו״ל
+      %td
+        != App.help "input", type: "number", id: "tax_abroad_0", model: @
+      %td
+        != App.help "input", type: "number", id: "tax_abroad_15", model: @
+      %td
+        != App.help "input", type: "number", id: "tax_abroad_20", model: @
+      %td
+        != App.help "input", type: "number", id: "tax_abroad_25", model: @
+
+!= App.help "input", type: "number", id: "dividend_tax", label: "מס שנוכה במקור בארץ מדיבידנד", model: @
+
+%table
+  %thead
+    %tr
+      %th שיעור המס
+      %th 0%
+      %th 10%
+      %th 15%
+      %th 20%
+      %th 25%
+      %th 35%
+  %tbody
+    %tr
+      %td נכנסה מריבית/דמי נכיון לפני קיזוז הפסדים
+      %td
+        != App.help "input", type: "number", id: "pre_deduction_interest_profit_0", model: @
+      %td
+        != App.help "input", type: "number", id: "pre_deduction_interest_profit_10", model: @
+      %td
+        != App.help "input", type: "number", id: "pre_deduction_interest_profit_15", model: @
+      %td
+        != App.help "input", type: "number", id: "pre_deduction_interest_profit_20", model: @
+      %td
+        != App.help "input", type: "number", id: "pre_deduction_interest_profit_25", model: @
+      %td
+        != App.help "input", type: "number", id: "pre_deduction_interest_profit_35", model: @
+
+    %tr
+      %td נכנסה מריבית/דמי נכיון בחו״ל
+      %td
+        != App.help "input", type: "number", id: "interest_profit_abroad_0", model: @
+      %td
+        != App.help "input", type: "number", id: "interest_profit_abroad_10", model: @
+      %td
+        != App.help "input", type: "number", id: "interest_profit_abroad_15", model: @
+      %td
+        != App.help "input", type: "number", id: "interest_profit_abroad_20", model: @
+      %td
+        != App.help "input", type: "number", id: "interest_profit_abroad_25", model: @
+      %td
+        != App.help "input", type: "number", id: "interest_profit_abroad_35", model: @
+
+    %tr
+      %td רווחים פטורים
+      %td
+        != App.help "input", type: "number", id: "interest_exempt_profit_0", model: @
+      %td
+        != App.help "input", type: "number", id: "interest_exempt_profit_10", model: @
+      %td
+        != App.help "input", type: "number", id: "interest_exempt_profit_15", model: @
+      %td
+        != App.help "input", type: "number", id: "interest_exempt_profit_20", model: @
+      %td
+        != App.help "input", type: "number", id: "interest_exempt_profit_25", model: @
+      %td
+        != App.help "input", type: "number", id: "interest_exempt_profit_35", model: @
+
+!= App.help "input", type: "number", id: "interest_tax", label: "מס שנוכה במקור מריבית/דמי נכיון", model: @

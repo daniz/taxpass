@@ -12,42 +12,42 @@
       %td 10%
       %td 076
       %td
-        != App.help "input", id: "field_076", model: @
+        != App.help "input", id: "field_076", type: "number", model: @
 
     %tr
       %td 15%
       %td 078
       %td
-        != App.help "input", id: "field_078", model: @
+        != App.help "input", id: "field_078", type: "number", model: @
 
     %tr
       %td 20%
       %td 126
       %td
-        != App.help "input", id: "field_126", model: @
+        != App.help "input", id: "field_126", type: "number", model: @
 
     %tr
       %td 25%
       %td 055
       %td
-        != App.help "input", id: "field_055", model: @
+        != App.help "input", id: "field_055", type: "number", model: @
 
     %tr
       %td 35%
       %td 167/053
       %td
-        != App.help "input", id: "field_167_053", model: @
+        != App.help "input", id: "field_167_053", type: "number", model: @
 
     %tr
       %td ריבית והפרשי הצמדה פטורים
       %td 209
       %td
-        != App.help "input", id: "field_209", model: @
+        != App.help "input", id: "field_209", type: "number", model: @
 
     %tr
       %td מס שנוכה במקור
       %td 043
       %td
-        != App.help "input", id: "field_043", model: @
+        != App.help "input", id: "field_043", type: "number", model: @
 
 

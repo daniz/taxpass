@@ -6,33 +6,49 @@ class App.Views.StockSection extends App.Views.Section
   events:
     'change [name=stk-options]' : 'onOptionsChange'
 
-  initialize: ->
-    @listenTo @model, 'change:form867', @onFormChange
+  onRender: ->
+    # @listenTo @model, 'change:form867', @onFormChange
+    unless @model.has 'form867'
+      @model.set 'form867', new App.Models.Form
+
+    o = 
+      model             : @model.get 'form867'
+      el                : @$ '#stk-form'
+      fileInputClass    : 'form867_file'
+      uploadButtonLabel : 'העלה טופס 867'
+      template          : 'form_upload'
+      manual            : false
+
+    new App.Views.FormUpload(o).render()
 
   isEnabled: ->
     @model.get 'stock'
 
   onOptionsChange: (e) ->
-    $t = $(e.currentTarget)
+    upload = $(e.currentTarget).is '#stk-option-upload'
+    @$('#stk-form').toggle upload
 
-    if $t.is '#stk-option-upload'
-      @model.set 'form867', new App.Models.Form
-    else
-      @model.set 'form867', null
+  # onOptionsChange: (e) ->
+  #   $t = $(e.currentTarget)
 
-  onFormChange: (model, form) ->
-    if form
-      o = 
-        model             : form
-        el                : '#stk-form'
-        fileInputClass    : 'form867_file'
-        uploadButtonLabel : 'העלה טופס 867'
-        template          : 'form_upload'
-        manual            : false
+  #   if $t.is '#stk-option-upload'
+  #     @model.set 'form867', new App.Models.Form
+  #   else
+  #     @model.set 'form867', null
 
-      new App.Views.FormUpload(o).render()
+  # onFormChange: (model, form) ->
+  #   if form
+  #     o = 
+  #       model             : form
+  #       el                : '#stk-form'
+  #       fileInputClass    : 'form867_file'
+  #       uploadButtonLabel : 'העלה טופס 867'
+  #       template          : 'form_upload'
+  #       manual            : false
 
-    else @$('#stk-form').empty()
+  #     new App.Views.FormUpload(o).render()
+
+  #   else @$('#stk-form').empty()
 
   collectData: ->
     super

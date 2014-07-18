@@ -738,6 +738,7 @@ section {
 }
 
 #stk-form {
+  display: none;
   padding: 20px 40px;
 
   &:empty {
@@ -762,6 +763,34 @@ section {
     padding: 0 20px;
     width: 200px;
     text-align: right;
+  }
+}
+
+#stock-manual-iii-section {
+  table {
+    margin: 40px 0 14px;
+    input {
+      width: 40px;
+    }
+  }
+
+  td, th {
+    &:first-child {
+      width: 230px;
+      text-align: right;
+    }
+  }
+
+  td, th {
+    &:first-child {
+      width: 230px;
+      text-align: right;
+    }
+  }
+
+  label {
+    display: inline-block;
+    width: 230px;
   }
 }
 

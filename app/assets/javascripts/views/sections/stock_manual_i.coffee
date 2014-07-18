@@ -5,3 +5,6 @@ class App.Views.StockManualISection extends App.Views.Section
 
   isEnabled: ->
     @viewModel.get 'stockManual'
+
+  getModel: ->
+    @model.get 'form867'

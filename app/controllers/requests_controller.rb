@@ -20,7 +20,7 @@ class RequestsController < ApplicationController
     gon.spouseBtlForms      = @request.btl_forms.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     gon.pensionForms        = @request.pension_forms.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     gon.spousePensionForms  = @request.pension_forms.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    gon.form867s            = @request.form857s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.form867s            = @request.form867s.as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
   end
 
   # GET /requests/new
@@ -66,7 +66,7 @@ class RequestsController < ApplicationController
     spousePensionForm = data["spousePensionForm"]
     data.delete "spousePensionForm"
 
-    form857 = data["form867"]
+    form867 = data["form867"]
     data.delete "form867"
 
     @request = Request.new(data)

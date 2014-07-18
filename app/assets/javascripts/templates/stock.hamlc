@@ -4,9 +4,11 @@
 
 %label
   %input#stk-option-upload{ name: "stk-options", type: "radio" }
-  סרןק טופס 867 (3 עמודים)
+  סרוק טופס 867 (3 עמודים)
 
 #stk-form
+
+%br
 
 %label
   %input#stk-option-manual{ name: "stk-options", type: "radio" }

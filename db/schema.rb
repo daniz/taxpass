@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718171937) do
+ActiveRecord::Schema.define(version: 20140718211935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,43 @@ ActiveRecord::Schema.define(version: 20140718171937) do
     t.integer  "undeductable_losses"
     t.integer  "field_56_256"
     t.integer  "field_40"
+    t.integer  "pre_deduction_dividend_0"
+    t.integer  "pre_deduction_dividend_15"
+    t.integer  "pre_deduction_dividend_20"
+    t.integer  "pre_deduction_dividend_25"
+    t.integer  "dividend_income_abroad_0"
+    t.integer  "dividend_income_abroad_15"
+    t.integer  "dividend_income_abroad_20"
+    t.integer  "dividend_income_abroad_25"
+    t.integer  "exempt_profit_0"
+    t.integer  "exempt_profit_15"
+    t.integer  "exempt_profit_20"
+    t.integer  "exempt_profit_25"
+    t.integer  "tax_abroad_0"
+    t.integer  "tax_abroad_15"
+    t.integer  "tax_abroad_20"
+    t.integer  "tax_abroad_25"
+    t.integer  "pre_deduction_interest_profit_0"
+    t.integer  "pre_deduction_interest_profit_10"
+    t.integer  "pre_deduction_interest_profit_15"
+    t.integer  "pre_deduction_interest_profit_20"
+    t.integer  "pre_deduction_interest_profit_25"
+    t.integer  "pre_deduction_interest_profit_35"
+    t.integer  "interest_profit_abroad_0"
+    t.integer  "interest_profit_abroad_10"
+    t.integer  "interest_profit_abroad_15"
+    t.integer  "interest_profit_abroad_20"
+    t.integer  "interest_profit_abroad_25"
+    t.integer  "interest_profit_abroad_35"
+    t.integer  "interest_exempt_profit_0"
+    t.integer  "interest_exempt_profit_10"
+    t.integer  "interest_exempt_profit_15"
+    t.integer  "interest_exempt_profit_20"
+    t.integer  "interest_exempt_profit_25"
+    t.integer  "interest_exempt_profit_35"
+    t.integer  "dividend_tax"
+    t.integer  "interest_tax"
+    t.integer  "request_id"
   end
 
   create_table "kids", force: true do |t|
