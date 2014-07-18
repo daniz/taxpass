@@ -1,3 +1,45 @@
+- renderPartial = (o) =>
+  - prefix = if o.spouse then "spouse_" else ""
+  
+  %label
+    %input{ id: "#{ prefix }pns-option-automated", type: "radio", name: "#{ prefix }pns-options" }
+    דיגיטלי/אוטומטי
+
+  %br
+
+  %label
+    %input{ id: "#{ prefix }pns-option-form", type: "radio", name: "#{ prefix }pns-options" }
+    סרוק טופס 106 או 161, או הקלד ידנית
+
+    %div{ id: "#{ prefix }pns-form"}
+
+  %br
+
+  %div{ id: "#{ prefix }pns-automated" }
+    %input.pns-search-box{ type: "text", placeholder: "חפש את המוסד הפיננסי הרצוי" }
+
+    %p או בחר מרשימת החיפושים הנפוצים
+
+    %ul.pns-freq-searches
+      %li
+        %img{ src: "/stolen/Althsooler_Small.png" }  
+      %li
+        %img{ src: "/stolen/Clal_Small.png" }
+      %li
+        %img{ src: "/stolen/Excellence_Small.png" }
+      %li
+        %img{ src: "/stolen/Harel_Small.png" }
+      %li
+        %img{ src: "/stolen/Meitav_Small.png" }
+      %li
+        %img{ src: "/stolen/Menora_Small.png" }
+      %li
+        %img{ src: "/stolen/Migdal_Small.png" }
+      %li
+        %img{ src: "/stolen/Psagot_Small.png" }
+      %li
+        %img{ src: "/stolen/Yalin_Lapidot_Small.png" }  
+
 %p.section-title פנסיה
 
 %p.section-description
@@ -6,45 +48,13 @@
   איך בפנסיה? נהנים? בכל מקרה, התשלום החודשי שמועבר לבנק שלך מקרן הפנסיה או מביטוח המנהלים, או מהארגון בו עבדת (אופייני במגזר הציבורי) חייב במס, כן במדינת ישראל לוקחים מס מכולם....
   בכל מקרה, כדי לעמוד בחובת הדיווח לרשות המיסים, יש להביא מידע על גובה התשלום החודשי לבנק. יש כמה אפשרויות:
 
-%label
-  %input#pns-option-automated{ type: "radio", name: "pns-options" }
-  דיגיטלי/אוטומטי
+= renderPartial spouse: no
 
-%br
+- if @spouse_name
+  .spouse
+    %p 
+      ולגבי 
+      != App.help "spouse_name", @
+      
+    = renderPartial spouse: yes
 
-%label
-  %input#pns-option-scan{ type: "radio", name: "pns-options" }
-  סרוק טופס 106 או 161
-
-%br
-
-%label
-  %input#pns-option-manual{ type: "radio", name: "pns-options" }
-  הקלד ידנית
-
-%br
-
-#pns-automated
-  %input#pns-search-box{ type: "text", placeholder: "חפש את המוסד הפיננסי הרצוי" }
-
-  %p או בחר מרשימת החיפושים הנפוצים
-
-  %ul#pns-freq-searches
-    %li
-      %img{ src: "/stolen/Althsooler_Small.png" }  
-    %li
-      %img{ src: "/stolen/Clal_Small.png" }
-    %li
-      %img{ src: "/stolen/Excellence_Small.png" }
-    %li
-      %img{ src: "/stolen/Harel_Small.png" }
-    %li
-      %img{ src: "/stolen/Meitav_Small.png" }
-    %li
-      %img{ src: "/stolen/Menora_Small.png" }
-    %li
-      %img{ src: "/stolen/Migdal_Small.png" }
-    %li
-      %img{ src: "/stolen/Psagot_Small.png" }
-    %li
-      %img{ src: "/stolen/Yalin_Lapidot_Small.png" }

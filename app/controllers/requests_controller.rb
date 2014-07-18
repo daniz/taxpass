@@ -10,14 +10,16 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
-    gon.request         = @request
-    gon.kids            = @request.kids
-    gon.form106s        = @request.form106s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    gon.spouseForm106s  = @request.form106s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    gon.form857s        = @request.form857s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    gon.spouseForm857s  = @request.form857s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    gon.btlForms        = @request.btl_forms.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    gon.spouseBtlForms  = @request.btl_forms.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.request             = @request
+    gon.kids                = @request.kids
+    gon.form106s            = @request.form106s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.spouseForm106s      = @request.form106s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.form857s            = @request.form857s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.spouseForm857s      = @request.form857s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.btlForms            = @request.btl_forms.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.spouseBtlForms      = @request.btl_forms.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.pensionForms        = @request.pension_forms.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.spousePensionForms  = @request.pension_forms.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
   end
 
   # GET /requests/new
@@ -57,6 +59,12 @@ class RequestsController < ApplicationController
     spouseBtlForms = data["spouseBtlForms"]
     data.delete "spouseBtlForms"
 
+    pensionForm = data["pensionForm"]
+    data.delete "pensionForm"
+
+    spousePensionForm = data["spousePensionForm"]
+    data.delete "spousePensionForm"
+
     @request = Request.new(data)
 
     kids.each do |k|
@@ -91,6 +99,16 @@ class RequestsController < ApplicationController
     spouseBtlForms.each do |f|
       file = params["spouse_btlForm_#{ f['type'] }"]
       @request.btl_forms.new f.merge spouse: true, file: file
+    end
+
+    if pensionForm
+      file = params['pensionForm']
+      @request.pension_forms.new pensionForm.merge spouse: false, file: file
+    end
+
+    if spousePensionForm
+      file = params['spouse_pensionForm']
+      @request.pension_forms.new spousePensionForm.merge spouse: true, file: file
     end
 
     respond_to do |format|

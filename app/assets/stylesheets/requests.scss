@@ -292,7 +292,7 @@ a {
 
 #dialog-dim {
   display: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -645,16 +645,23 @@ section {
   width: 150px;
 }
 
-#pns-automated {
+#income-pension-section {
+  [type=file] {
+    display: none;
+  }
+}
+
+#pns-automated,
+#spouse_pns-automated {
   display: none;
   padding-top: 30px;
 }
 
-#pns-search-box {
+.pns-search-box {
   width: 320px;
 }
 
-#pns-freq-searches {
+.pns-freq-searches {
   width: 400px;
 
   li {
@@ -672,6 +679,15 @@ section {
     &:hover {
       border-color: #aaa;
     }
+  }
+}
+
+#pns-form,
+#spouse_pns-form {
+  padding: 20px 40px;
+
+  &:empty {
+    padding: 0;
   }
 }
 
