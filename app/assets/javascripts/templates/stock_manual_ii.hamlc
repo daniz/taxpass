@@ -1,0 +1,70 @@
+%p.section-description
+  אוקיי, עברנו דף 1 מתוך 3, עוד קצת..
+  
+%table
+  %thead
+    %tr
+      %th רווח חייב במס לפני קיזוזים/הפסדים באחוז:
+      %th 
+  %tbody
+    %tr
+      %td 0% (או כתוב ליד רווח פטור)
+      %td
+        != App.help "input", id: "pre_deduction_profit_0", model: @
+
+    %tr
+      %td 10%
+      %td
+        != App.help "input", id: "pre_deduction_profit_10", model: @
+
+    %tr
+      %td 20%
+      %td
+        != App.help "input", id: "pre_deduction_profit_20", model: @
+
+    %tr
+      %td 25%
+      %td
+        != App.help "input", id: "pre_deduction_profit_25", model: @
+
+    %tr
+      %td 30%
+      %td
+        != App.help "input", id: "pre_deduction_profit_30", model: @
+
+    %tr
+      %td 35%
+      %td
+        != App.help "input", id: "pre_deduction_profit_35", model: @
+
+%table
+  %thead
+    %tr
+      %th הפסדים שנוכל לקזז
+      %th 
+  %tbody
+    %tr
+      %td הפסדים ברי קיזוז
+      %td
+        != App.help "input", id: "deductable_losses", model: @
+
+    %tr
+      %td הפסדים שאינם ברי קיזוז
+      %td
+        != App.help "input", id: "undeductable_losses", model: @
+
+%table
+  %thead
+    %tr
+      %th נתונים נוספים שמס הכנסה דורש לדעת
+      %th 
+  %tbody
+    %tr
+      %td מחזור מכירות כולל (קוד 56 או 256)
+      %td
+        != App.help "input", id: "field_56_256", model: @
+
+    %tr
+      %td מס שנוכה במקור (יופיע שדה 40)
+      %td
+        != App.help "input", id: "field_40", model: @

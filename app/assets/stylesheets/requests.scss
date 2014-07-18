@@ -748,7 +748,19 @@ section {
 #stock-manual-i-section {
   td, th {
     padding: 0 20px;
-    max-width: 200px;
+    max-width: 260px;
+    text-align: right;
+  }
+}
+
+#stock-manual-ii-section {
+  table {
+    margin-bottom: 40px;
+  }
+
+  td, th {
+    padding: 0 20px;
+    width: 200px;
     text-align: right;
   }
 }

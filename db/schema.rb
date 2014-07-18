@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718135148) do
+ActiveRecord::Schema.define(version: 20140718171937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,30 @@ ActiveRecord::Schema.define(version: 20140718135148) do
     t.string   "file_content_type"
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
+  end
+
+  create_table "form_867s", force: true do |t|
+    t.integer  "field_076"
+    t.integer  "field_078"
+    t.integer  "field_126"
+    t.integer  "field_055"
+    t.integer  "field_167_053"
+    t.integer  "field_209"
+    t.integer  "field_043"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.integer  "pre_deduction_profit_0"
+    t.integer  "pre_deduction_profit_10"
+    t.integer  "pre_deduction_profit_20"
+    t.integer  "pre_deduction_profit_25"
+    t.integer  "pre_deduction_profit_30"
+    t.integer  "pre_deduction_profit_35"
+    t.integer  "deductable_losses"
+    t.integer  "undeductable_losses"
+    t.integer  "field_56_256"
+    t.integer  "field_40"
   end
 
   create_table "kids", force: true do |t|
