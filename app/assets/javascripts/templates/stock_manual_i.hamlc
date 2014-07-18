@@ -1,0 +1,53 @@
+%p.section-description
+  משה, בחרת להקליד. מאחר שטופס 867 יוצא בצורה קצת מסורבלת חילקנו את ההליך ל-3 שלבים פשוטים )כמספר הדפים של הטופס(. תכלס, אין פה המון הקלדה אבל זה עדיין קצת טרחה. בפעם הבאה תוכל לצלם את הטופס או פשוט ...לייבא אותו ישירות .בינתיים, נפשיל שרוולים ונלך לדף הראשון מתוך שלושה
+
+%table
+  %thead
+    %tr
+      %th הכנסה חייבת מריבית על פקדונות ותוכניות חיסכון
+      %th קוד/שדה
+      %th אם ריק, סמן 0
+  %tbody
+    %tr
+      %td 10%
+      %td 076
+      %td
+        != App.help "input", id: "field_076", model: @
+
+    %tr
+      %td 15%
+      %td 078
+      %td
+        != App.help "input", id: "field_078", model: @
+
+    %tr
+      %td 20%
+      %td 126
+      %td
+        != App.help "input", id: "field_126", model: @
+
+    %tr
+      %td 25%
+      %td 055
+      %td
+        != App.help "input", id: "field_055", model: @
+
+    %tr
+      %td 35%
+      %td 167/053
+      %td
+        != App.help "input", id: "field_167_053", model: @
+
+    %tr
+      %td ריבית והפרשי הצמדה פטורים
+      %td 209
+      %td
+        != App.help "input", id: "field_209", model: @
+
+    %tr
+      %td מס שנוכה במקור
+      %td 043
+      %td
+        != App.help "input", id: "field_043", model: @
+
+

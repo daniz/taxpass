@@ -6,3 +6,7 @@ class App.Views.StockPreSection extends App.Views.Section
   isEnabled: ->
     m = @model.toJSON()
     m.spouse_name and m.stock
+
+  collectData: ->
+    val = @$('[type=radio]:checked').data 'val'
+    @viewModel.set 'stockAccount', val

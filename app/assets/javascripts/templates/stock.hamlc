@@ -1,0 +1,13 @@
+%p.section-description
+  משה, כעת נבקש את טופס 867. זהו טופס שמכין הברוקר או הבנק שלך ומפרט את הרווחים וההפסדים שקרו בשנת המס 2013. אנחנו צריכים את המספרים
+  :)ולכן צריך לייבא את הנתונים יש כמה אפשרויות
+
+%label
+  %input#stk-option-upload{ name: "stk-options", type: "radio" }
+  סרןק טופס 867 (3 עמודים)
+
+#stk-form
+
+%label
+  %input#stk-option-manual{ name: "stk-options", type: "radio" }
+  הקלד

@@ -40,7 +40,9 @@ class App.Views.Create extends Backbone.View
       $input.val()
 
   updateNavButtons: ->
-    # @$('#continue-button').toggle @sections.hasNext()
+    if @sections.hasNext()
+      @$('#continue-button').show()
+       
     @$('#back-button').toggle @sections.hasPrev()
 
   onContinueClick: ->

@@ -11,7 +11,7 @@ class App.Views.Dialog extends Backbone.View
       head      : ''
       body      : ''
       okButton  : 'סיום'
-      top       : 200
+      top       : 150
 
     @$('#dialog-head').text o.head
     @$('#dialog-body').html o.body

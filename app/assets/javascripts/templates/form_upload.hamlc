@@ -1,5 +1,7 @@
 %input{ "class": "#{ @fileInputClass }", type: "file" }
 %button.form-upload-button.button.button-empty{ type: "button" }= @uploadButtonLabel ? "העלה קובץ"
   %i.fa.fa-check
-%button.form-manual-button.button.button-empty{ type: "button" }= @manualButtonLabel ? "הזן ידנית"
-  %i.fa.fa-check
+
+- if @manual isnt false # default is true
+  %button.form-manual-button.button.button-empty{ type: "button" }= @manualButtonLabel ? "הזן ידנית"
+    %i.fa.fa-check

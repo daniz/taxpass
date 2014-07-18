@@ -731,6 +731,28 @@ section {
   }
 }
 
+#stock-section {
+  [type=file] {
+    display: none;
+  }
+}
+
+#stk-form {
+  padding: 20px 40px;
+
+  &:empty {
+    padding: 0;
+  }
+}
+
+#stock-manual-i-section {
+  td, th {
+    padding: 0 20px;
+    max-width: 200px;
+    text-align: right;
+  }
+}
+
 #back-button,
 #continue-button {
   position: absolute;

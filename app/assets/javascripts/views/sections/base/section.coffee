@@ -2,6 +2,10 @@ class App.Views.Section extends Backbone.View
 
   tagName: 'section'
 
+  constructor: (o) ->
+    super
+    @viewModel = o.viewModel
+
   template: (data) ->
     JST[@templateName].call this, data
 

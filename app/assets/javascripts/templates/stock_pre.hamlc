@@ -3,16 +3,16 @@
   על שם מי רשום חשבון ההשקעות?
 
 %label
-  %input#stp-option-mine{ name: "stp-options", type: "radio" }
+  %input#stp-option-mine{ name: "stp-options", type: "radio", data: { val: "mine" } }
   על שמי בלבד
 %br
 
 %label
-  %input#stp-option-spouse{ name: "stp-options", type: "radio" }
+  %input#stp-option-spouse{ name: "stp-options", type: "radio", data: { val: "spouse" } }
   על שם
-%br
   != App.help "spouse_name", @
+%br
 
 %label
-  %input#stp-option-shared{ name: "stp-options", type: "radio" }
+  %input#stp-option-shared{ name: "stp-options", type: "radio", data: { val: "shared" } }
   משותף לשנינו

@@ -34,4 +34,6 @@ class App.Show extends Backbone.View
 
     @appendArray o.pensionForms, 'pension forms'
     @appendArray o.spousePensionForms, 'spouse pension forms'
+
+    @appendArray o.form867s, '867 forms'
     

@@ -6,8 +6,8 @@ class App.Views.IncomePensionSection extends App.Views.Section
   templateName: 'income_pension'
 
   events:
-    'change [name=pns-options]' : 'onOptionChange'
-    'change [name=spouse_pns-options]' : 'onSpouseOptionChange'
+    'change [name=pns-options]'         : 'onOptionChange'
+    'change [name=spouse_pns-options]'  : 'onSpouseOptionChange'
 
   initialize: ->
     @listenTo @model, 'change:pensionForm', @onFormChange
@@ -22,7 +22,7 @@ class App.Views.IncomePensionSection extends App.Views.Section
 
     if $t.is '#pns-option-form'
       @model.set 'pensionForm', new App.Models.Form
-    else @model.set 'pensionForm', false
+    else @model.set 'pensionForm', null
 
   onSpouseOptionChange: (e) ->
     $t = $ e.currentTarget
@@ -30,7 +30,7 @@ class App.Views.IncomePensionSection extends App.Views.Section
 
     if $t.is '#spouse_pns-option-form'
       @model.set 'spousePensionForm', new App.Models.Form
-    else @model.set 'spousePensionForm', false
+    else @model.set 'spousePensionForm', null
 
   onFormChange: (model, form) ->
     @_formChangeHandler '#pns-form', form

@@ -20,11 +20,16 @@ class App.Views.Sections extends Backbone.View
     App.Views.AuthorSection
     App.Views.BtlSection
     App.Views.StockPreSection
+    App.Views.StockSection
+    App.Views.StockManualISection
     App.Views.EndingSection
   ]
 
   initialize: ->
-    @sections = @sections.map (S) => new S model: @model.get 'request'
+    @sections = @sections.map (S) => 
+      new S 
+        model: @model.get 'request'
+        viewModel: @model
     
   changeSection: (section) ->
     @currSection?.collectData()
