@@ -58,7 +58,7 @@ class App.Views.BtlSection extends App.Views.Section
     checked = $target.prop 'checked'
 
     if checked
-      model = new Backbone.Model type: type
+      model = new App.Models.Form type: type
       @forms.add model
     else
       model = @forms.findWhere type: type
@@ -70,7 +70,7 @@ class App.Views.BtlSection extends App.Views.Section
     checked = $target.prop 'checked'
 
     if checked
-      model = new Backbone.Model type: type
+      model = new App.Models.Form type: type
       @spouseForms.add model
     else
       model = @spouseForms.findWhere type: type

@@ -1,0 +1,7 @@
+- for attr, val of @
+  - if val?
+    - if attr is 'file'
+      %img{ src: val }
+    - else 
+      = "#{attr}: #{val}"
+      %br

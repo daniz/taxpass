@@ -12,6 +12,7 @@ class App.Views.EndingSection extends App.Views.Section
     $('#continue-button').hide()
 
   onSubmit: ->
+    debugger
     json = @serialize()
     @serializeFileInputs()
     @$('#data-input').val JSON.stringify(json)
@@ -31,13 +32,17 @@ class App.Views.EndingSection extends App.Views.Section
     @addFileInput @model.get('form857'), spouse: no, name: 'form857'
     @addFileInput @model.get('spouseForm857'), spouse: yes, name: 'form857'
 
+    @model.get('btlForms').each (f) => @addFileInput f, spouse: no, name: 'btlForm'
+    @model.get('spouseBtlForms').each (f) => @addFileInput f, spouse: yes, name: 'btlForm'
+
   addFileInput: (form, o) ->
     return unless form
 
     files   = form.get 'files'
     index   = form.get 'index'
+    type    = form.get 'type'
     prefix  = if o.spouse then 'spouse_' else ''
-    suffix  = if index then "_#{ index }"
+    suffix  = if index or type then "_#{ index ? type }" else ''
 
     if files?
       $('<input>', type: 'file', name: "#{ prefix }#{ o.name }#{ suffix }")

@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715222111) do
+ActiveRecord::Schema.define(version: 20140718095943) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "btl_forms", force: true do |t|
+    t.integer  "income"
+    t.integer  "tax"
+    t.integer  "request_id"
+    t.boolean  "spouse"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+  end
 
   create_table "form_106s", force: true do |t|
     t.integer  "field_158",         default: 0
@@ -34,10 +45,14 @@ ActiveRecord::Schema.define(version: 20140715222111) do
   end
 
   create_table "form_857s", force: true do |t|
-    t.integer "income"
-    t.integer "tax"
-    t.integer "request_id"
-    t.boolean "spouse"
+    t.integer  "income"
+    t.integer  "tax"
+    t.integer  "request_id"
+    t.boolean  "spouse"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "kids", force: true do |t|
@@ -117,6 +132,8 @@ ActiveRecord::Schema.define(version: 20140715222111) do
     t.boolean  "spouse_other"
     t.boolean  "btl"
     t.boolean  "spouse_btl"
+    t.string   "profession"
+    t.string   "spouse_profession"
   end
 
   create_table "users", force: true do |t|

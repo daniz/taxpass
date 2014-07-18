@@ -1,8 +1,5 @@
-class App.Models.Form106 extends Backbone.Model
+class App.Models.Form106 extends App.Models.Form
   index: 1
 
   initialize: ->
     @set 'index', App.Models.Form106::index++
-
-  toJSON: ->
-    _.omit super, 'files'

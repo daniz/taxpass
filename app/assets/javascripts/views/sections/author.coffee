@@ -42,12 +42,12 @@ class App.Views.AuthorSection extends App.Views.Section
   onProfessionChange: (e) ->
     checked = @$(e.currentTarget).prop 'checked'
     @model.set 'form857', 
-      if checked then new Backbone.Model else false
+      if checked then new App.Models.Form else false
 
   onSpouseProfessionChange: (e) ->
     checked = @$(e.currentTarget).prop 'checked'
     @model.set 'spouseForm857', 
-      if checked then new Backbone.Model else false
+      if checked then new App.Models.Form else false
 
   onOtherChange: (e) ->
     checked = @$(e.currentTarget).prop 'checked'

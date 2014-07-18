@@ -16,6 +16,8 @@ class RequestsController < ApplicationController
     gon.spouseForm106s  = @request.form106s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     gon.form857s        = @request.form857s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     gon.spouseForm857s  = @request.form857s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.btlForms        = @request.form106s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.spouseBtlForms  = @request.form106s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
   end
 
   # GET /requests/new
@@ -49,6 +51,12 @@ class RequestsController < ApplicationController
     spouseForm857 = data["spouseForm857"]
     data.delete "spouseForm857"
 
+    btlForms = data["btlForms"]
+    data.delete "btlForms"
+
+    spouseBtlForms = data["spouseBtlForms"]
+    data.delete "spouseBtlForms"
+
     @request = Request.new(data)
 
     kids.each do |k|
@@ -67,12 +75,22 @@ class RequestsController < ApplicationController
 
     if form857
       file = params['form857']
-      @request.form857.new form857.merge spouse: false, file: file
+      @request.form857s.new form857.merge spouse: false, file: file
     end
 
     if spouseForm857
       file = params['spouse_form857']
       @request.form857s.new form857.merge spouse: true, file: file
+    end
+
+    btlForms.each do |f|
+      file = params["btlForm_#{ f['type'] }"]
+      @request.btlForms.new f.merge spouse: false, file: file
+    end
+
+    spouseBtlForms.each do |f|
+      file = params["spouse_btlForm_#{ f['type'] }"]
+      @request.spouseBtlForms.new f.merge spouse: true, file: file
     end
 
     respond_to do |format|
