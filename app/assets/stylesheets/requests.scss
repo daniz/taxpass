@@ -794,6 +794,25 @@ section {
   }
 }
 
+#stock-misc-section {
+  [type=file] {
+    display: none;
+  }
+}
+
+#stm-abroad {
+  display: none;
+
+  label {
+    display: inline-block;
+    width: 120px;
+  }
+
+  input {
+    width: 60px;
+  }
+}
+
 #back-button,
 #continue-button {
   position: absolute;

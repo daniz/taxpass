@@ -1,0 +1,24 @@
+.section-description
+  האם היו לך הפסדים בשנים קודמות?
+  != App.help "toggle_button", id: "stm-losses"
+
+#stm-form
+  
+.section-description
+  האם יש לך חשבון ניירות ערך אצל גוף לא ישראלי?
+  != App.help "toggle_button", id: "stm-stock-account-abroad"
+
+#stm-abroad
+  מה היו ההכנסות שלך מ-
+  %br
+  != App.help "input", id: "income_abroad_interest", type: "number", label: "ריבית", model: @
+  %br
+  != App.help "input", id: "income_abroad_dividend", type: "number", label: "דיבידנד", model: @
+  %br
+  != App.help "input", id: "income_abroad_capital_profit", type: "number", label: "רווח הון", model: @
+  %br
+  != App.help "input", id: "income_abroad_capital_loss", type: "number", label: "הפסד הון", model: @
+  %br
+  != App.help "input", id: "income_abroad_tax", type: "number", label: "כמה מס שילמת?", model: @
+
+
