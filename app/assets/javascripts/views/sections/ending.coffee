@@ -12,7 +12,6 @@ class App.Views.EndingSection extends App.Views.Section
     $('#continue-button').hide()
 
   onSubmit: ->
-    debugger
     json = @serialize()
     @serializeFileInputs()
     @$('#data-input').val JSON.stringify(json)

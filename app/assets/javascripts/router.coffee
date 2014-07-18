@@ -30,8 +30,4 @@ class App.Router extends Backbone.Router
 
   show: (id) ->
     model = new App.Models.Request gon['request']
-    new App.Show 
-      model           : model
-      kids            : gon['kids']
-      form106s        : gon['form106s']
-      spouseForm106s  : gon['spouseForm106s']
+    new App.Show _.extend { model: model }, _.omit(gon, 'request')

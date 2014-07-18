@@ -32,28 +32,3 @@ class App.Show extends Backbone.View
     @appendArray o.btlForms, 'btl forms'
     @appendArray o.spouseBtlForms, 'spouse btl forms'
     
-
-    # if o.kids.length
-    #   @$el.append "<br />"
-    #   @$el.append "---------- kids: "
-    #   @$el.append "<br />"
-    #   _.each o.kids, (k) =>
-    #     @$el.append "<br />"
-    #     @appendItem k
-        
-    # if o.form106s.length
-    #   @$el.append "<br />"
-    #   @$el.append "---------- 106 forms: "
-    #   @$el.append "<br />"
-    #   _.each o.form106s, (f) =>
-    #     @$el.append "<br />"
-    #     @appendItem f
-        
-    # if o.spouseForm106s.length
-    #   @$el.append "<br />"
-    #   @$el.append "---------- spouse 106 forms: "
-    #   @$el.append "<br />"
-    #   _.each o.spouseForm106s, (f) =>
-    #     @$el.append "<br />"
-    #     @appendItem f
-    #     
