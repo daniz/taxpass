@@ -1,0 +1,18 @@
+%p.section-description
+  != App.help "user_name"
+  על שם מי רשום חשבון ההשקעות?
+
+%label
+  %input#stp-option-mine{ name: "stp-options", type: "radio" }
+  על שמי בלבד
+%br
+
+%label
+  %input#stp-option-spouse{ name: "stp-options", type: "radio" }
+  על שם
+%br
+  != App.help "spouse_name", @
+
+%label
+  %input#stp-option-shared{ name: "stp-options", type: "radio" }
+  משותף לשנינו

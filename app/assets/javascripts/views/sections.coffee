@@ -19,6 +19,7 @@ class App.Views.Sections extends Backbone.View
     App.Views.IncomePensionSection
     App.Views.AuthorSection
     App.Views.BtlSection
+    App.Views.StockPreSection
     App.Views.EndingSection
   ]
 
