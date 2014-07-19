@@ -39,25 +39,25 @@
         != App.help "input", id: "other_sold_appt_abroad_tax_o", type: "number", label: "האם שילמת מס למדינה אחרת (מס מדינתי, פדראלי או עירוני)", model: @
     
     .otr-field
-      != App.help "checkbox", id: "other_sold_o_appt", label: "מכרתי נכס אחר שאינו נדל״ן בישראל", model: @
+      != App.help "checkbox", id: "other_sold_o", label: "מכרתי נכס אחר שאינו נדל״ן בישראל", model: @
       .otr-sub.otr-sub-form
-        != App.help "input", id: "other_sold_o_appt_price", type: "number", label: "במחיר", model: @
+        != App.help "input", id: "other_sold_o_price", type: "number", label: "במחיר", model: @
         %br
-        != App.help "input", id: "other_sold_o_appt_agent", type: "number", label: "הוצאות תיווך", model: @
+        != App.help "input", id: "other_sold_o_agent", type: "number", label: "הוצאות תיווך", model: @
         %br
-        != App.help "input", id: "other_sold_o_appt_legal", type: "number", label: "הוצאות משפטיות", model: @
+        != App.help "input", id: "other_sold_o_legal", type: "number", label: "הוצאות משפטיות", model: @
         %br
-        != App.help "input", id: "other_sold_o_appt_tax", type: "number", label: "מס ששילמת", model: @
+        != App.help "input", id: "other_sold_o_tax", type: "number", label: "מס ששילמת", model: @
 
     .otr-field
-      != App.help "checkbox", id: "other_sold_o_appt_abroad", label: "מכרתי נכס אחר שאינו נדל״ן מחוץ לישראל", model: @
+      != App.help "checkbox", id: "other_sold_o_abroad", label: "מכרתי נכס אחר שאינו נדל״ן מחוץ לישראל", model: @
       .otr-sub.otr-sub-form
-        != App.help "input", id: "other_sold_o_appt_abroad_price", type: "number", label: "במחיר", model: @
+        != App.help "input", id: "other_sold_o_abroad_price", type: "number", label: "במחיר", model: @
         %br
-        != App.help "input", id: "other_sold_o_appt_abroad_agent", type: "number", label: "הוצאות תיווך", model: @
+        != App.help "input", id: "other_sold_o_abroad_agent", type: "number", label: "הוצאות תיווך", model: @
         %br
-        != App.help "input", id: "other_sold_o_appt_abroad_legal", type: "number", label: "הוצאות משפטיות", model: @
+        != App.help "input", id: "other_sold_o_abroad_legal", type: "number", label: "הוצאות משפטיות", model: @
         %br
-        != App.help "input", id: "other_sold_o_appt_abroad_tax", type: "number", label: "מס ששילמת", model: @
+        != App.help "input", id: "other_sold_o_abroad_tax", type: "number", label: "מס ששילמת", model: @
         %br
-        != App.help "input", id: "other_sold_o_appt_abroad_tax_o", type: "number", label: "האם שילמת מס למדינה אחרת (מס מדינתי, פדראלי או עירוני)", model: @
+        != App.help "input", id: "other_sold_o_abroad_tax_o", type: "number", label: "האם שילמת מס למדינה אחרת (מס מדינתי, פדראלי או עירוני)", model: @

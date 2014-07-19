@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719150329) do
+ActiveRecord::Schema.define(version: 20140719155032) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -238,6 +238,30 @@ ActiveRecord::Schema.define(version: 20140719150329) do
     t.integer  "spouse_lottery_tax"
     t.integer  "spouse_prize_profit"
     t.integer  "spouse_prize_tax"
+    t.boolean  "other_rented"
+    t.boolean  "other_sold"
+    t.boolean  "other_sold_appt"
+    t.integer  "other_sold_appt_price"
+    t.integer  "other_sold_appt_agent"
+    t.integer  "other_sold_appt_legal"
+    t.integer  "other_sold_appt_tax"
+    t.boolean  "other_sold_appt_abroad"
+    t.integer  "other_sold_appt_abroad_price"
+    t.integer  "other_sold_appt_abroad_agent"
+    t.integer  "other_sold_appt_abroad_legal"
+    t.integer  "other_sold_appt_abroad_tax"
+    t.integer  "other_sold_appt_abroad_tax_o"
+    t.boolean  "other_sold_o"
+    t.integer  "other_sold_o_price"
+    t.integer  "other_sold_o_agent"
+    t.integer  "other_sold_o_legal"
+    t.integer  "other_sold_o_tax"
+    t.boolean  "other_sold_o_abroad"
+    t.integer  "other_sold_o_abroad_price"
+    t.integer  "other_sold_o_abroad_agent"
+    t.integer  "other_sold_o_abroad_legal"
+    t.integer  "other_sold_o_abroad_tax"
+    t.integer  "other_sold_o_abroad_tax_o"
   end
 
   create_table "users", force: true do |t|
