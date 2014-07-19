@@ -1,0 +1,41 @@
+- renderPartial = (o) ->
+  - prefix = if o.spouse then "spouse_" else ""
+  .ltr-field
+    != App.help "checkbox", id: "#{ prefix }ltr-check-gambling", name: "", className: "ltr-check", label: "הימורים"
+    .ltr-field-content
+      != App.help "input", id: "#{ prefix }gambling_profit", label: "בכמה זכית?", model: @
+      %br
+      != App.help "input", id: "#{ prefix }gambling_tax", label: "כמה מס שילמת?", model: @
+
+  .ltr-field
+    != App.help "checkbox", id: "#{ prefix }ltr-check-lottery", name: "", className: "ltr-check", label: "הגרלה"
+    .ltr-field-content
+      != App.help "input", id: "#{ prefix }lottery_profit", label: "בכמה זכית?", model: @
+      %br
+      != App.help "input", id: "#{ prefix }lottery_tax", label: "כמה מס שילמת?", model: @
+
+  .ltr-field
+    != App.help "checkbox", id: "#{ prefix }ltr-check-prize", name: "", className: "ltr-check", label: "פרס"
+    .ltr-field-content
+      != App.help "input", id: "#{ prefix }prize_profit", label: "בכמה זכית?", model: @
+      %br
+      != App.help "input", id: "#{ prefix }prize_tax", label: "כמה מס שילמת?", model: @
+
+.section-description
+  מזל טוב
+  != App.help "user_name", comma: no
+  = "! במה זכית?"
+
+= renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    %p
+      ו
+      != App.help "spouse_name", @
+
+    = renderPartial spouse: yes
+
+
+
+

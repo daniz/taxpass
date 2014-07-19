@@ -887,6 +887,22 @@ section {
   }
 }
 
+.ltr-field-content {
+  display: none;
+  padding: 10px 40px 25px;
+
+  label {
+    display: inline-block;
+    margin-left: 10px;
+    width: 110px;
+  }
+
+  input {
+    width: 120px;
+  }
+}
+
+
 #back-button,
 #continue-button {
   position: absolute;

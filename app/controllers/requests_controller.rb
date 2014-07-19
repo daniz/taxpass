@@ -79,14 +79,18 @@ class RequestsController < ApplicationController
       @request.kids.new k.except("index")
     end
 
-    form106s.each do |f|
-      file = params["form106_#{ f['index'] }"]
-      @request.form106s.new f.except("index").merge spouse: false, file: file
+    if form106s
+      form106s.each do |f|
+        file = params["form106_#{ f['index'] }"]
+        @request.form106s.new f.except("index").merge spouse: false, file: file
+      end
     end
 
-    spouseForm106s.each do |f|
-      file = params["spouse_form106_#{ f['index'] }"]
-      @request.form106s.new f.except("index").merge spouse: true, file: file
+    if spouseForm106s
+      spouseForm106s.each do |f|
+        file = params["spouse_form106_#{ f['index'] }"]
+        @request.form106s.new f.except("index").merge spouse: true, file: file
+      end
     end
 
     if form857
@@ -99,14 +103,18 @@ class RequestsController < ApplicationController
       @request.form857s.new form857.merge spouse: true, file: file
     end
 
-    btlForms.each do |f|
-      file = params["btlForm_#{ f['type'] }"]
-      @request.btl_forms.new f.merge spouse: false, file: file
+    if btlForms
+      btlForms.each do |f|
+        file = params["btlForm_#{ f['type'] }"]
+        @request.btl_forms.new f.merge spouse: false, file: file
+      end
     end
 
-    spouseBtlForms.each do |f|
-      file = params["spouse_btlForm_#{ f['type'] }"]
-      @request.btl_forms.new f.merge spouse: true, file: file
+    if spouseBtlForms
+      spouseBtlForms.each do |f|
+        file = params["spouse_btlForm_#{ f['type'] }"]
+        @request.btl_forms.new f.merge spouse: true, file: file
+      end
     end
 
     if pensionForm
@@ -124,10 +132,12 @@ class RequestsController < ApplicationController
       @request.form867s.new form867.merge file: file
     end
 
-    appartments.each do |a|
-      @request.appartments.new a.except("index")
+    if appartments
+      appartments.each do |a|
+        @request.appartments.new a.except("index")
+      end
     end
-
+    
     respond_to do |format|
       if @request.save
         format.html { redirect_to @request, notice: 'בקשתך נשמרה בהצלחה.' }
