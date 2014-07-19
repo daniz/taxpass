@@ -2,4 +2,4 @@
   != App.help "user_name"
   סימנת שאתה בעל דירה. כמה דירות יש בבעלותך?
 
-!= App.help "select", id: "apr-num-appts", options: [0, 1, 2, 3, 4, 5, 6]
+!= App.help "select", id: "apr-num-appts", className: "", options: [0, 1, 2, 3, 4, 5, 6]

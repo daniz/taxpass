@@ -26,6 +26,7 @@ class App.Views.Sections extends Backbone.View
     App.Views.StockManualIIISection
     App.Views.StockMiscSection
     App.Views.AppartmentPreSection
+    App.Views.AppartmentISection
     App.Views.EndingSection
   ]
 

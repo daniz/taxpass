@@ -6,6 +6,22 @@ class App.Views.AppartmentPreSection extends App.Views.Section
   isEnabled: ->
     @model.get 'appartment'
 
+  onRender: ->
+    n = @model.get('appartments')?.length 
+    if n
+      @$('#apr-num-appts').val n
+
   collectData: ->
-    numAppts = parseInt @$('#apr-num-appts').val()
-    @viewModel.set 'numAppts', numAppts
+    unless @model.has 'appartments'
+      @model.set 'appartments', new Backbone.Collection
+      
+    appts = @model.get 'appartments'
+    n = parseInt @$('#apr-num-appts').val()
+
+    if n != appts.length
+      appts.reset()
+      for i in [1..n]
+        appts.add 
+          index         : i
+          spouseName   : @model.get('spouse_name')
+

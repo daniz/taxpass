@@ -819,6 +819,27 @@ section {
   width: 360px;
 }
 
+#apti-content {
+  padding: 20px;
+
+  label {
+    margin-left: 10px;
+  }
+}
+
+.apti-details-item {
+  margin-bottom: 20px;
+}
+
+.apti-ownership-options {
+  padding: 6px 90px 10px 0;
+  font-size: 14px;
+
+  label {
+    margin-left: 20px;
+  }
+}
+
 #back-button,
 #continue-button {
   position: absolute;

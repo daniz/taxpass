@@ -1,0 +1,15 @@
+!= App.help "input", id: "name#{ @index }", name: "name", label: "כינוי דירה #{ @index }", model: @
+
+%br
+
+- if @spouseName
+  .apti-ownership-options
+    %label
+      %input{ "class": "appt-ownership-mine", name: "appt-ownership#{ @index }", type: "radio", checked: "checked" }
+      בבעלותי
+    %label
+      %input{ "class": "appt-ownership-spouse", name: "appt-ownership#{ @index }", type: "radio" }
+      = "בבעלות #{ @spouseName }"
+    %label
+      %input{ "class": "appt-ownership-shared", name: "appt-ownership#{ @index }", type: "radio" }
+      בבעלות משותפת
