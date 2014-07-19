@@ -1,0 +1,17 @@
+.section-description
+  != App.help "user_name"
+  - if @appartments.length is 1
+    האם יש לך משכנתא על הדירה?
+  - else
+    האם יש לך משכנתא על אחת הדירות?
+
+!= App.help "toggle_button", id: "aptiii-mortgage"
+
+%table#aptiii-table
+  %thead
+    %tr
+      %th
+      %th מה גובה המשכנתא?
+      %th מה גובה דמי ביטוח החיים לצורך משכנתא שאתה משלם?
+      %th אם יש ברשותך אסמכתא לכך אנא צלם אותה
+  %tbody

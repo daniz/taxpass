@@ -1,0 +1,9 @@
+%td= @name
+
+%td
+  != App.help "input", id: "mortgage_#{ @index }", name: "mortgage", className: "appt-data", type: "number", model: @
+
+%td
+  != App.help "input", id: "mortgage_life_insurance_#{ @index }", name: "mortgage_life_insurance", className: "appt-data", type: "number", model: @
+  
+%td

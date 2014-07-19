@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719130516) do
+ActiveRecord::Schema.define(version: 20140719140205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20140719130516) do
     t.integer "months_rent"
     t.integer "rent"
     t.integer "expenses"
+    t.integer "mortgage"
+    t.integer "mortgage_life_insurance"
   end
 
   create_table "btl_forms", force: true do |t|

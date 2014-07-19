@@ -873,6 +873,20 @@ section {
   }
 }
 
+#aptiii-table {
+  display: none;
+
+  th, td {
+    padding: 10px;
+    max-width: 220px;
+    text-align: center;
+
+    input[type=number] {
+      width: 100px;
+    }
+  }
+}
+
 #back-button,
 #continue-button {
   position: absolute;
