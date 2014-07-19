@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719155856) do
+ActiveRecord::Schema.define(version: 20140719213621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -263,6 +263,24 @@ ActiveRecord::Schema.define(version: 20140719155856) do
     t.integer  "other_sold_o_abroad_tax"
     t.integer  "other_sold_o_abroad_tax_o"
     t.text     "other_description"
+    t.boolean  "public_donation"
+    t.boolean  "commemoration"
+    t.boolean  "hospitalized_family"
+    t.boolean  "professional_literature"
+    t.boolean  "professional_course"
+    t.boolean  "cpa_expense"
+    t.boolean  "btl_expense"
+    t.boolean  "insurance_expense"
+    t.boolean  "pension_plan"
+    t.boolean  "spouse_public_donation"
+    t.boolean  "spouse_commemoration"
+    t.boolean  "spouse_hospitalized_family"
+    t.boolean  "spouse_professional_literature"
+    t.boolean  "spouse_professional_course"
+    t.boolean  "spouse_cpa_expense"
+    t.boolean  "spouse_btl_expense"
+    t.boolean  "spouse_insurance_expense"
+    t.boolean  "spouse_pension_plan"
   end
 
   create_table "users", force: true do |t|

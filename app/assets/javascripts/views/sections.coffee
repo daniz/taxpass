@@ -33,6 +33,15 @@ class App.Views.Sections extends Backbone.View
     App.Views.OtherSection
     App.Views.ExpensePreSection
     App.Views.ExpenseIntroSection
+    App.Views.ExpenseDonationSection
+    App.Views.ExpenseCommemorationSection
+    App.Views.ExpenseHospitalizedSection
+    App.Views.ExpenseLiteratureSection
+    App.Views.ExpenseCourseSection
+    App.Views.ExpenseCpaSection
+    App.Views.ExpenseBtlSection
+    App.Views.ExpenseInsuranceSection
+    App.Views.ExpensePensionSection
     App.Views.EndingSection
   ]
 
