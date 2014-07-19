@@ -62,7 +62,7 @@ em {
   font-weight: bold;
 }
 
-input {
+input, textarea {
   padding: 12px;
   font-size: 16px;
   box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
@@ -902,6 +902,34 @@ section {
   }
 }
 
+#other-section {
+  .section-description {
+    &:first-child {
+      margin-bottom: 12px;
+    }
+  }
+
+  textarea {
+    margin-bottom: 30px;
+  }
+}
+
+.otr-sub {
+  display: none;
+  padding: 10px 40px 30px;
+  
+  input[type=number] {
+    width: 100px;
+  }
+}
+
+.otr-sub-form {
+  label {
+    display: block;
+    margin-top: 8px;
+    // width: 100px;
+  }
+}
 
 #back-button,
 #continue-button {
