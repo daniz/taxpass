@@ -1,4 +1,4 @@
-!= App.help "input", id: "name#{ @index }", name: "name", label: "כינוי דירה #{ @index }", model: @
+!= App.help "input", id: "name#{ @index }", name: "name", label: "כינוי דירה #{ @index }", className: "", model: @
 
 %br
 

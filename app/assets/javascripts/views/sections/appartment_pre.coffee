@@ -21,7 +21,7 @@ class App.Views.AppartmentPreSection extends App.Views.Section
     if n != appts.length
       appts.reset()
       for i in [1..n]
-        appts.add 
-          index         : i
-          spouseName   : @model.get('spouse_name')
+        appts.add new App.Models.Appartment
+            index         : i
+            spouseName   : @model.get('spouse_name')
 

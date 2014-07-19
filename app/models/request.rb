@@ -7,4 +7,5 @@ class Request < ActiveRecord::Base
   has_many :form867s
   has_many :btl_forms
   has_many :pension_forms
+  has_many :appartments
 end

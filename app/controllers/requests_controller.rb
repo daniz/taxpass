@@ -21,6 +21,7 @@ class RequestsController < ApplicationController
     gon.pensionForms        = @request.pension_forms.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     gon.spousePensionForms  = @request.pension_forms.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     gon.form867s            = @request.form867s.as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.appartments         = @request.appartments
   end
 
   # GET /requests/new
@@ -68,6 +69,9 @@ class RequestsController < ApplicationController
 
     form867 = data["form867"]
     data.delete "form867"
+
+    appartments = data["appartments"]
+    data.delete "appartments"
 
     @request = Request.new(data)
 
@@ -118,6 +122,10 @@ class RequestsController < ApplicationController
     if form867
       file = params['form867']
       @request.form867s.new form867.merge file: file
+    end
+
+    appartments.each do |a|
+      @request.appartments.new a.except("index")
     end
 
     respond_to do |format|

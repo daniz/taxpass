@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140719090311) do
+ActiveRecord::Schema.define(version: 20140719130516) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appartments", force: true do |t|
+    t.integer "request_id"
+    t.string  "name"
+    t.integer "ownership"
+    t.boolean "family_residence"
+    t.integer "months_rent"
+    t.integer "rent"
+    t.integer "expenses"
+  end
 
   create_table "btl_forms", force: true do |t|
     t.integer  "income"

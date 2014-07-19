@@ -1,0 +1,16 @@
+%td= @name
+
+%td
+  != App.help "toggle_button", id: "family_residence_#{ @index }", name: "family_residence", className: "appt-data", model: @
+
+%td
+  != App.help "toggle_button", id: "rented_#{ @index }", className: "apptii-rented", model: @
+  .appt-item-rent
+    != App.help "input", id: "months_rent_#{ @index }", name: "months_rent", label: "כמה חודשי השכרה?", className: "appt-data", type: "number", model: @
+
+    %br
+
+    != App.help "input", id: "rent_#{ @index }", name: "rent", label: "שכ״ד חודשי", className: "appt-data", type: "number", model: @
+
+%td
+  != App.help "input", id: "expenses#{ @index }", name: "expenses", className: "appt-data", type: "number", model: @
