@@ -8,5 +8,5 @@
 %select{ id: @id, name: name, "class": className }
   - for o in @options
     - value = o.value ? o.text
-    - selected = value is @model[name]
+    - selected = value is @model?[name]
     %option{ value: o.value ? o.text, selected: selected }= o.text

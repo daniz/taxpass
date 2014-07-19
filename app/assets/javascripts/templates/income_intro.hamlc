@@ -37,6 +37,13 @@
         %i.fa.fa-fw.fa-check
         %i.fa.fa-fw.fa-bar-chart-o
 
+    %li.ii-option.ii-options-stock
+      != App.help "checkbox", id: "#{ prefix }appartment", model: @
+      %label{ for: "#{ prefix }appartment" }
+        אני בעל דירה
+        %i.fa.fa-fw.fa-check
+        %i.fa.fa-fw.fa-bar-chart-o
+
     %li.ii-option.ii-options-lottery
       != App.help "checkbox", id: "#{ prefix }lottery", model: @
       %label{ for: "#{ prefix }lottery" }

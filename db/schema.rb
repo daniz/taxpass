@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718224209) do
+ActiveRecord::Schema.define(version: 20140719090311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -212,6 +212,8 @@ ActiveRecord::Schema.define(version: 20140718224209) do
     t.integer  "income_abroad_capital_profit"
     t.integer  "income_abroad_capital_loss"
     t.integer  "income_abroad_tax"
+    t.boolean  "appartment"
+    t.boolean  "spouse_appartment"
   end
 
   create_table "users", force: true do |t|
