@@ -1,57 +1,57 @@
 - renderPartial = (o) => 
   - prefix = if o.spouse then "spouse_" else ""
 
-  %ul#ii-options
-    %li.ii-option.ii-options-employed
+  %ul#ii-options.checkbox-options
+    %li.checkbox-option.ii-option.ii-options-employed
       != App.help "checkbox", id: "#{ prefix }employed", model: @
       %label{ for: "#{ prefix }employed" }
         עבדתי כשכיר/ה
         %i.fa.fa-fw.fa-check
         %i.fa.fa-fw.fa-briefcase
 
-    %li.ii-option.ii-options-author
+    %li.checkbox-option.ii-option.ii-options-author
       != App.help "checkbox", id: "#{ prefix }author", model: @
       %label{ for: "#{ prefix }author" }
         הייתי סופר/מרצה/עצמאי
         %i.fa.fa-fw.fa-check
         %i.fa.fa-fw.fa-university
 
-    %li.ii-option.ii-options-btl
+    %li.checkbox-option.ii-option.ii-options-btl
       != App.help "checkbox", id: "#{ prefix }btl", model: @
       %label{ for: "#{ prefix }btl" }
         קיבלתי כסף מביטוח לאומי
         %i.fa.fa-fw.fa-check
         %i.fa.fa-fw.fa-university
 
-    %li.ii-option.ii-options-pension
+    %li.checkbox-option.ii-option.ii-options-pension
       != App.help "checkbox", id: "#{ prefix }pension", model: @
       %label{ for: "#{ prefix }pension" }
         אני בפנסיה ויש לי הכנסה מקצבה
         %i.fa.fa-fw.fa-check
         %i.fa.fa-fw.fa-shield
 
-    %li.ii-option.ii-options-stock
+    %li.checkbox-option.ii-option.ii-options-stock
       != App.help "checkbox", id: "#{ prefix }stock", model: @
       %label{ for: "#{ prefix }stock" }
         היתה לי פעילות בשוק ההון
         %i.fa.fa-fw.fa-check
         %i.fa.fa-fw.fa-bar-chart-o
 
-    %li.ii-option.ii-options-stock
+    %li.checkbox-option.ii-option.ii-options-stock
       != App.help "checkbox", id: "#{ prefix }appartment", model: @
       %label{ for: "#{ prefix }appartment" }
         אני בעל דירה
         %i.fa.fa-fw.fa-check
         %i.fa.fa-fw.fa-bar-chart-o
 
-    %li.ii-option.ii-options-lottery
+    %li.checkbox-option.ii-option.ii-options-lottery
       != App.help "checkbox", id: "#{ prefix }lottery", model: @
       %label{ for: "#{ prefix }lottery" }
         הרווחתי בהימורים הגרלות או פרסים
         %i.fa.fa-fw.fa-check
         %i.fa.fa-fw.fa-trophy
 
-    %li.ii-option.ii-options-other
+    %li.checkbox-option.ii-option.ii-options-other
       != App.help "checkbox", id: "#{ prefix }other", model: @
       %label{ for: "#{ prefix }other" }
         לא כתוב פה

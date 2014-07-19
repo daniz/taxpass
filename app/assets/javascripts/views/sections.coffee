@@ -31,6 +31,8 @@ class App.Views.Sections extends Backbone.View
     App.Views.AppartmentIIISection
     App.Views.LotterySection
     App.Views.OtherSection
+    App.Views.ExpensePreSection
+    App.Views.ExpenseIntroSection
     App.Views.EndingSection
   ]
 

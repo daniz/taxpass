@@ -3,6 +3,9 @@ class App.Views.OtherSection extends App.Views.Section
   id: 'other-section'
   templateName: 'other'
 
+  isEnabled: ->
+    @model.get 'other'
+
   events:
     'change [type=checkbox]' : 'onCheckChange'
 
