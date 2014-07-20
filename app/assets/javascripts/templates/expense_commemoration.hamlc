@@ -1,0 +1,37 @@
+- renderPartial = (o) ->
+  - prefix = if o.spouse then "spouse_" else ""
+  
+  != App.help "checkbox", id: "#{ prefix }commemorate_soldier", label: "חייל", model: @
+  != App.help "checkbox", id: "#{ prefix }commemorate_police", label: "שוטר", model: @
+  != App.help "checkbox", id: "#{ prefix }commemorate_defence", label: "כוחות ביטחון אחרים", model: @
+  != App.help "checkbox", id: "#{ prefix }commemorate_victim", label: "חלל פעולות האיבה", model: @
+
+  מה הייתה קרבתך למונצח?
+
+  != App.help "checkbox", id: "#{ prefix }commemorate_spouse", label: "בן/בת זוג", model: @
+  != App.help "checkbox", id: "#{ prefix }commemorate_parent", label: "אמי/אבי", model: @
+  != App.help "checkbox", id: "#{ prefix }commemorate_sibling", label: "אחי/אחותי", model: @
+  != App.help "checkbox", id: "#{ prefix }commemorate_children", label: "בני/בתי", model: @
+  != App.help "checkbox", id: "#{ prefix }commemorate_grandchildren", label: "נכדי/נכדתי", model: @
+  != App.help "checkbox", id: "#{ prefix }commemorate_parent_in_law", label: "גיסי/גיסתי", model: @
+  != App.help "checkbox", id: "#{ prefix }commemorate_in_law", label: "חתני/כלתי", model: @
+
+  %br
+
+  != App.help "input", id: "#{ prefix }commemoration_sum", type: "number", label: "מה היה סכום ההוצאה עבור הנצחה בשנת המס @tax_year", model: @
+
+  %div{ "class": "#{ prefix }upload" }
+
+.section-description
+  != App.help "user_name"
+  סימנת שהנצחת חלל. האם מי שהנצחת היה:
+
+= renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    .section-description
+      ולגבי
+      != App.help "spouse_name", @
+
+    = renderPartial spouse: yes
