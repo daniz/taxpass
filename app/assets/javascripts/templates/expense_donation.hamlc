@@ -1,0 +1,23 @@
+- renderPartial = (o) ->
+  - prefix = if o.spouse then "spouse_" else ""
+  != App.help "select", id: "#{ prefix }donation_institution", options: App.Enums.DonationInstitutions, label: o.instLabel, model: @
+  %br
+  != App.help "input", id: "#{ prefix }donation_sum", type: "number", label: o.sumLabel, model: @
+
+  %div{ "class": "#{ prefix }upload" }
+
+.section-description
+  != App.help "user_name"
+  סימנת שתרמת. כל הכבוד!
+
+= renderPartial spouse: no, instLabel: "למי תרמת?", sumLabel: "כמה תרמת במצטבר במהלך השנה?"
+
+- if @spouse_name
+  .spouse
+    .section-description
+      != App.help "user_name"
+      סימנת ש
+      != App.help "spouse_name", @
+      תרם/ה. כל הכבוד!
+
+    = renderPartial spouse: yes, instLabel: "למי?", sumLabel: "כמה #{ @spouse_name } תרם/ה במצטבר?"

@@ -95,3 +95,9 @@ App.Enums =
     'שניר'
     'שתולה'
   ], (item, index) -> text: item, value: index + 1
+
+  DonationInstitutions: _.map [
+    'a'
+    'b'
+    'c'
+  ], (item, index) -> text: item, value: index + 1
