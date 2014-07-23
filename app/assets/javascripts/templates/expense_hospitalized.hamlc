@@ -1,0 +1,34 @@
+- renderPartial = (o) =>
+  - prefix = if o.spouse then "spouse_" else ""
+  
+  != App.help "checkbox", id: "#{ prefix }hospitalized_spouse", label: "בן/בת זוג", model: @
+  %br
+  != App.help "checkbox", id: "#{ prefix }hospitalized_parent", label: "אמי/אבי", model: @
+  %br
+  != App.help "checkbox", id: "#{ prefix }hospitalized_child", label: "בני/בתי", model: @
+  %br
+  != App.help "checkbox", id: "#{ prefix }hospitalized_other", label: "אחר", model: @
+  %br
+  %br
+
+  אנא צלם את החשבוניות מהמוסד או הקלד את הסכום אותו הוצאת במהלך השנה.
+
+  %br
+  != App.help "input", id: "#{ prefix }hospitalized_sum", type: "number", label: "הקלד סכום", model: @
+
+  %div{ "class": "#{ prefix }upload" }
+    *upload placeholder*  
+
+.section-description
+  != App.help "user_name"
+  סימנת שתמכת בבן משפחה במוסד. מה קרבתך לבן המשפחה?
+
+= renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    .section-description
+      ולגבי
+      != App.help "spouse_name", @
+
+    = renderPartial spouse: yes

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140721072747) do
+ActiveRecord::Schema.define(version: 20140723072553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -317,6 +317,16 @@ ActiveRecord::Schema.define(version: 20140721072747) do
     t.boolean  "spouse_commemorate_in_law"
     t.boolean  "spouse_commemoration_sum"
     t.boolean  "spouse_commemoration_type"
+    t.boolean  "hospitalized_spouse"
+    t.boolean  "hospitalized_parent"
+    t.boolean  "hospitalized_child"
+    t.boolean  "hospitalized_other"
+    t.integer  "hospitalized_sum"
+    t.boolean  "spouse_hospitalized_spouse"
+    t.boolean  "spouse_hospitalized_parent"
+    t.boolean  "spouse_hospitalized_child"
+    t.boolean  "spouse_hospitalized_other"
+    t.integer  "spouse_hospitalized_sum"
   end
 
   create_table "users", force: true do |t|
