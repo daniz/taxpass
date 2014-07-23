@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140720202144) do
+ActiveRecord::Schema.define(version: 20140721072747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -291,6 +291,32 @@ ActiveRecord::Schema.define(version: 20140720202144) do
     t.boolean  "spouse_btl_expense"
     t.boolean  "spouse_insurance_expense"
     t.boolean  "spouse_pension_plan"
+    t.boolean  "commemorate_soldier"
+    t.boolean  "commemorate_police"
+    t.boolean  "commemorate_defence"
+    t.boolean  "commemorate_victim"
+    t.boolean  "commemorate_spouse"
+    t.boolean  "commemorate_parent"
+    t.boolean  "commemorate_sibling"
+    t.boolean  "commemorate_children"
+    t.boolean  "commemorate_grandchildren"
+    t.boolean  "commemorate_parent_in_law"
+    t.boolean  "commemorate_in_law"
+    t.boolean  "commemoration_sum"
+    t.boolean  "commemoration_type"
+    t.boolean  "spouse_commemorate_soldier"
+    t.boolean  "spouse_commemorate_police"
+    t.boolean  "spouse_commemorate_defence"
+    t.boolean  "spouse_commemorate_victim"
+    t.boolean  "spouse_commemorate_spouse"
+    t.boolean  "spouse_commemorate_parent"
+    t.boolean  "spouse_commemorate_sibling"
+    t.boolean  "spouse_commemorate_children"
+    t.boolean  "spouse_commemorate_grandchildren"
+    t.boolean  "spouse_commemorate_parent_in_law"
+    t.boolean  "spouse_commemorate_in_law"
+    t.boolean  "spouse_commemoration_sum"
+    t.boolean  "spouse_commemoration_type"
   end
 
   create_table "users", force: true do |t|

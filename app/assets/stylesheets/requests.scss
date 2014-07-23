@@ -920,6 +920,15 @@ section {
   font-size: 24px;
 }
 
+#expense-commemoration-section {
+  // .upload,
+  // .spouse_upload,
+  .commemoration-type-container,
+  .spouse-commemoration-type-container {
+    display: none;
+  }
+}
+
 #back-button,
 #continue-button {
   position: absolute;

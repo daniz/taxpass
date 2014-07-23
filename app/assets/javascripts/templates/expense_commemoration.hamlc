@@ -1,26 +1,46 @@
-- renderPartial = (o) ->
+- renderPartial = (o) =>
   - prefix = if o.spouse then "spouse_" else ""
   
   != App.help "checkbox", id: "#{ prefix }commemorate_soldier", label: "חייל", model: @
+  %br
   != App.help "checkbox", id: "#{ prefix }commemorate_police", label: "שוטר", model: @
+  %br
   != App.help "checkbox", id: "#{ prefix }commemorate_defence", label: "כוחות ביטחון אחרים", model: @
+  %br
   != App.help "checkbox", id: "#{ prefix }commemorate_victim", label: "חלל פעולות האיבה", model: @
+  %br
+  %br
 
   מה הייתה קרבתך למונצח?
 
   != App.help "checkbox", id: "#{ prefix }commemorate_spouse", label: "בן/בת זוג", model: @
+  %br
   != App.help "checkbox", id: "#{ prefix }commemorate_parent", label: "אמי/אבי", model: @
+  %br
   != App.help "checkbox", id: "#{ prefix }commemorate_sibling", label: "אחי/אחותי", model: @
+  %br
   != App.help "checkbox", id: "#{ prefix }commemorate_children", label: "בני/בתי", model: @
+  %br
   != App.help "checkbox", id: "#{ prefix }commemorate_grandchildren", label: "נכדי/נכדתי", model: @
+  %br
   != App.help "checkbox", id: "#{ prefix }commemorate_parent_in_law", label: "גיסי/גיסתי", model: @
+  %br
   != App.help "checkbox", id: "#{ prefix }commemorate_in_law", label: "חתני/כלתי", model: @
 
   %br
 
-  != App.help "input", id: "#{ prefix }commemoration_sum", type: "number", label: "מה היה סכום ההוצאה עבור הנצחה בשנת המס @tax_year", model: @
+  != App.help "input", id: "#{ prefix }commemoration_sum", type: "number", label: "מה היה סכום ההוצאה עבור הנצחה בשנת המס #{ @tax_year }?", model: @
 
+  %br
+
+  האם יש לך קבלות עבור הוצאה זו?
+  != App.help "toggle_button", id: "#{ prefix }has-receipts", name: "", className: "", checked: yes
   %div{ "class": "#{ prefix }upload" }
+    *upload placeholder*  
+
+  %div{ "class": "#{ prefix }commemoration-type-container" }
+    != App.help "input", id: "#{ prefix }commemoration_type", label: "מה היתה צורת ההנצחה?", model: @
+  
 
 .section-description
   != App.help "user_name"
