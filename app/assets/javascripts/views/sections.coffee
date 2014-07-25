@@ -42,6 +42,7 @@ class App.Views.Sections extends Backbone.View
     App.Views.ExpenseBtlSection
     App.Views.ExpenseInsuranceSection
     App.Views.ExpensePensionSection
+    App.Views.ExpensePensionEmployedSection
     App.Views.EndingSection
   ]
 
