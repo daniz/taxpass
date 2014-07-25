@@ -1,0 +1,33 @@
+- renderPartial = (o) =>
+  - prefix = if o.spouse then "spouse_" else ""
+
+  != App.help "toggle_button", id: "#{ prefix }epns-work-loss"
+
+  %div{ "class": "#{ prefix }epns-form" }
+
+    != App.help "input", id: "#{ prefix }expense_pension_sum", label: "כמה?", model: @
+
+    %br
+    
+    אנא צלם את הטופס:
+    %div{ "class": "#{ prefix }upload" }
+      *upload placeholder*
+
+
+.section-description
+  != App.help "user_name"
+  האם שילמת ביטוח מפני אובדן כושר עבודה בשל הכנסה כעצמאי?
+
+  %br
+  
+= renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    .section-description
+      != App.help "user_name"
+      האם
+      != App.help "spouse_name", @
+      שילם/ה ביטוח מפני אובדן כושר עבודה בשל הכנסה כעצמאי/ת
+
+    = renderPartial spouse: yes

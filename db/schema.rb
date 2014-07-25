@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140723072553) do
+ActiveRecord::Schema.define(version: 20140725140959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -327,6 +327,30 @@ ActiveRecord::Schema.define(version: 20140723072553) do
     t.boolean  "spouse_hospitalized_child"
     t.boolean  "spouse_hospitalized_other"
     t.integer  "spouse_hospitalized_sum"
+    t.string   "literature_book"
+    t.integer  "literature_sum"
+    t.string   "spouse_literature_book"
+    t.integer  "spouse_literature_sum"
+    t.string   "course_name"
+    t.string   "course_institute"
+    t.integer  "course_sum"
+    t.string   "spouse_course_name"
+    t.string   "spouse_course_institute"
+    t.integer  "spouse_course_sum"
+    t.integer  "cpa_sum"
+    t.integer  "cpa_type"
+    t.integer  "cpa_rating"
+    t.integer  "spouse_cpa_sum"
+    t.integer  "spouse_cpa_type"
+    t.integer  "spouse_cpa_rating"
+    t.integer  "btl_sum"
+    t.integer  "spouse_btl_sum"
+    t.integer  "insurance_sum"
+    t.integer  "spouse_insurance_sum"
+    t.integer  "expense_pension_sum"
+    t.integer  "spouse_expense_pension_sum"
+    t.integer  "expense_pension_employed_sum"
+    t.integer  "spouse_expense_pension_employed_sum"
   end
 
   create_table "users", force: true do |t|

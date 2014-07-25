@@ -1,0 +1,27 @@
+- renderPartial = (o) =>
+  - prefix = if o.spouse then "spouse_" else ""
+  
+  אנא צלם את אישור התשלום מביטוח לאומי:
+
+  %div{ "class": "#{ prefix }upload" }
+    *upload placeholder*
+
+  %br
+
+  != App.help "input", id: "#{ prefix }btl_sum", label: "או הקלד את הסכום ששולם", model: @
+
+.section-description
+  != App.help "user_name"
+  סימנת ששילמת לביטוח לאומי. מילא! לפחות במס הכנסה תקבל החזר.
+
+  %br
+  
+= renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    .section-description
+      ולגבי
+      != App.help "spouse_name", @
+
+    = renderPartial spouse: yes

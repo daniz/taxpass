@@ -1,0 +1,27 @@
+- renderPartial = (o) =>
+  - prefix = if o.spouse then "spouse_" else ""
+  - cpaTypeOptions = [{ value: 1, text: "יועץ מס" }, { value: 2, text: "רו״ח"}]
+
+  %br
+  != App.help "input", id: "#{ prefix }cpa_sum", type: "number", label: "כמה שילמת?", model: @
+
+  %br
+  != App.help "select", id: "#{ prefix }cpa_type", label: "האם ליועץ מס או לרו״ח?", options: cpaTypeOptions, model: @
+
+  %br
+  != App.help "input", id: "#{ prefix }cpa_rating", type: "number", label: "דרג את שביעות רצונך מנותן השירות (0-5)", model: @
+
+
+.section-description
+  != App.help "user_name"
+  הוצאה עבור רו״ח או יועץ מס מוכרת למס. נשמח אם תוכל לתת לנו עוד פרטים:
+
+= renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    .section-description
+      ולגבי
+      != App.help "spouse_name", @
+
+    = renderPartial spouse: yes
