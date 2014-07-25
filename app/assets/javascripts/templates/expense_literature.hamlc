@@ -1,0 +1,26 @@
+- renderPartial = (o) =>
+  - prefix = if o.spouse then "spouse_" else ""
+
+  %div{ "class": "#{ prefix }upload" }
+    *upload placeholder*
+
+  %br
+  != App.help "input", id: "#{ prefix }literature_book", label: "שם הספר", model: @
+
+  %br
+  != App.help "input", id: "#{ prefix }literature_sum", type: "number", label: "עלות", model: @
+
+
+.section-description
+  != App.help "user_name"
+  סימנת שקנית ספרות מקצועית. אנא צלם את החשבוניות או הקלד:
+
+= renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    .section-description
+      ולגבי
+      != App.help "spouse_name", @
+
+    = renderPartial spouse: yes

@@ -1,0 +1,29 @@
+- renderPartial = (o) =>
+  - prefix = if o.spouse then "spouse_" else ""
+
+  %div{ "class": "#{ prefix }upload" }
+    *upload placeholder*
+
+  %br
+  != App.help "input", id: "#{ prefix }course_name", label: "שם הקורס", model: @
+
+  %br
+  != App.help "input", id: "#{ prefix }course_institute", label: "מוסד לימוד", model: @
+
+  %br
+  != App.help "input", id: "#{ prefix }course_sum", type: "number", label: "עלות", model: @
+
+
+.section-description
+  != App.help "user_name"
+  סימנת שהשתתפת בקורס מקצועי. אנא צלם את החשבוניות או הקלד:
+
+= renderPartial spouse: no
+
+- if @spouse_name
+  .spouse
+    .section-description
+      ולגבי
+      != App.help "spouse_name", @
+
+    = renderPartial spouse: yes
