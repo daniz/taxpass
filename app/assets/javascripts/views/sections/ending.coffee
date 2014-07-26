@@ -1,5 +1,3 @@
-
-
 class App.Views.EndingSection extends App.Views.Section
 
   id: 'ending-section'
@@ -52,6 +50,7 @@ class App.Views.EndingSection extends App.Views.Section
     suffix  = if index or type then "_#{ index ? type }" else ''
 
     if files?
+      if o.name = 'receipt' then suffix += '[]'
       $('<input>', type: 'file', name: "#{ prefix }#{ o.name }#{ suffix }")
         .prop('files', files)
         .hide()

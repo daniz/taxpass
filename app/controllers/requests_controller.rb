@@ -146,19 +146,25 @@ class RequestsController < ApplicationController
       end
     end
 
-    debugger
-
     if receipts
       receipts.each do |f|
-        file = params["receipt_#{ f['index'] }"]
-        @request.receipts.new f.merge spouse: false, file: file
+        files = params["receipt_#{ f['index'] }"]
+        if files
+          files.each do |file|
+            @request.receipts.new f.merge spouse: false, file: file
+          end
+        end
       end
     end
 
     if spouseReceipts
       spouseReceipts.each do |f|
-        file = params["spouse_receipt_#{ f['index'] }"]
-        @request.receipts.new f.merge spouse: false, file: file
+        files = params["spouse_receipt_#{ f['index'] }"]
+        if files
+          files.each do |file|
+            @request.receipts.new f.merge spouse: true, file: file
+          end
+        end
       end
     end
     

@@ -40,5 +40,5 @@ class App.Show extends Backbone.View
     @appendArray o.appartments, 'appartments'
 
     @appendArray o.receipts, 'receipts'
-    @appendArray o.spouseReceipts, 'receipts'
+    @appendArray o.spouseReceipts, 'spouse receipts'
     
