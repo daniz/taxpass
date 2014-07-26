@@ -9,4 +9,8 @@ class Request < ActiveRecord::Base
   has_many :pension_forms
   has_many :appartments
   has_many :receipts
+
+  def calc
+    
+  end
 end

@@ -12,6 +12,7 @@ class App.Views.EndingSection extends App.Views.Section
   onSubmit: ->
     json = @serialize()
     @serializeFileInputs()
+    console.log JSON.stringify(json)
     @$('#data-input').val JSON.stringify(json)
 
   serialize: ->

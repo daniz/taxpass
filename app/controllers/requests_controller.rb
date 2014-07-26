@@ -150,7 +150,7 @@ class RequestsController < ApplicationController
       receipts.each do |f|
         files = params["receipt_#{ f['index'] }"]
         if files
-          files.each do |file|
+          files.each do |file|  
             @request.receipts.new f.merge spouse: false, file: file
           end
         end
