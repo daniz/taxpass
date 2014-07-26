@@ -1,0 +1,3 @@
+%input.receipt-upload{ type: "file", multiple: "multiple" }
+%button.form-upload-button.button.button-empty{ type: "button" } העלה קובץ
+  %i.fa.fa-check

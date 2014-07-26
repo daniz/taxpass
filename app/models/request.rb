@@ -8,4 +8,5 @@ class Request < ActiveRecord::Base
   has_many :btl_forms
   has_many :pension_forms
   has_many :appartments
+  has_many :receipts
 end

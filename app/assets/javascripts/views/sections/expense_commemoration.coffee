@@ -1,7 +1,9 @@
-class App.Views.ExpenseCommemorationSection extends App.Views.Section
+class App.Views.ExpenseCommemorationSection extends App.Views.ExpenseSection
 
   id: 'expense-commemoration-section'
   templateName: 'expense_commemoration'
+
+  kind: 'commemoration'
 
   events:
     'change #has-receipts' : 'onHasReceiptsChange'

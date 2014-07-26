@@ -39,6 +39,9 @@ class App.Views.EndingSection extends App.Views.Section
 
     @addFileInput @model.get('form867'), spouse: no, name: 'form867'
 
+    @model.get('receipts').each (f) => @addFileInput f, spouse: no, name: 'receipt'
+    @model.get('spouseReceipts').each (f) => @addFileInput f, spouse: yes, name: 'receipt'
+
   addFileInput: (form, o) ->
     return unless form
 

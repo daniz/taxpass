@@ -1,7 +1,9 @@
-class App.Views.ExpensePensionSection extends App.Views.Section
+class App.Views.ExpensePensionSection extends App.Views.ExpenseSection
 
   id: 'expense-pension-section'
   templateName: 'expense_pension'
+
+  kind: 'pension'
 
   events: ->
     'change #epns-work-loss' : 'onWorkLossChange'

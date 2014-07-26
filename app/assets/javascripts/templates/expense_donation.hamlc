@@ -4,6 +4,8 @@
   %br
   != App.help "input", id: "#{ prefix }donation_sum", type: "number", label: o.sumLabel, model: @
 
+  %br
+  אנא צלם את הקבלות המקוריות:
   %div{ "class": "#{ prefix }upload" }
 
 .section-description

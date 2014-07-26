@@ -74,6 +74,10 @@ input[type=date] {
   padding: 9px 12px;
 }
 
+input[type=file] {
+  display: none;
+}
+
 select {
   height: 42px;
   line-height: 42px;
@@ -559,9 +563,9 @@ section {
 }
 
 #form-106-section {
-  input[type=file] {
-    display: none;
-  }
+  // input[type=file] {
+  //   display: none;
+  // }
 
   // .button {
   //   font-size: 16px;
@@ -631,9 +635,9 @@ section {
 }
 
 #income-pension-section {
-  [type=file] {
-    display: none;
-  }
+  // [type=file] {
+  //   display: none;
+  // }
 }
 
 #pns-automated,
@@ -677,9 +681,9 @@ section {
 }
 
 #author-section {
-  [type=file] {
-    display: none;
-  }
+  // [type=file] {
+  //   display: none;
+  // }
 }
 
 .ath-857-form {
@@ -702,9 +706,9 @@ section {
 }
 
 #btl-section {
-  [type=file] {
-    display: none;
-  }
+  // [type=file] {
+  //   display: none;
+  // }
 
   .btl-form,
   .spouse_btl-form {
@@ -717,9 +721,9 @@ section {
 }
 
 #stock-section {
-  [type=file] {
-    display: none;
-  }
+  // [type=file] {
+  //   display: none;
+  // }
 }
 
 #stk-form {
@@ -780,9 +784,9 @@ section {
 }
 
 #stock-misc-section {
-  [type=file] {
-    display: none;
-  }
+  // [type=file] {
+  //   display: none;
+  // }
 }
 
 #stm-abroad {

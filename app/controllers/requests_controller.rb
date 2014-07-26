@@ -21,6 +21,8 @@ class RequestsController < ApplicationController
     gon.pensionForms        = @request.pension_forms.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     gon.spousePensionForms  = @request.pension_forms.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     gon.form867s            = @request.form867s.as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.receipts            = @request.receipts.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
+    gon.spouseReceipts      = @request.receipts.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     gon.appartments         = @request.appartments
   end
 
@@ -72,6 +74,12 @@ class RequestsController < ApplicationController
 
     appartments = data["appartments"]
     data.delete "appartments"
+
+    receipts = data["receipts"]
+    data.delete "receipts"
+
+    spouseReceipts = data["spouseReceipts"]
+    data.delete "spouseReceipts"
 
     @request = Request.new(data)
 
@@ -135,6 +143,22 @@ class RequestsController < ApplicationController
     if appartments
       appartments.each do |a|
         @request.appartments.new a.except("index")
+      end
+    end
+
+    debugger
+
+    if receipts
+      receipts.each do |f|
+        file = params["receipt_#{ f['index'] }"]
+        @request.receipts.new f.merge spouse: false, file: file
+      end
+    end
+
+    if spouseReceipts
+      spouseReceipts.each do |f|
+        file = params["spouse_receipt_#{ f['index'] }"]
+        @request.receipts.new f.merge spouse: false, file: file
       end
     end
     

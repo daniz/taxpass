@@ -1,7 +1,9 @@
-class App.Views.ExpensePensionEmployedSection extends App.Views.Section
+class App.Views.ExpensePensionEmployedSection extends App.Views.ExpenseSection
 
   id: 'expense-pension-employed-section'
   templateName: 'expense_pension_employed'
+
+  kind: 'pension_employed'
 
   events: ->
     'change #epnse-none-work-income' : 'onNoneWorkIncomeChange'
