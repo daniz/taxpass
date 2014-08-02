@@ -105,17 +105,19 @@ class RequestsController < ApplicationController
         prefix = if form["spouse"] then "spouse_" else "" end
         suffix = "_#{ form['index'] }"
 
+        forms = @request.send(name)
+        additional_data = {}
+
         files = params["#{ prefix }#{ name }#{ suffix }"]
         if files
-          forms = @request.send(name)
-
           uploaded_form = UploadedForm.new
-          forms.new form.except("index").merge(uploaded_form: uploaded_form)
-          
           files.each do |file|
             uploaded_form.uploaded_files.new file: file
           end
+          additional_data = { uploaded_form: uploaded_form }
         end
+
+        forms.new form.except("index").merge additional_data
       end
 
     end
