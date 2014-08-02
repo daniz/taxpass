@@ -2,7 +2,7 @@
   %input.form-upload-label{ name: @label.name, type: "text", placeholder: @label.text }
 
 / %input{ "class": "#{ @fileInputClass }", type: "file" }
-%input{ type: "file", style: "display: none" }
+%input{ type: "file", style: "display: none", multiple: "multiple" }
 %button.form-upload-button.button.button-empty{ type: "button" } העלה קובץ
   %i.fa.fa-check
 

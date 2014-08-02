@@ -38,7 +38,7 @@ class App.Views.EndingSection extends App.Views.Section
     files   = form.get 'files'
 
     if files?
-      $('<input>', type: 'file', name: "#{ prefix }#{ name }#{ suffix }")
+      $('<input>', type: 'file', name: "#{ prefix }#{ name }#{ suffix }[]", multiple: "multiple")
         .prop('files', files)
         .hide()
         .appendTo @el
