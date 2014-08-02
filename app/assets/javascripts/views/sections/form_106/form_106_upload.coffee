@@ -10,7 +10,7 @@ class App.Views.Form106Upload extends App.Views.FormUpload
   options:
       template          : 'form_106_upload'
       manualTemplate    : 'form_106_manual'
-      manualDialogHead  : 'טופס 106'
+      manualTitle       : 'טופס 106'
 
   onWorkplaceChange: ->
     $wp   = @$ '.workplace'

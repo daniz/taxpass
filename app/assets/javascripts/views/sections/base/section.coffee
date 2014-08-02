@@ -40,7 +40,6 @@ class App.Views.Section extends Backbone.View
       $input.prop 'checked'
     else if $input.is('select') or $input.attr('type') is 'number'
       if val then parseInt(val) else 0 # might not make sense for select...
-      # parseInt $input.val() ? 0
     else
       val
 

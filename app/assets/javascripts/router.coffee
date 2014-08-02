@@ -16,9 +16,9 @@ class App.Router extends Backbone.Router
       request : new App.Models.Request 
         kids            : new App.Collections.Kids
         form106s        : new App.Collections.Form106s
-        spouseForm106s  : new App.Collections.Form106s
-        btlForms        : new Backbone.Collection
-        spouseBtlForms  : new Backbone.Collection
+        # spouseForm106s  : new App.Collections.Form106s
+        # btlForms        : new Backbone.Collection
+        # spouseBtlForms  : new Backbone.Collection
 
     window.view = new App.Views.Create model: model
     view.render()

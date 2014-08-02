@@ -48,7 +48,7 @@ class App.Views.IncomePensionSection extends App.Views.Section
         manualButtonLabel : 'הקלד'
         template          : 'form_upload'
         manualTemplate    : 'pension_manual'
-        manualDialogHead  : 'העלה קובץ 106 או 161'
+        manualTitle  : 'העלה קובץ 106 או 161'
 
       new App.Views.FormUpload(o).render()
 

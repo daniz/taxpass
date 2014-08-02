@@ -30,7 +30,7 @@ class App.Views.BtlSection extends App.Views.Section
       manualButtonLabel : 'הקלד'
       template          : 'form_upload'
       manualTemplate    : 'btl_manual'
-      manualDialogHead  : 'ביטוח לאומי'
+      manualTitle  : 'ביטוח לאומי'
     view.render()
 
   onFormRemove: (form) ->
@@ -46,7 +46,7 @@ class App.Views.BtlSection extends App.Views.Section
       manualButtonLabel : 'הקלד'
       template          : 'form_upload'
       manualTemplate    : 'btl_manual'
-      manualDialogHead  : 'ביטוח לאומי'
+      manualTitle  : 'ביטוח לאומי'
     view.render()
 
   onSpouseFormRemove: (form) ->

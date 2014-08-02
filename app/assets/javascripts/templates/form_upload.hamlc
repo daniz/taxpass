@@ -1,7 +1,11 @@
-%input{ "class": "#{ @fileInputClass }", type: "file" }
-%button.form-upload-button.button.button-empty{ type: "button" }= @uploadButtonLabel ? "העלה קובץ"
+- if @label
+  %input.form-upload-label{ name: @label.name, type: "text", placeholder: @label.text }
+
+/ %input{ "class": "#{ @fileInputClass }", type: "file" }
+%input{ type: "file", style: "display: none" }
+%button.form-upload-button.button.button-empty{ type: "button" } העלה קובץ
   %i.fa.fa-check
 
 - if @manual isnt false # default is true
-  %button.form-manual-button.button.button-empty{ type: "button" }= @manualButtonLabel ? "הזן ידנית"
+  %button.form-manual-button.button.button-empty{ type: "button" } הזן ידנית
     %i.fa.fa-check
