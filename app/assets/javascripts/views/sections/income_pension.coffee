@@ -10,7 +10,8 @@ class App.Views.IncomePensionSection extends App.Views.Section
 
   initialize: ->
     @forms = @model.get 'pension_forms'
-    @listenTo @forms, 'add', @onFormsAdd
+    @listenTo @forms, 'add', @onFormAdd
+    @listenTo @forms, 'remove', @onFormRemove
 
   isEnabled: ->
     @model.get 'pension'
@@ -22,12 +23,10 @@ class App.Views.IncomePensionSection extends App.Views.Section
     pensionForm = @forms.findWhere spouse: no
 
     if $t.is '#pns-option-form'
-      # @model.set 'pensionForm', new App.Models.Form
       unless pensionForm
         @forms.add(new App.Models.Form spouse: no)
 
     else @forms.remove(pensionForm)
-    # else @model.set 'pensionForm', null
 
   onSpouseOptionChange: (e) ->
     $t = $ e.currentTarget
@@ -41,19 +40,13 @@ class App.Views.IncomePensionSection extends App.Views.Section
 
     else @forms.remove(pensionForm)
 
-    # if $t.is '#spouse_pns-option-form'
-    #   @model.set 'spousePensionForm', new App.Models.Form
-    # else @model.set 'spousePensionForm', null
-
-  onFormsAdd: (form) ->
+  onFormAdd: (form) ->
     el = if form.get('spouse') then '#spouse_pns-form' else '#pns-form'
     @_formChangeHandler el, form
 
-  # onFormChange: (model, form) ->
-  #   @_formChangeHandler '#pns-form', form
-
-  # onSpouseFormChange: (model, form) ->
-  #   @_formChangeHandler '#spouse_pns-form', form
+  onFormRemove: (form) ->
+    el = if form.get('spouse') then '#spouse_pns-form' else '#pns-form'
+    @_formChangeHandler el, false    
 
   _formChangeHandler: (el, formModel) ->
     if formModel

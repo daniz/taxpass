@@ -33,7 +33,7 @@ class App.Views.AuthorSection extends App.Views.Section
         manualButtonLabel : 'הזן ידנית'
         template          : 'author_upload'
         manualTemplate    : 'author_manual'
-        manualTitle  : 'טופס 857'
+        manualTitle       : 'טופס 857'
 
       new App.Views.FormUpload(o).render()
 
