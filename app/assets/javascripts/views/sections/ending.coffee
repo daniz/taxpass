@@ -26,6 +26,10 @@ class App.Views.EndingSection extends App.Views.Section
   serializeFileInputs: ->
     formsFields = [
       'form106s'
+      'form867s'
+      'form857s'
+      'pension_forms'
+      'btl_forms'
     ]
 
     for field in formsFields

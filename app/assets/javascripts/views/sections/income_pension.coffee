@@ -1,5 +1,4 @@
 
-
 class App.Views.IncomePensionSection extends App.Views.Section
 
   id: 'income-pension-section'
@@ -10,8 +9,8 @@ class App.Views.IncomePensionSection extends App.Views.Section
     'change [name=spouse_pns-options]'  : 'onSpouseOptionChange'
 
   initialize: ->
-    @listenTo @model, 'change:pensionForm', @onFormChange
-    @listenTo @model, 'change:spousePensionForm', @onSpouseFormChange
+    @forms = @model.get 'pension_forms'
+    @listenTo @forms, 'add', @onFormsAdd
 
   isEnabled: ->
     @model.get 'pension'
@@ -20,35 +19,50 @@ class App.Views.IncomePensionSection extends App.Views.Section
     $t = $ e.currentTarget
     @$('#pns-automated').toggle $t.is('#pns-option-automated')
 
+    pensionForm = @forms.findWhere spouse: no
+
     if $t.is '#pns-option-form'
-      @model.set 'pensionForm', new App.Models.Form
-    else @model.set 'pensionForm', null
+      # @model.set 'pensionForm', new App.Models.Form
+      unless pensionForm
+        @forms.add(new App.Models.Form spouse: no)
+
+    else @forms.remove(pensionForm)
+    # else @model.set 'pensionForm', null
 
   onSpouseOptionChange: (e) ->
     $t = $ e.currentTarget
     @$('#spouse_pns-automated').toggle $t.is('#spouse_pns-option-automated')
 
+    pensionForm = @forms.findWhere spouse: yes
+
     if $t.is '#spouse_pns-option-form'
-      @model.set 'spousePensionForm', new App.Models.Form
-    else @model.set 'spousePensionForm', null
+      unless pensionForm
+        @forms.add(new App.Models.Form spouse: yes)
 
-  onFormChange: (model, form) ->
-    @_formChangeHandler '#pns-form', form
+    else @forms.remove(pensionForm)
 
-  onSpouseFormChange: (model, form) ->
-    @_formChangeHandler '#spouse_pns-form', form
+    # if $t.is '#spouse_pns-option-form'
+    #   @model.set 'spousePensionForm', new App.Models.Form
+    # else @model.set 'spousePensionForm', null
+
+  onFormsAdd: (form) ->
+    el = if form.get('spouse') then '#spouse_pns-form' else '#pns-form'
+    @_formChangeHandler el, form
+
+  # onFormChange: (model, form) ->
+  #   @_formChangeHandler '#pns-form', form
+
+  # onSpouseFormChange: (model, form) ->
+  #   @_formChangeHandler '#spouse_pns-form', form
 
   _formChangeHandler: (el, formModel) ->
     if formModel
       o = 
         model             : formModel
         el                : el
-        fileInputClass    : 'pension_file'
-        uploadButtonLabel : 'העלה קובץ'
-        manualButtonLabel : 'הקלד'
-        template          : 'form_upload'
+        label             : no
         manualTemplate    : 'pension_manual'
-        manualTitle  : 'העלה קובץ 106 או 161'
+        manualTitle       : 'העלה קובץ 106 או 161'
 
       new App.Views.FormUpload(o).render()
 

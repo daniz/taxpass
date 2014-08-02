@@ -1,6 +1,14 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
 
+  @@formsFieldsNames = [
+    "form106s",
+    "form867s",
+    "form857s",
+    "pension_forms",
+    "btl_forms"
+  ]
+
   # GET /requests
   # GET /requests.json
   def index
@@ -10,10 +18,17 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
-    # debugger
-    gon.request             = @request
-    gon.kids                = @request.kids
-    gon.form106s            = @request.form106s.as_json include: {uploaded_form: {include: {uploaded_files: {only:{}, methods: :file } } } }
+    include = {uploaded_form: {include: {uploaded_files: {only:{}, methods: :file } } } }
+
+    gon.request = @request
+    gon.kids    = @request.kids
+
+    @@formsFieldsNames.each do |name|
+      gon.send "#{ name }=", @request.send(name).as_json(include: include)
+    end
+
+    # gon.form106s            = @request.form106s.as_json include: include
+    # gon.pension_forms       = @request.pension_forms.as_json include: include
     # gon.spouseForm106s      = @request.form106s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     # gon.form857s            = @request.form857s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
     # gon.spouseForm857s      = @request.form857s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
@@ -46,12 +61,16 @@ class RequestsController < ApplicationController
     kids = data["kids"]
     data.delete "kids"
 
-    formsFields = {}
-    formsFieldsNames = [
-      "form106s"
-    ]
+    # @@formsFieldsNames = [
+    #   "form106s",
+    #   "form867s",
+    #   "form857s",
+    #   "pension_forms",
+    #   "btl_forms"
+    # ]
 
-    formsFieldsNames.each do |name|
+    formsFields = {}
+    @@formsFieldsNames.each do |name|
       formsFields[ name ] = data[ name ]
       data.delete name
     end
@@ -98,7 +117,7 @@ class RequestsController < ApplicationController
       @request.kids.new k.except("index")
     end
 
-    formsFieldsNames.each do |name|
+    @@formsFieldsNames.each do |name|
       formsData = formsFields[name]
 
       formsData.each do |form|

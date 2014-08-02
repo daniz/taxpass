@@ -15,7 +15,11 @@ class App.Router extends Backbone.Router
     model = new Backbone.Model
       request : new App.Models.Request 
         kids            : new App.Collections.Kids
-        form106s        : new App.Collections.Form106s
+        form106s        : new App.Collections.Forms
+        form867s        : new App.Collections.Forms
+        form857s        : new App.Collections.Forms
+        pension_forms   : new App.Collections.Forms
+        btl_forms       : new App.Collections.Forms
         # spouseForm106s  : new App.Collections.Form106s
         # btlForms        : new Backbone.Collection
         # spouseBtlForms  : new Backbone.Collection
