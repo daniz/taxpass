@@ -9,46 +9,48 @@ class App.Views.AuthorSection extends App.Views.Section
     'change #ath-other'             : 'onOtherChange'
     'change #spouse_ath-other'      : 'onSpouseOtherChange'
 
-
   isEnabled: ->
     @model.get 'author'
 
   initialize: ->
-    @listenTo @model, 'change:form857', @onForm857Change
-    @listenTo @model, 'change:spouseForm857', @onSpouseForm857Change
+    @forms = @model.get 'form857s'
+    @listenTo @forms, 'add', @onFormAdd
+    @listenTo @forms, 'remove', @onFormRemove
 
-  onForm857Change: (model, form857) ->
-    @_formChangeHandler '#ath-857-form', form857
+  getFormContainer: (form) ->
+    if form.get('spouse') then @$('#spouse_ath-857-form') else @$('#ath-857-form')
 
-  onSpouseForm857Change: (model, spouseForm857) ->
-    @_formChangeHandler '#spouse_ath-857-form', spouseForm857
+  onFormAdd: (form) ->
+    o = 
+      model             : form
+      el                : @getFormContainer(form)
+      label             : no
+      manualTemplate    : 'author_manual'
+      manualTitle       : 'טופס 857'
 
-  _formChangeHandler: (el, formModel) ->
-    if formModel
-      o = 
-        model             : formModel
-        el                : el
-        fileInputClass    : '857_file'
-        uploadButtonLabel : 'העלה קובץ 857'
-        manualButtonLabel : 'הזן ידנית'
-        template          : 'author_upload'
-        manualTemplate    : 'author_manual'
-        manualTitle       : 'טופס 857'
+    new App.Views.FormUpload(o).render()
 
-      new App.Views.FormUpload(o).render()
-
-    else @$(el).empty()
+  onFormRemove: (form) ->
+    @getFormContainer(form).empty()
 
   onProfessionChange: (e) ->
     checked = @$(e.currentTarget).prop 'checked'
-    @model.set 'form857', 
-      if checked then new App.Models.Form else null
-
+    form = @forms.findWhere spouse: no
+    if checked
+      unless form
+        @forms.add(new App.Models.Form spouse: no)
+    else
+      @forms.remove form
+    
   onSpouseProfessionChange: (e) ->
     checked = @$(e.currentTarget).prop 'checked'
-    @model.set 'spouseForm857', 
-      if checked then new App.Models.Form else null
-
+    form = @forms.findWhere spouse: yes
+    if checked
+      unless form
+        @forms.add(new App.Models.Form spouse: yes)
+    else
+      @forms.remove form
+    
   onOtherChange: (e) ->
     checked = @$(e.currentTarget).prop 'checked'
     @$('#ath-other-text').toggle checked

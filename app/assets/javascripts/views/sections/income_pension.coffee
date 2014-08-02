@@ -40,26 +40,21 @@ class App.Views.IncomePensionSection extends App.Views.Section
 
     else @forms.remove(pensionForm)
 
+  getFormContainer: (form) ->
+    if form.get('spouse') then @$('#spouse_pns-form') else @$('#pns-form')
+
   onFormAdd: (form) ->
-    el = if form.get('spouse') then '#spouse_pns-form' else '#pns-form'
-    @_formChangeHandler el, form
+    o = 
+      model             : form
+      el                : @getFormContainer(form)
+      label             : no
+      manualTemplate    : 'pension_manual'
+      manualTitle       : 'העלה קובץ 106 או 161'
+
+    new App.Views.FormUpload(o).render()
 
   onFormRemove: (form) ->
-    el = if form.get('spouse') then '#spouse_pns-form' else '#pns-form'
-    @_formChangeHandler el, false    
-
-  _formChangeHandler: (el, formModel) ->
-    if formModel
-      o = 
-        model             : formModel
-        el                : el
-        label             : no
-        manualTemplate    : 'pension_manual'
-        manualTitle       : 'העלה קובץ 106 או 161'
-
-      new App.Views.FormUpload(o).render()
-
-    else @$(el).empty()
+    @getFormContainer(form).empty()
 
   render: ->
     super
