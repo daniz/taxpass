@@ -10,8 +10,9 @@ class App.Views.IncomePensionSection extends App.Views.Section
 
   initialize: ->
     @forms = @model.get 'pension_forms'
-    @listenTo @forms, 'add', @onFormAdd
-    @listenTo @forms, 'remove', @onFormRemove
+    @listenTo @forms, 
+      add     : @onFormAdd
+      remove  : @onFormRemove
 
   isEnabled: ->
     @model.get 'pension'

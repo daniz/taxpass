@@ -14,8 +14,9 @@ class App.Views.AuthorSection extends App.Views.Section
 
   initialize: ->
     @forms = @model.get 'form857s'
-    @listenTo @forms, 'add', @onFormAdd
-    @listenTo @forms, 'remove', @onFormRemove
+    @listenTo @forms, 
+      add     : @onFormAdd
+      remove  : @onFormRemove
 
   getFormContainer: (form) ->
     if form.get('spouse') then @$('#spouse_ath-857-form') else @$('#ath-857-form')

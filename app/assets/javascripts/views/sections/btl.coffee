@@ -11,50 +11,32 @@ class App.Views.BtlSection extends App.Views.Section
     @model.get 'btl'
 
   initialize: ->
-    @forms = @model.get 'btlForms'
-    @spouseForms = @model.get 'spouseBtlForms'
+    @forms = @model.get 'btl_forms'
 
-    @listenTo @forms, 'add', @onFormAdd
-    @listenTo @spouseForms, 'add', @onSpouseFormAdd
+    @listenTo @forms, 
+      add     : @onFormAdd
+      remove  : @onFormRemove
 
-    @listenTo @forms, 'remove', @onFormRemove
-    @listenTo @spouseForms, 'remove', @onSpouseFormRemove
+  getFormContainer: (form) ->
+    type = form.get 'type'
+    prefix = if form.get('spouse') then 'spouse_' else ''
+    ".#{ prefix }btl-form[data-type=#{ type }]"
 
   onFormAdd: (form) ->
-    type = form.get 'type'
     view = new App.Views.FormUpload
-      model             : form
-      el                : ".btl-form[data-type=#{ type }]"
-      fileInputClass    : 'btl_file_#{ type }'
-      uploadButtonLabel : 'סרוק את הטופס'
-      manualButtonLabel : 'הקלד'
-      template          : 'form_upload'
-      manualTemplate    : 'btl_manual'
-      manualTitle  : 'ביטוח לאומי'
+      model           : form
+      el              : getFormContainer(form)
+      label           : no
+      manualTemplate  : 'btl_manual'
+      manualTitle     : 'ביטוח לאומי'
     view.render()
 
   onFormRemove: (form) ->
-    @$(".btl-form[data-type=#{ form.get 'type' }]").empty()
-
-  onSpouseFormAdd: (form) ->
-    type = form.get 'type'
-    view = new App.Views.FormUpload
-      model             : form
-      el                : ".spouse_btl-form[data-type=#{ type }]"
-      fileInputClass    : 'spouse_btl_file_#{ type }'
-      uploadButtonLabel : 'סרוק את הטופס'
-      manualButtonLabel : 'הקלד'
-      template          : 'form_upload'
-      manualTemplate    : 'btl_manual'
-      manualTitle  : 'ביטוח לאומי'
-    view.render()
-
-  onSpouseFormRemove: (form) ->
-    @$(".spouse_btl-form[data-type=#{ form.get 'type' }]").empty()
+    @getFormContainer(form).empty()
 
   onCheckboxChange: (e) ->
     $target = $(e.currentTarget)
-    type = $target.data 'type'
+    type    = $target.data 'type'
     checked = $target.prop 'checked'
 
     if checked
@@ -66,7 +48,7 @@ class App.Views.BtlSection extends App.Views.Section
 
   onSpouseCheckboxChange: (e) ->
     $target = $(e.currentTarget)
-    type = $target.data 'type'
+    type    = $target.data 'type'
     checked = $target.prop 'checked'
 
     if checked
