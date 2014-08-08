@@ -7,42 +7,42 @@
       %label{ for: "#{ prefix }public_donation" }
         תרמתי למוסדות ציבוריים
         %i.fa.fa-fw.fa-check
-        %i.fa.fa-fw.fa-briefcase
+        %i.fa.fa-fw.fa-gift
 
     %li.checkbox-option.ei-options-commemoration
       != App.help "checkbox", id: "#{ prefix }commemoration", model: @
       %label{ for: "#{ prefix }commemoration" }
         הנצחתי חלל צה"ל או נופל בפעולות האיבה
         %i.fa.fa-fw.fa-check
-        %i.fa.fa-fw.fa-briefcase
+        %i.fa.fa-fw.fa-heart
 
     %li.checkbox-option.ei-options-hospitalized-family
       != App.help "checkbox", id: "#{ prefix }hospitalized_family", model: @
       %label{ for: "#{ prefix }hospitalized_family" }
         תמכתי בבן משפחה במוסד רפואי או נפשי
         %i.fa.fa-fw.fa-check
-        %i.fa.fa-fw.fa-briefcase
+        %i.fa.fa-fw.fa-institution
 
     %li.checkbox-option.ei-options-professional-literature
       != App.help "checkbox", id: "#{ prefix }professional_literature", model: @
       %label{ for: "#{ prefix }professional_literature" }
         קניתי ספרות הקשורה במקצוע שלי
         %i.fa.fa-fw.fa-check
-        %i.fa.fa-fw.fa-briefcase
+        %i.fa.fa-fw.fa-book
 
     %li.checkbox-option.ei-options-professional-course
       != App.help "checkbox", id: "#{ prefix }professional_course", model: @
       %label{ for: "#{ prefix }professional_course" }
         השתתפתי בקורס הקשור במקצוע שלי
         %i.fa.fa-fw.fa-check
-        %i.fa.fa-fw.fa-briefcase
+        %i.fa.fa-fw.fa-graduation-cap
 
     %li.checkbox-option.ei-options-cpa-expense
       != App.help "checkbox", id: "#{ prefix }cpa_expense", model: @
       %label{ for: "#{ prefix }cpa_expense" }
         שילמתי במהלך השנה לרו"ח או ליועץ מס
         %i.fa.fa-fw.fa-check
-        %i.fa.fa-fw.fa-briefcase
+        %i.fa.fa-fw.fa-money
 
     %li.checkbox-option.ei-options-btl-expense
       != App.help "checkbox", id: "#{ prefix }btl_expense", model: @
@@ -56,14 +56,14 @@
       %label{ for: "#{ prefix }insurance_expense" }
         שילמתי לביטוח חיים או ביטוח משכנתא
         %i.fa.fa-fw.fa-check
-        %i.fa.fa-fw.fa-briefcase
+        %i.fa.fa-fw.fa-home
 
     %li.checkbox-option.ei-options-pension-plan
       != App.help "checkbox", id: "#{ prefix }pension_plan", model: @
       %label{ for: "#{ prefix }pension_plan" }
         עשיתי תכנונים פנסיונים או ביטוחיים מחוץ למקום העבודה  
         %i.fa.fa-fw.fa-check
-        %i.fa.fa-fw.fa-briefcase
+        %i.fa.fa-fw.fa-glass
 
 
 != App.help "user_name"
