@@ -6,4 +6,4 @@ class App.Views.ExpenseCpaSection extends App.Views.ExpenseSection
   kind: 'cpa'
 
   isEnabled: ->
-    @model.get 'cpa_expense'
+    @model.get('cpa_expense') or @model.get('spouse_cpa_expense')

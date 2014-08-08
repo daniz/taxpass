@@ -6,4 +6,7 @@ class App.Views.ExpenseLiteratureSection extends App.Views.ExpenseSection
   kind: 'literature'
 
   isEnabled: ->
-    @model.get 'professional_literature'
+    @model.get('professional_literature') or @model.get('spouse_professional_literature')
+
+  shouldShowSpouse: ->
+    super and @model.get 'spouse_professional_literature'

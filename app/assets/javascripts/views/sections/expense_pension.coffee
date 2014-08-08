@@ -10,7 +10,11 @@ class App.Views.ExpensePensionSection extends App.Views.ExpenseSection
     'change #spouse_epns-work-loss' : 'onSpouseWorkLossChange'
 
   isEnabled: ->
-    @model.get('pension_plan') and @model.get('author')
+    m = @model.toJSON()
+    (m.pension_plan and m.author) or (m.spouse_pension_plan and m.spouse_author) 
+
+  shouldShowSpouse: ->
+    super and @model.get 'spouse_pension_plan'
 
   onWorkLossChange: (e) ->
     checked = $(e.currentTarget).prop 'checked'

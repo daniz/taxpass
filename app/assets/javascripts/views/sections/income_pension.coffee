@@ -15,7 +15,10 @@ class App.Views.IncomePensionSection extends App.Views.Section
       remove  : @onFormRemove
 
   isEnabled: ->
-    @model.get 'pension'
+    @model.get('pension') or @model.get('spouse_pension')
+
+  shouldShowSpouse: ->
+    super and @model.get 'spouse_pension'
 
   onOptionChange: (e) ->
     $t = $ e.currentTarget

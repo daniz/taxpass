@@ -10,7 +10,10 @@ class App.Views.ExpenseCommemorationSection extends App.Views.ExpenseSection
     'change #spouse_has-receipts' : 'onSpouseHasReceiptsChange'
 
   isEnabled: ->
-    @model.get 'commemoration'
+    @model.get('commemoration') or @model.get('spouse_commemoration')
+
+  shouldShowSpouse: ->
+    super and @model.get 'spouse_commemoration'
 
   onHasReceiptsChange: (e) ->
     checked = $(e.currentTarget).prop 'checked'

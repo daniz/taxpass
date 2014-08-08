@@ -8,7 +8,10 @@ class App.Views.LotterySection extends App.Views.Section
     'change .ltr-check' : 'onCheckChange'
 
   isEnabled: ->
-    @model.get 'lottery'
+    @model.get('lottery') or @model.get('spouse_lottery')
+
+  shouldShowSpouse: ->
+    super and @model.get 'spouse_lottery'
 
   onCheckChange: (e) ->
     $t = $ e.currentTarget

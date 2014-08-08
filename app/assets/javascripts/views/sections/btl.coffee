@@ -8,7 +8,10 @@ class App.Views.BtlSection extends App.Views.Section
     'change .spouse_btl-check'  : 'onSpouseCheckboxChange'
 
   isEnabled: ->
-    @model.get 'btl'
+    @model.get('btl') or @model.get('spouse_btl')
+
+  shouldShowSpouse: ->
+    super and @model.get 'spouse_btl'
 
   initialize: ->
     @forms = @model.get 'btl_forms'

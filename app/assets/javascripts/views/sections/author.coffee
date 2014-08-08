@@ -10,7 +10,10 @@ class App.Views.AuthorSection extends App.Views.Section
     'change #spouse_ath-other'      : 'onSpouseOtherChange'
 
   isEnabled: ->
-    @model.get 'author'
+    @model.get('author') or @model.get('spouse_author')
+
+  shouldShowSpouse: ->
+    super and @model.get 'spouse_author'
 
   initialize: ->
     @forms = @model.get 'form857s'

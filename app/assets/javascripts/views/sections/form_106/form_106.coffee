@@ -11,13 +11,13 @@ class App.Views.Form106Section extends App.Views.Section
 
   initialize: ->
     @forms = @model.get 'form106s'
-    # @spouseForms = @model.get 'spouseForm106s'
-
     @listenTo @forms, 'add', @onFormAdd
-    # @listenTo @spouseForms, 'add', @onSpouseFormAdd
 
   isEnabled: ->
-    @model.get 'employed'
+    @model.get('employed') or @model.get('spouse_employed')
+
+  shouldShowSpouse: ->
+    super and @model.get 'spouse_employed'
 
   onRender: ->
     # maybe add 1 empty workplace
@@ -47,7 +47,3 @@ class App.Views.Form106Section extends App.Views.Section
       else @$('#f106-workplaces')
     
     $container.append view.el
-      
-  # onSpouseFormAdd: (form) ->
-  #   view = new App.Views.Form106Upload model: form, spouse: yes
-  #   @$('#spouse_f106-workplaces').append view.render().el

@@ -6,4 +6,9 @@ class App.Views.ExpenseBtlSection extends App.Views.ExpenseSection
   kind: 'btl'
 
   isEnabled: ->
-    @model.get 'btl_expense'
+    @model.get('btl_expense') or @model.get('spouse_btl_expense')
+
+  shouldShowSpouse: ->
+    super and @model.get 'spouse_btl_expense'
+
+

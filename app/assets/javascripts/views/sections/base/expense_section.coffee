@@ -8,18 +8,6 @@ class App.Views.ExpenseSection extends App.Views.Section
     unless @model.get 'receipts'
       @model.set 'receipts', new App.Collections.Forms
 
-    # unless @model.get 'spouseReceipts'
-    #   @model.set 'spouseReceipts', new App.Collection.Forms
-
-    # model = new App.Models.Form
-    #   kind: @kind
-
-    # spouseModel = new App.Models.Form
-    #   kind: @kind
-
-    # @model.get('receipts').add model
-    # @model.get('spouseReceipts').add spouseModel
-
     receipts = @model.get 'receipts'
 
     model = new App.Models.Form

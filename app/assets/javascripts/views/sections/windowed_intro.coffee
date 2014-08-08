@@ -12,11 +12,7 @@ class App.Views.WidowedIntroSection extends App.Views.Section
   isEnabled: ->
     @model.get 'is_widowed'
 
-  # onDeceasedSpouseNameChange: ->
-  #   @model.set 'spouse_name', @model.get('deceased_spouse_name')
-
   onSpouseDeathDateChange: (model, date) ->
-    debugger
     deathTime = (new Date date).getTime()
     now = (new Date).getTime()
     oneYearInMillisec = 365 * 24 * 60 * 60 * 1000

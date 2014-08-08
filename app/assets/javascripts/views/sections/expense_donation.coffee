@@ -6,4 +6,8 @@ class App.Views.ExpenseDonationSection extends App.Views.ExpenseSection
   kind: 'donation'
 
   isEnabled: ->
-    @model.get 'public_donation'
+    @model.get('public_donation') or @model.get('spouse_public_donation')
+
+  shouldShowSpouse: ->
+    super and @model.get 'spouse_public_donation'
+

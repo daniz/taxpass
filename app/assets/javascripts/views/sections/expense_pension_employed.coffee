@@ -10,7 +10,8 @@ class App.Views.ExpensePensionEmployedSection extends App.Views.ExpenseSection
     'change #spouse_epnse-none-work-income' : 'onSpouseNoneWorkIncomeChange'
 
   isEnabled: ->
-    @model.get('pension_plan') and not @model.get('author')
+    m = @model.toJSON()
+    (m.pension_plan and not m.author) or (m.spouse_pension_plan and not m.spouse_author)
 
   onNoneWorkIncomeChange: (e) ->
     checked = $(e.currentTarget).prop 'checked'
