@@ -14,7 +14,7 @@
       %label{ for: "#{ prefix }author" }
         הייתי סופר/מרצה/עצמאי
         %i.fa.fa-fw.fa-check
-        %i.fa.fa-fw.fa-university
+        %i.fa.fa-fw.fa-graduation-cap
 
     %li.checkbox-option.ii-option.ii-options-btl
       != App.help "checkbox", id: "#{ prefix }btl", model: @

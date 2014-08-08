@@ -6,7 +6,8 @@ class RequestsController < ApplicationController
     "form867s",
     "form857s",
     "pension_forms",
-    "btl_forms"
+    "btl_forms",
+    "receipts"
   ]
 
   # GET /requests

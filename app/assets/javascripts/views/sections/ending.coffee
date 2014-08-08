@@ -30,6 +30,7 @@ class App.Views.EndingSection extends App.Views.Section
       'form857s'
       'pension_forms'
       'btl_forms'
+      'receipts'
     ]
 
     for field in formsFields

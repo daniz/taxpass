@@ -10,7 +10,5 @@ class Request < ActiveRecord::Base
   has_many :appartments
   has_many :receipts
 
-  def calc
-    
-  end
+  
 end

@@ -6,25 +6,44 @@ class App.Views.ExpenseSection extends App.Views.Section
 
   onRender: ->
     unless @model.get 'receipts'
-      @model.set 'receipts', new Backbone.Collection
+      @model.set 'receipts', new App.Collections.Forms
 
-    unless @model.get 'spouseReceipts'
-      @model.set 'spouseReceipts', new Backbone.Collection
+    # unless @model.get 'spouseReceipts'
+    #   @model.set 'spouseReceipts', new App.Collection.Forms
 
-    model = new App.Models.Receipt
-      kind: @kind
+    # model = new App.Models.Form
+    #   kind: @kind
 
-    spouseModel = new App.Models.Receipt
-      kind: @kind
+    # spouseModel = new App.Models.Form
+    #   kind: @kind
 
-    @model.get('receipts').add model
-    @model.get('spouseReceipts').add spouseModel
+    # @model.get('receipts').add model
+    # @model.get('spouseReceipts').add spouseModel
 
-    new App.Views.ReceiptUpload
+    receipts = @model.get 'receipts'
+
+    model = new App.Models.Form
+      kind  : @kind
+      spouse: no
+    receipts.add model 
+
+    view = new App.Views.FormUpload
       el          : @$('.upload')
       model       : model
+      label       : no
+      manual      : no
+    view.render()
 
-    new App.Views.ReceiptUpload
-      el          : @$('.spouse_upload')
-      model       : spouseModel
+    if @model.get 'spouse_name'
+      spouseModel = new App.Models.Form
+        kind  : @kind
+        spouse: yes
+      receipts.add spouseModel  
+
+      spouseView = new App.Views.FormUpload
+        el          : @$('.spouse_upload')
+        model       : spouseModel
+        label       : no
+        manual      : no
+      spouseView.render()
     

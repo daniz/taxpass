@@ -25,24 +25,24 @@ class App.Views.Sections extends Backbone.View
     App.Views.StockManualIISection
     App.Views.StockManualIIISection
     App.Views.StockMiscSection
-    # App.Views.AppartmentPreSection
-    # App.Views.AppartmentISection
-    # App.Views.AppartmentIISection
-    # App.Views.AppartmentIIISection
-    # App.Views.LotterySection
-    # App.Views.OtherSection
-    # App.Views.ExpensePreSection
-    # App.Views.ExpenseIntroSection
-    # App.Views.ExpenseDonationSection
-    # App.Views.ExpenseCommemorationSection
-    # App.Views.ExpenseHospitalizedSection
-    # App.Views.ExpenseLiteratureSection
-    # App.Views.ExpenseCourseSection
-    # App.Views.ExpenseCpaSection
-    # App.Views.ExpenseBtlSection
-    # App.Views.ExpenseInsuranceSection
-    # App.Views.ExpensePensionSection
-    # App.Views.ExpensePensionEmployedSection
+    App.Views.AppartmentPreSection
+    App.Views.AppartmentISection
+    App.Views.AppartmentIISection
+    App.Views.AppartmentIIISection
+    App.Views.LotterySection
+    App.Views.OtherSection
+    App.Views.ExpensePreSection
+    App.Views.ExpenseIntroSection
+    App.Views.ExpenseDonationSection
+    App.Views.ExpenseCommemorationSection
+    App.Views.ExpenseHospitalizedSection
+    App.Views.ExpenseLiteratureSection
+    App.Views.ExpenseCourseSection
+    App.Views.ExpenseCpaSection
+    App.Views.ExpenseBtlSection
+    App.Views.ExpenseInsuranceSection
+    App.Views.ExpensePensionSection
+    App.Views.ExpensePensionEmployedSection
     App.Views.EndingSection
   ]
 
