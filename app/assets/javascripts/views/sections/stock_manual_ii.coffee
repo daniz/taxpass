@@ -7,5 +7,5 @@ class App.Views.StockManualIISection extends App.Views.Section
     @viewModel.get 'stockManual'
 
   getModel: ->
-    @model.get 'form867'
+    @model.get('form867s').first()
 

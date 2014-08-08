@@ -6,17 +6,17 @@ class App.Views.StockSection extends App.Views.Section
   events:
     'change [name=stk-options]' : 'onOptionsChange'
 
-  onRender: ->
-    unless @model.has 'form867'
-      @model.set 'form867', new App.Models.Form
+  initialize: ->
+    @forms = @model.get 'form867s'
+    @forms.add new App.Models.Form
 
+  onRender: ->
     o = 
-      model             : @model.get 'form867'
+      model             : @forms.first()
+      label             : no
       el                : @$ '#stk-form'
-      fileInputClass    : 'form867_file'
       uploadButtonLabel : 'העלה טופס 867'
-      template          : 'form_upload'
-      manual            : false
+      manual            : no
 
     new App.Views.FormUpload(o).render()
 

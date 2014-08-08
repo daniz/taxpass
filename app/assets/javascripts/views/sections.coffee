@@ -19,12 +19,12 @@ class App.Views.Sections extends Backbone.View
     App.Views.AuthorSection
     App.Views.BtlSection
     App.Views.IncomePensionSection
-    # App.Views.StockPreSection
-    # App.Views.StockSection
-    # App.Views.StockManualISection
-    # App.Views.StockManualIISection
-    # App.Views.StockManualIIISection
-    # App.Views.StockMiscSection
+    App.Views.StockPreSection
+    App.Views.StockSection
+    App.Views.StockManualISection
+    App.Views.StockManualIISection
+    App.Views.StockManualIIISection
+    App.Views.StockMiscSection
     # App.Views.AppartmentPreSection
     # App.Views.AppartmentISection
     # App.Views.AppartmentIISection
