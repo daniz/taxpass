@@ -4,7 +4,7 @@
   != App.help "user_name"
   סימנת שהתגוררת ביישוב מיוחד.
 
-- if @spouse_name
+- if @showSpouse
   .spouse
     אבל לפני זה, האם אתה ו
     != App.help "spouse_name"

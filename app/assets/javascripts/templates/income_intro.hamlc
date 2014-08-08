@@ -65,7 +65,7 @@
 
 = renderPartial spouse: no
 
-- if @spouse_name
+- if @showSpouse
   .spouse
     ולגבי
     != App.help "spouse_name", @

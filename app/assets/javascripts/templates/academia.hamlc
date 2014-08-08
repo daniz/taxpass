@@ -22,7 +22,7 @@
 
 = render partial: "academia", locals: { spouse: no }
 
-- if @spouse_name
+- if @showSpouse
   .spouse
     %p 
       ולגבי 

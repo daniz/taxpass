@@ -19,7 +19,7 @@
 
 = renderPartial spouse: no
 
-- if @spouse_name
+- if @showSpouse
   .spouse
     %p 
       ולגבי 

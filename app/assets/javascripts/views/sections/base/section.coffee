@@ -12,7 +12,8 @@ class App.Views.Section extends Backbone.View
     JST[@templateName].call this, data
 
   templateJSON: ->
-    @getModel()?.toJSON()
+    json = @getModel()?.toJSON()
+    _.extend json, showSpouse: @shouldShowSpouse()
 
   render: ->
     data = @templateJSON()
@@ -44,3 +45,6 @@ class App.Views.Section extends Backbone.View
       val
 
   isEnabled: -> yes
+
+  shouldShowSpouse: ->
+    @viewModel.get 'showSpouse'

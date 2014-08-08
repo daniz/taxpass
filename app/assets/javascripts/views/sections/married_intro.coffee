@@ -12,6 +12,11 @@ class App.Views.MarriedIntroSection extends App.Views.Section
     m = @model.toJSON()
     !m.is_widowed and m.is_married
 
+  onRender: ->
+    @viewModel.set 'showSpouse', no
+
   onSpouseTooClick: ->
     @$('#mit-spouse-too, #mit-only-me').hide()
     @$('#mit-spouse-name-dialog').show()
+
+    @viewModel.set 'showSpouse', yes

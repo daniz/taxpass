@@ -1,5 +1,5 @@
 .section-description
-  - if @spouse_name
+  - if @showSpouse
     לשם הנוחות, אנא תן כינוי לכל אחת מהדירות שבבעלותך, והאם היא בבעלותך הבלעדית/ בבעלותה/ו הבלעדית של
     != App.help "spouse_name", @
     בבעלות שניכם:

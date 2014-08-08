@@ -14,7 +14,7 @@
 
 = renderPartial spouse: no, instLabel: "למי תרמת?", sumLabel: "כמה תרמת במצטבר במהלך השנה?"
 
-- if @spouse_name
+- if @showSpouse
   .spouse
     .section-description
       != App.help "user_name"

@@ -15,7 +15,7 @@
   
 = renderPartial spouse: no
 
-- if @spouse_name
+- if @showSpouse
   .spouse
     .section-description
       != App.help "user_name"

@@ -15,7 +15,7 @@
 
   = renderPartial spouse: no
 
-- if @spouse_name
+- if @showSpouse
   .spouse
     ול
     != App.help "spouse_name", @
