@@ -10,5 +10,5 @@ class Request < ActiveRecord::Base
   has_many :appartments
   has_many :receipts
 
-  
+  belongs_to :user
 end

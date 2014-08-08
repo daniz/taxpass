@@ -33,6 +33,7 @@ class RequestsController < ApplicationController
   def new
     @request = Request.new
     gon.current_user = current_user.name
+    gon.current_user_id = current_user.id
   end
 
   # GET /requests/1/edit
@@ -58,6 +59,7 @@ class RequestsController < ApplicationController
     data.delete "appartments"
 
     @request = Request.new(data)
+    @request.user = current_user
 
     kids.each do |k|
       @request.kids.new k.except("index")
