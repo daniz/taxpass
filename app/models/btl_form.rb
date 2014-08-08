@@ -3,5 +3,5 @@ class BtlForm < ActiveRecord::Base
     nil
   end
 
-  has_one :uploaded_form, foreign_key: "owner_id"
+  belongs_to :uploaded_form
 end

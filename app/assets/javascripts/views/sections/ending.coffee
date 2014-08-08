@@ -35,7 +35,8 @@ class App.Views.EndingSection extends App.Views.Section
 
     for field in formsFields
       forms = @model.get field
-      forms.each (form) => @addFileInput form, field
+      if forms
+        forms.each (form) => @addFileInput form, field
       
   addFileInput: (form, name) ->
     prefix  = if form.get('spouse') then 'spouse_' else ''

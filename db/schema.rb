@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808082300) do
+ActiveRecord::Schema.define(version: 20140808105002) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20140808082300) do
     t.boolean  "spouse"
     t.string   "workplace"
     t.string   "spouse_workplace"
+    t.integer  "uploaded_form_id"
   end
 
   create_table "form_857s", force: true do |t|
@@ -56,6 +57,7 @@ ActiveRecord::Schema.define(version: 20140808082300) do
     t.integer "tax"
     t.integer "request_id"
     t.boolean "spouse"
+    t.integer "uploaded_form_id"
   end
 
   create_table "form_867s", force: true do |t|
@@ -113,6 +115,7 @@ ActiveRecord::Schema.define(version: 20140808082300) do
     t.integer "dividend_tax"
     t.integer "interest_tax"
     t.integer "request_id"
+    t.integer "uploaded_form_id"
   end
 
   create_table "kids", force: true do |t|
@@ -129,6 +132,7 @@ ActiveRecord::Schema.define(version: 20140808082300) do
     t.integer "tax"
     t.boolean "spouse"
     t.integer "request_id"
+    t.integer "uploaded_form_id"
   end
 
   create_table "receipts", force: true do |t|
@@ -136,6 +140,7 @@ ActiveRecord::Schema.define(version: 20140808082300) do
     t.integer "index"
     t.integer "request_id"
     t.boolean "spouse"
+    t.integer "uploaded_form_id"
   end
 
   create_table "requests", force: true do |t|
@@ -345,7 +350,6 @@ ActiveRecord::Schema.define(version: 20140808082300) do
   end
 
   create_table "uploaded_forms", force: true do |t|
-    t.integer "owner_id"
   end
 
   create_table "users", force: true do |t|

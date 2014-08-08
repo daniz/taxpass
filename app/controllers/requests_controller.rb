@@ -27,20 +27,6 @@ class RequestsController < ApplicationController
     @@formsFieldsNames.each do |name|
       gon.send "#{ name }=", @request.send(name).as_json(include: include)
     end
-
-    # gon.form106s            = @request.form106s.as_json include: include
-    # gon.pension_forms       = @request.pension_forms.as_json include: include
-    # gon.spouseForm106s      = @request.form106s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    # gon.form857s            = @request.form857s.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    # gon.spouseForm857s      = @request.form857s.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    # gon.btlForms            = @request.btl_forms.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    # gon.spouseBtlForms      = @request.btl_forms.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    # gon.pensionForms        = @request.pension_forms.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    # gon.spousePensionForms  = @request.pension_forms.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    # gon.form867s            = @request.form867s.as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    # gon.receipts            = @request.receipts.where(spouse: false).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    # gon.spouseReceipts      = @request.receipts.where(spouse: true).as_json methods: :file, except: [:file_file_name, :file_file_size, :file_content_type, :file_updated_at]
-    # gon.appartments         = @request.appartments
   end
 
   # GET /requests/new
@@ -62,55 +48,14 @@ class RequestsController < ApplicationController
     kids = data["kids"]
     data.delete "kids"
 
-    # @@formsFieldsNames = [
-    #   "form106s",
-    #   "form867s",
-    #   "form857s",
-    #   "pension_forms",
-    #   "btl_forms"
-    # ]
-
     formsFields = {}
     @@formsFieldsNames.each do |name|
       formsFields[ name ] = data[ name ]
       data.delete name
     end
 
-    # form106s = data["form106s"]
-    # data.delete "form106s"
-
-    # spouseForm106s = data["spouseForm106s"]
-    # data.delete "spouseForm106s"
-
-    # form857 = data["form857"]
-    # data.delete "form857"
-
-    # spouseForm857 = data["spouseForm857"]
-    # data.delete "spouseForm857"
-
-    # btlForms = data["btlForms"]
-    # data.delete "btlForms"
-
-    # spouseBtlForms = data["spouseBtlForms"]
-    # data.delete "spouseBtlForms"
-
-    # pensionForm = data["pensionForm"]
-    # data.delete "pensionForm"
-
-    # spousePensionForm = data["spousePensionForm"]
-    # data.delete "spousePensionForm"
-
-    # form867 = data["form867"]
-    # data.delete "form867"
-
-    # appartments = data["appartments"]
-    # data.delete "appartments"
-
-    # receipts = data["receipts"]
-    # data.delete "receipts"
-
-    # spouseReceipts = data["spouseReceipts"]
-    # data.delete "spouseReceipts"
+    appartments = data["appartments"]
+    data.delete "appartments"
 
     @request = Request.new(data)
 
@@ -121,107 +66,34 @@ class RequestsController < ApplicationController
     @@formsFieldsNames.each do |name|
       formsData = formsFields[name]
 
-      formsData.each do |form|
-        prefix = if form["spouse"] then "spouse_" else "" end
-        suffix = "_#{ form['index'] }"
+      if formsData.present?
+        formsData.each do |form|
+          prefix = if form["spouse"] then "spouse_" else "" end
+          suffix = "_#{ form['index'] }"
 
-        forms = @request.send(name)
-        additional_data = {}
+          forms = @request.send(name)
+          additional_data = {}
 
-        files = params["#{ prefix }#{ name }#{ suffix }"]
-        if files
-          uploaded_form = UploadedForm.new
-          files.each do |file|
-            uploaded_form.uploaded_files.new file: file
+          files = params["#{ prefix }#{ name }#{ suffix }"]
+          if files.present?
+            uploaded_form = UploadedForm.new
+            files.each do |file|
+              uploaded_form.uploaded_files.new file: file
+            end
+            additional_data = { uploaded_form: uploaded_form }
           end
-          additional_data = { uploaded_form: uploaded_form }
-        end
 
-        forms.new form.except("index").merge additional_data
+          forms.new form.except("index").merge additional_data
+        end
       end
 
     end
 
-    # if form106s
-    #   form106s.each do |f|
-    #     file = params["form106_#{ f['index'] }"]
-    #     @request.form106s.new f.except("index").merge spouse: false, file: file
-    #   end
-    # end
-
-    # if spouseForm106s
-    #   spouseForm106s.each do |f|
-    #     file = params["spouse_form106_#{ f['index'] }"]
-    #     @request.form106s.new f.except("index").merge spouse: true, file: file
-    #   end
-    # end
-
-    # if form857
-    #   file = params['form857']
-    #   @request.form857s.new form857.merge spouse: false, file: file
-    # end
-
-    # if spouseForm857
-    #   file = params['spouse_form857']
-    #   @request.form857s.new form857.merge spouse: true, file: file
-    # end
-
-    # if btlForms
-    #   btlForms.each do |f|
-    #     file = params["btlForm_#{ f['type'] }"]
-    #     @request.btl_forms.new f.merge spouse: false, file: file
-    #   end
-    # end
-
-    # if spouseBtlForms
-    #   spouseBtlForms.each do |f|
-    #     file = params["spouse_btlForm_#{ f['type'] }"]
-    #     @request.btl_forms.new f.merge spouse: true, file: file
-    #   end
-    # end
-
-    # if pensionForm
-    #   file = params['pensionForm']
-    #   @request.pension_forms.new pensionForm.merge spouse: false, file: file
-    # end
-
-    # if spousePensionForm
-    #   file = params['spouse_pensionForm']
-    #   @request.pension_forms.new spousePensionForm.merge spouse: true, file: file
-    # end
-
-    # if form867
-    #   file = params['form867']
-    #   @request.form867s.new form867.merge file: file
-    # end
-
-    # if appartments
-    #   appartments.each do |a|
-    #     @request.appartments.new a.except("index")
-    #   end
-    # end
-
-    # if receipts
-    #   receipts.each do |f|
-    #     files = params["receipt_#{ f['index'] }"]
-    #     if files
-    #       files.each do |file|  
-    #         @request.receipts.new f.merge spouse: false, file: file
-    #       end
-    #     end
-    #   end
-    # end
-
-    # if spouseReceipts
-    #   spouseReceipts.each do |f|
-    #     files = params["spouse_receipt_#{ f['index'] }"]
-    #     if files
-    #       files.each do |file|
-    #         @request.receipts.new f.merge spouse: true, file: file
-    #       end
-    #     end
-    #   end
-    # end
+    if appartments
+      appartments.each do |a|
+        @request.appartments.new a.except("index")
+      end
+    end
     
     respond_to do |format|
       if @request.save
