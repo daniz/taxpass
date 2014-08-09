@@ -282,6 +282,18 @@ a {
   .login-error-message {
     color: #e33;
   }
+
+  #error_explanation {
+    h2 {
+      display: none;
+    }
+
+    ul {
+      direction: ltr;
+      color: #e33;
+      font-size: 12px;
+    }
+  }
 }
 
 #footer {
