@@ -2,25 +2,25 @@
   - prefix = if o.spouse then "spouse_" else ""
 
   .field
-    != App.help "date", id: "#{ prefix }academia_graduation_date", model: @
+    != App.help "date", id: "#{ prefix }academia_graduation_date", label: "שנת הסיום", model: @
   %br
 
   .field
-    != App.help "select", id: "#{ prefix }academia_institution", options: App.Enums.AcademicInstitutions, model: @
+    != App.help "select", id: "#{ prefix }academia_institution", options: App.Enums.AcademicInstitutions, label: "מוסד אקדמי", model: @
   %br
 
   .field
-    != App.help "select", id: "#{ prefix }academia_degree", options: App.Enums.AcademicDegrees, model: @
+    != App.help "select", id: "#{ prefix }academia_degree", options: App.Enums.AcademicDegrees, label: "סוג התואר", model: @
   %br
 
   .field
-    != App.help "select", id: "#{ prefix }academia_years", model: @
+    != App.help "select", id: "#{ prefix }academia_years", label: "שנות לימוד", options: [1..8], model: @
 
 %p
-  != App.help "user_name",
-  סימנת שסיימת תואר אקדמי, מס הכנסה מכיר רק בתארים מסויימים ממוסדות מסויימים
+  != App.help "user_name"
+  סימנת שסיימת תואר אקדמי, מס הכנסה מכיר רק בתארים מסויימים ממוסדות מסויימים.
 
-= render partial: "academia", locals: { spouse: no }
+= renderPartial "academia", locals: { spouse: no }
 
 - if @showSpouse
   .spouse
@@ -28,4 +28,4 @@
       ולגבי 
       != App.help "spouse_name", @
       
-    = render partial: "academia", locals: { spouse: yes }
+    = renderPartial "academia", locals: { spouse: yes }

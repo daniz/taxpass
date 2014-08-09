@@ -7,8 +7,10 @@ class App.Views.Sections extends Backbone.View
     App.Views.WidowedIntroSection
     App.Views.PersonalOverviewSection
     App.Views.PersonalTaxStatusSection
+    App.Views.AcademiaSection
     App.Views.SpecialAreaSection
     App.Views.PersonalMedicalSection
+    App.Views.PersonalResidency
     App.Views.KidsIntroSection
     App.Views.KidsSpouseSection
     App.Views.KidsSupportSection
