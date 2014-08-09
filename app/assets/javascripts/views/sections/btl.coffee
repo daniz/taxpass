@@ -20,6 +20,9 @@ class App.Views.BtlSection extends App.Views.Section
       add     : @onFormAdd
       remove  : @onFormRemove
 
+  onRender: ->
+    @forms.each @onFormAdd, this
+
   getFormContainer: (form) ->
     type = form.get 'type'
     prefix = if form.get('spouse') then 'spouse_' else ''
@@ -28,7 +31,7 @@ class App.Views.BtlSection extends App.Views.Section
   onFormAdd: (form) ->
     view = new App.Views.FormUpload
       model           : form
-      el              : getFormContainer(form)
+      el              : @getFormContainer(form)
       label           : no
       manualTemplate  : 'btl_manual'
       manualTitle     : 'ביטוח לאומי'

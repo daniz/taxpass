@@ -24,6 +24,9 @@ class App.Views.AuthorSection extends App.Views.Section
   getFormContainer: (form) ->
     if form.get('spouse') then @$('#spouse_ath-857-form') else @$('#ath-857-form')
 
+  onRender: ->
+    @forms.each @onFormAdd, this
+
   onFormAdd: (form) ->
     o = 
       model             : form

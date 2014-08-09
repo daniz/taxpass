@@ -11,7 +11,7 @@ class App.Views.Form106Section extends App.Views.Section
 
   initialize: ->
     @forms = @model.get 'form106s'
-    @listenTo @forms, 'add', @onFormAdd
+    @listenTo @forms, 'add', @addForm
 
   isEnabled: ->
     @model.get('employed') or @model.get('spouse_employed')
@@ -20,7 +20,7 @@ class App.Views.Form106Section extends App.Views.Section
     super and @model.get 'spouse_employed'
 
   onRender: ->
-    # maybe add 1 empty workplace
+    @forms.each @addForm, this
 
   onAddWorkplaceClick: ->
     @forms.add spouse: no
@@ -30,16 +30,18 @@ class App.Views.Form106Section extends App.Views.Section
     @forms.add spouse: yes
     false
 
-  onFormAdd: (form) ->
+  addForm: (form) ->
     spouse = form.get "spouse"
+    workplaceAttr = "#{ if spouse then 'spouse_' else '' }workplace"
 
-    view = new App.Views.FormUpload 
+    view = new App.Views.FormUpload
       model           : form
       manualTemplate  : 'form_106_manual'
       manualTitle     : 'טופס 106'
       label           : 
         text          : 'מקום עבודה'
-        name          : "#{ if spouse then 'spouse_' else '' }workplace"
+        name          : workplaceAttr
+        value         : form.get(workplaceAttr)
     view.render()
 
     $container =

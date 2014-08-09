@@ -16,28 +16,36 @@ class RequestsController < ApplicationController
     gon.requests = Request.all
   end
 
+  def gon_request(request)
+    include = {uploaded_form: {include: {uploaded_files: {only:{}, methods: :file } } } }
+
+    gon.request = request
+    gon.kids    = request.kids
+
+    forms = {}
+    @@formsFieldsNames.each do |name|
+      forms[ name ] = request.send(name).as_json(include: include)
+    end
+
+    gon.forms = forms
+  end
+
   # GET /requests/1
   # GET /requests/1.json
   def show
-    include = {uploaded_form: {include: {uploaded_files: {only:{}, methods: :file } } } }
-
-    gon.request = @request
-    gon.kids    = @request.kids
-
-    @@formsFieldsNames.each do |name|
-      gon.send "#{ name }=", @request.send(name).as_json(include: include)
-    end
+    gon_request @request
   end
 
   # GET /requests/new
   def new
     @request = Request.new
     gon.current_user = current_user.name
-    gon.current_user_id = current_user.id
   end
 
   # GET /requests/1/edit
   def edit
+    gon_request @request
+    gon.current_user = current_user.name
   end
 
   # POST /requests
@@ -58,11 +66,21 @@ class RequestsController < ApplicationController
     appartments = data["appartments"]
     data.delete "appartments"
 
-    @request = Request.new(data)
+    if data["id"]
+      @request = Request.find data["id"]
+    else
+      @request = Request.new(data)
+    end
+
     @request.user = current_user
 
-    kids.each do |k|
-      @request.kids.new k.except("index")
+    kids.each do |kid|
+      if kid["id"].present?
+        kidModel = @request.kids.find_by_id kid["id"]
+        kidModel.update kid.except("index")
+      else
+        @request.kids.new kid.except("index")
+      end
     end
 
     @@formsFieldsNames.each do |name|
@@ -85,17 +103,21 @@ class RequestsController < ApplicationController
             additional_data = { uploaded_form: uploaded_form }
           end
 
-          forms.new form.except("index").merge additional_data
+          if form["id"].present?
+            formModel = forms.find_by_id form["id"]
+            formModel.update form.except("index", "uploaded_form").merge additional_data
+          else
+            forms.new form.except("index").merge additional_data
+          end
         end
       end
-
     end
 
-    if appartments
-      appartments.each do |a|
-        @request.appartments.new a.except("index")
-      end
-    end
+    # if appartments
+    #   appartments.each do |a|
+    #     @request.appartments.new a.except("index")
+    #   end
+    # end
     
     respond_to do |format|
       if @request.save

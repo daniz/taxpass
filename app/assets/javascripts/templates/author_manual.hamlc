@@ -3,9 +3,11 @@
   .form-manual-field
     %label
       כמה קיבלתי 
-    %input.ath-manual-income.form-data{ name: "income", type: "number" }
+    / %input.ath-manual-income.form-data{ name: "income", type: "number" }
+    != App.help "input", id: "", name: "income", className: "ath-manual-income form-data", type: "number", model: @
 
   .form-manual-field
     %label
       כמה מס ניכו לי במקור
-    %input.ath-manual-tax.form-data{ name: "tax", type: "number" }
+    / %input.ath-manual-tax.form-data{ name: "tax", type: "number" }
+    != App.help "input", id: "", name: "tax", className: "ath-manual-tax form-data", type: "number", model: @

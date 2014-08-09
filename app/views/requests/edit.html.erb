@@ -1,13 +1,1 @@
-<h1>Editing request</h1>
-
-<%= form_for @request do |f| %>
-  <% @request.kids.each do |kid| %>
-    <%= f.fields_for kid, index: kid.id do |fk| %>
-      <%= fk.text_field :name %>
-    <% end %>
-  <% end %>
-  <%= f.submit 'save' %>
-<% end %>
-
-<%= link_to 'Show', @request %> |
-<%= link_to 'Back', requests_path %>
+<%= render 'form' %>

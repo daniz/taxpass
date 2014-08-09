@@ -3,9 +3,11 @@
   .form-manual-field
     %label
       כמה קיבלתי 
-    %input.pns-manual-income.form-data{ name: "income", type: "number" }
+    / %input.pns-manual-income.form-data{ name: "income", type: "number" }
+    != App.help "input", id: "", name: "income", className: "pns-manual-income form-data", type: "number", model: @
 
   .form-manual-field
     %label
       כמה מס ניכו לי במקור
-    %input.pns-manual-tax.form-data{ name: "tax", type: "number" }
+    / %input.pns-manual-tax.form-data{ name: "tax", type: "number" }
+    != App.help "input", id: "", name: "tax", className: "pns-manual-tax form-data", type: "number", model: @

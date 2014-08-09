@@ -14,6 +14,9 @@ class App.Views.IncomePensionSection extends App.Views.Section
       add     : @onFormAdd
       remove  : @onFormRemove
 
+  onRender: ->
+    @forms.each @onFormAdd, this
+
   isEnabled: ->
     @model.get('pension') or @model.get('spouse_pension')
 

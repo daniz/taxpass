@@ -1,11 +1,12 @@
-- if @label
-  %input.form-upload-label{ name: @label.name, type: "text", placeholder: @label.text }
+- hasUploaded = @files or @uploaded_form
 
-/ %input{ "class": "#{ @fileInputClass }", type: "file" }
+- if @label
+  %input.form-upload-label{ name: @label.name, type: "text", placeholder: @label.text, value: @label.value }
+
 %input{ type: "file", style: "display: none", multiple: "multiple" }
-%button.form-upload-button.button.button-empty{ type: "button" } העלה קובץ
+%button.form-upload-button.button.button-empty{ type: "button", "class": "#{ if hasUploaded then 'done' else ''}" } העלה קובץ
   %i.fa.fa-check
 
 - if @manual isnt false # default is true
-  %button.form-manual-button.button.button-empty{ type: "button" } הזן ידנית
+  %button.form-manual-button.button.button-empty{ type: "button", "class": "#{ if hasUploaded then 'disabled' else ''}"  } הזן ידנית
     %i.fa.fa-check

@@ -1,6 +1,6 @@
 #= require ./sections
 
-class App.Views.Create extends Backbone.View
+class App.Views.Editor extends Backbone.View
   el: 'body'
 
   events:

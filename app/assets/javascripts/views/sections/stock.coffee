@@ -8,11 +8,14 @@ class App.Views.StockSection extends App.Views.Section
 
   initialize: ->
     @forms = @model.get 'form867s'
-    @forms.add new App.Models.Form
+    @form = @forms.findWhere old: no
+    unless @form
+      @form = new App.Models.Form(old: no)
+      @forms.add @form
 
   onRender: ->
     o = 
-      model             : @forms.first()
+      model             : @form
       label             : no
       el                : @$ '#stk-form'
       uploadButtonLabel : 'העלה טופס 867'
