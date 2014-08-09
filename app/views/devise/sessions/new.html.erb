@@ -2,6 +2,10 @@
 
   <h2>אנא התחבר</h2>
 
+  <div class="login-error-message">
+    <%= if flash.alert.present? then "שם המשתמש או הסיסמה אינם נכונים" else "" end %>
+  </div>
+
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <%= f.email_field :email, autofocus: true, placeholder: 'כתובת אימייל' %>
