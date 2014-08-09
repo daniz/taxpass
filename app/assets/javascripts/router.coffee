@@ -1,11 +1,14 @@
 class App.Router extends Backbone.Router
 
   routes:
-    '/'                 : 'home'
-    'requests'          : 'index'
-    'requests/new'      : 'new'
-    'requests/:id'      : 'show'
-    'requests/:id/edit' : 'edit'
+    '/'                     : 'home'
+    'requests'              : 'index'
+    'requests/new'          : 'new'
+    'requests/save-success' : 'nothing'
+    'requests/:id'          : 'show'
+    'requests/:id/edit'     : 'edit'
+
+  nothing: ->
 
   home: ->
     console.log 'home' # doesnt work
@@ -28,7 +31,7 @@ class App.Router extends Backbone.Router
   edit: (id) ->
     App.Dialog = new App.Views.Dialog
 
-    model = new App.Models.Request
+    model = new Backbone.Model
       request : new App.Models.Request _.extend gon.request,
         kids            : new App.Collections.Kids gon.kids
         form106s        : new App.Collections.Forms gon.forms.form106s
@@ -47,3 +50,5 @@ class App.Router extends Backbone.Router
   show: (id) ->
     model = new App.Models.Request gon.request
     new App.Show _.extend { model: model }, _.omit(gon, 'request')
+
+

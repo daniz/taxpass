@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
+  get 'requests/save-success' => 'requests#save_success'
   resources :requests
 
   # The priority is based upon order of creation: first created -> highest priority.

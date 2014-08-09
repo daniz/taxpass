@@ -1,6 +1,14 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
 
+  before_filter :set_cache_buster
+
+  def set_cache_buster
+    response.headers["Cache-Control"] = "no-cache, no-store, max-age=0, must-revalidate"
+    response.headers["Pragma"] = "no-cache"
+    response.headers["Expires"] = "Fri, 01 Jan 1990 00:00:00 GMT"
+  end
+
   @@formsFieldsNames = [
     "form106s",
     "form867s",
@@ -38,8 +46,12 @@ class RequestsController < ApplicationController
 
   # GET /requests/new
   def new
-    @request = Request.new
-    gon.current_user = current_user.name
+    @request = Request.find_by_user_id current_user.id
+    if @request.present?
+      redirect_to action: "edit", id: @request.id
+    else
+      gon.current_user = current_user.name
+    end
   end
 
   # GET /requests/1/edit
@@ -51,7 +63,6 @@ class RequestsController < ApplicationController
   # POST /requests
   # POST /requests.json
   def create
-
     data = JSON.parse params[:request]
 
     kids = data["kids"]
@@ -114,21 +125,31 @@ class RequestsController < ApplicationController
       end
     end
 
-    # if appartments
-    #   appartments.each do |a|
-    #     @request.appartments.new a.except("index")
-    #   end
-    # end
+    if appartments.present?
+      appartments.each do |appt|
+        if appt["id"].present?
+          apptModel = @request.appartments.find_by_id appt["id"]
+          apptModel.update appt.except("index")
+        else
+          @request.appartments.new appt.except("index")
+        end
+      end
+    end
     
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'בקשתך נשמרה בהצלחה.' }
-        format.json { render :show, status: :created, location: @request }
+        # format.html { redirect_to @request }
+        # format.json { render :show, status: :created, location: @request }
+        format.html { redirect_to action: "save_success" }
       else
         format.html { render :new }
         format.json { render json: @request.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def save_success
+    @request = Request.find_by_user_id current_user.id
   end
 
   # PATCH/PUT /requests/1

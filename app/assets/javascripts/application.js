@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require hamlcoffee
-//= require turbolinks
 //= require namespace
 //= require enums
 //= require helpers

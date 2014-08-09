@@ -6,6 +6,7 @@ class App.Views.Editor extends Backbone.View
   events:
     'click #continue-button'  : 'onContinueClick'
     'click #back-button'      : 'onBackClick'
+    'click #save-button'      : 'onSaveClick'
     'click #mit-only-me'      : 'onOnlyMeClick'
     'click #about'            : 'onAboutClick'
     'click #help'             : 'onHelpClick'
@@ -16,10 +17,60 @@ class App.Views.Editor extends Backbone.View
 
   initialize: ->
     @sections = new App.Views.Sections el: '#active-section', model: @model
+    @listenTo @sections, 'save', @save
 
     _.delay @showSupportBalloon, 500
-
     window.model = @model
+
+  onSaveClick: ->
+    currSection = @sections.currSection
+    return unless currSection?
+    
+    currSection.collectData()
+    req = @model.get 'request'
+    req.set flow: 'save', current_section: currSection.id
+    @save()
+
+  save: ->
+    json = @serialize()
+    @serializeFileInputs()
+    console.log JSON.stringify(json)
+    @$('#data-input').val JSON.stringify(json)
+    @$('#request-form').submit()
+
+  serialize: ->
+    json = @model.get('request').toJSON()
+    for attr of json
+      val = json[attr]
+      if val instanceof Backbone.Model or val instanceof Backbone.Collection
+        json[attr] = val.toJSON()
+    json
+
+  serializeFileInputs: ->
+    formsFields = [
+      'form106s'
+      'form867s'
+      'form857s'
+      'pension_forms'
+      'btl_forms'
+      'receipts'
+    ]
+
+    for field in formsFields
+      forms = @model.get('request').get field
+      if forms
+        forms.each (form) => @addFileInput form, field
+      
+  addFileInput: (form, name) ->
+    prefix  = if form.get('spouse') then 'spouse_' else ''
+    suffix  = "_#{ form.get 'index' }"
+    files   = form.get 'files'
+
+    if files?
+      $('<input>', type: 'file', name: "#{ prefix }#{ name }#{ suffix }[]", multiple: "multiple")
+        .prop('files', files)
+        .hide()
+        .appendTo @$('#request-form')
 
   showSupportBalloon: =>
     offset = @$('#support').offset()
@@ -31,7 +82,8 @@ class App.Views.Editor extends Backbone.View
     _.delay ( -> $balloon.fadeOut 400), 5000
 
   render: ->
-    @sections.next()
+    @sections.start()
+    @updateNavButtons()
   
   getFieldValue: ($input) ->
     if $input.attr('type') is 'checkbox'

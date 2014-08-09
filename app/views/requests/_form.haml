@@ -1,8 +1,17 @@
-%form{ action: "/requests", method: "post", enctype: "multipart/form-data", accept: { charset: "UTF-8" } }
+%form#request-form{ action: "/requests", method: "post", enctype: "multipart/form-data", accept: { charset: "UTF-8" } }
   
   %input{ name: "authenticity_token", type: "hidden", value: form_authenticity_token }
+  %input{ id: "data-input", type: "hidden", name: "request" }
 
   #active-section
 
-%button#back-button.button.button-empty{ type: "button" } < חזור
-%button#continue-button.button.button-green{ type: "button" } המשך >
+%button#back-button.button.button-empty{ type: "button" } 
+  %i.fa.fa-arrow-circle-right
+  חזור
+%button#save-button.button.button-gray{ type: "button" }
+  %i.fa.fa-save
+  שמור
+%button#continue-button.button.button-green{ type: "button" } 
+  המשך
+  %i.fa.fa-arrow-circle-left
+

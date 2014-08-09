@@ -48,9 +48,19 @@ class App.Views.Sections extends Backbone.View
 
   initialize: ->
     @sections = @sections.map (S) => 
-      new S 
+      section = new S 
         model: @model.get 'request'
         viewModel: @model
+      @listenTo section, 'save', @onSave
+      section
+
+  onSave: ->
+    @trigger 'save'
+
+  start: ->
+    currSectionId = @model.get('request').get('current_section')
+    currSection = _.findWhere(@sections, id: currSectionId) ? @sections[0]
+    @changeSection currSection
     
   changeSection: (section) ->
     @currSection?.collectData()

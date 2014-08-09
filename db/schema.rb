@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140809080444) do
+ActiveRecord::Schema.define(version: 20140809110709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -341,6 +341,8 @@ ActiveRecord::Schema.define(version: 20140809080444) do
     t.integer  "spouse_donation_sum"
     t.integer  "user_id"
     t.string   "occupation"
+    t.string   "flow"
+    t.string   "current_section"
   end
 
   create_table "uploaded_files", force: true do |t|

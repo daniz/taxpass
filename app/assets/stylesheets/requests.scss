@@ -965,6 +965,7 @@ section {
 // }
 
 #back-button,
+#save-button,
 #continue-button {
   position: absolute;
   bottom: 0;
@@ -980,6 +981,15 @@ section {
 
 #continue-button {
   left: 20px;
+}
+
+#save-button {
+  left: 150px;
+  padding: 11px 0;
+
+  i {
+    font-size: 20px;
+  }
 }
 
 .show-container {
