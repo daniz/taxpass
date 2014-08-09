@@ -11,7 +11,6 @@ class App.Views.StockMiscSection extends App.Views.Section
     @model.get 'stock'
 
   initialize: ->
-    # @listenTo @model, 'change:pastForm867', @onPastFormChange
     @forms = @model.get 'form867s'
     @form = @forms.findWhere old: yes
     unless @form
@@ -31,22 +30,6 @@ class App.Views.StockMiscSection extends App.Views.Section
   onHasLossesChange: (e) ->
     checked = $(e.currentTarget).prop 'checked'
     @$('#stm-form').toggle checked
-    # if checked
-    #   @model.set 'pastForm867', new App.Models.Form
-    # else
-    #   @model.set 'pastForm867', null
-
-  # onPastFormChange: (model, form) ->
-  #   if form
-  #     o = 
-  #       model   : form
-  #       el      : @$ '#stm-form'
-  #       label   : false
-  #       manual  : false
-
-  #     new App.Views.FormUpload(o).render()
-
-  #   else @$('#stm-form').empty()
 
   onStockAccountAbroadChange: (e) ->
     @$('#stm-abroad').toggle $(e.currentTarget).prop('checked')

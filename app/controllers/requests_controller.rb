@@ -68,6 +68,7 @@ class RequestsController < ApplicationController
 
     if data["id"]
       @request = Request.find data["id"]
+      @request.assign_attributes data.except("id")
     else
       @request = Request.new(data)
     end

@@ -10,27 +10,32 @@ class App.Views.ExpenseSection extends App.Views.Section
 
     receipts = @model.get 'receipts'
 
-    model = new App.Models.Form
-      kind  : @kind
-      spouse: no
-    receipts.add model 
+    receipt = receipts.findWhere kind: @kind, spouse: no
+    unless receipt?
+      receipt = new App.Models.Form
+        kind  : @kind
+        spouse: no
+      receipts.add receipt 
 
     view = new App.Views.FormUpload
       el          : @$('.upload')
-      model       : model
+      model       : receipt
       label       : no
       manual      : no
     view.render()
 
-    if @model.get 'spouse_name'
-      spouseModel = new App.Models.Form
-        kind  : @kind
-        spouse: yes
-      receipts.add spouseModel  
+    if @shouldShowSpouse()
+
+      spouseReceipt = receipts.findWhere kind: @kind, spouse: yes
+      unless spouseReceipt?
+        spouseReceipt = new App.Models.Form
+          kind  : @kind
+          spouse: yes
+        receipts.add spouseReceipt  
 
       spouseView = new App.Views.FormUpload
         el          : @$('.spouse_upload')
-        model       : spouseModel
+        model       : spouseReceipt
         label       : no
         manual      : no
       spouseView.render()
