@@ -20,6 +20,12 @@ class App.Views.Section extends Backbone.View
     @$el.html @template(data)
     @delegateEvents()
     @onRender()
+
+    _.defer =>
+      $('.date-input').datepicker
+        changeYear: yes
+        changeMonth: yes
+
     this
 
   onRender: ->

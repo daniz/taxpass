@@ -4,4 +4,4 @@
 
 %label{ for: @id }= @label
 .date-field
-  %input.request-data{ id: @id, name: name,  type: "date", "class": className, value: value }
+  %input.request-data.date-input{ id: @id, name: name, "class": className, value: value }

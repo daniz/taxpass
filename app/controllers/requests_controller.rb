@@ -129,9 +129,9 @@ class RequestsController < ApplicationController
       appartments.each do |appt|
         if appt["id"].present?
           apptModel = @request.appartments.find_by_id appt["id"]
-          apptModel.update appt.except("index")
+          apptModel.update appt.except("index", "spouseName")
         else
-          @request.appartments.new appt.except("index")
+          @request.appartments.new appt.except("index", "spouseName")
         end
       end
     end

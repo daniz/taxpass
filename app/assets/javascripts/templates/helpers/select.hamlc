@@ -5,7 +5,7 @@
 - if @label
   %label{ for: @id }= @label
   
-%select{ id: @id, name: name, "class": className }
+%select.select{ id: @id, name: name, "class": className }
   - for o in @options
     - value = o.value ? o.text
     - selected = value is @model?[name]
