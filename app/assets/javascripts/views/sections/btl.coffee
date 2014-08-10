@@ -26,7 +26,7 @@ class App.Views.BtlSection extends App.Views.Section
   getFormContainer: (form) ->
     type = form.get 'type'
     prefix = if form.get('spouse') then 'spouse_' else ''
-    ".#{ prefix }btl-form[data-type=#{ type }]"
+    @$ ".#{ prefix }btl-form[data-type=#{ type }]"
 
   onFormAdd: (form) ->
     view = new App.Views.FormUpload
