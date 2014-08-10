@@ -20,7 +20,3 @@ class App.Views.AppartmentIDetails extends Backbone.View
       if $t is '.appt-ownership-mine' then 1
       else if $t.is '.appt-ownership-spouse' then 2
       else if $t.is '.appt-ownership-shared' then 3
-
-  # collectData: ->
-  #   numAppts = parseInt @$('#apr-num-appts').val()
-  #   @viewModel.set 'numAppts', numAppts

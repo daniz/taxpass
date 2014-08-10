@@ -94,8 +94,12 @@ class App.Views.Editor extends Backbone.View
   updateNavButtons: ->
     if @sections.hasNext()
       @$('#continue-button').show()
+    else
+      @$('#continue-button').text 'סיים'
        
     @$('#back-button').toggle @sections.hasPrev()
+
+    @$('#save-button').toggle @sections.hasNext()
 
   onContinueClick: ->
     @sections.next()

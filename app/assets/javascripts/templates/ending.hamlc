@@ -1,7 +1,9 @@
-%p.section-title סיום
+%h3.section-title סיימת!
 
-%p.section-description לסיום התהליך לחץ על כפתור שלח....
+%p.section-description כעת נעבור על הבקשה, נמקסם את ההחזר, וניצור אתכם קשר במייל או בטלפון.
 
-/ %input{ id: "data-input", type: "hidden", name: "request" }
+!= App.help "input", id: "phone_number", label: "מספר טלפון", model: @
 
-%input{ id: "submit-button", type: "button", value: "שלח!" } 
+%br
+
+!= App.help "input", id: "feedback", label: "כתבו לנו הערות", model: @

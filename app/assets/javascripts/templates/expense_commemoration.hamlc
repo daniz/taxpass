@@ -12,7 +12,7 @@
   %br
 
   מה הייתה קרבתך למונצח?
-
+  %br
   != App.help "checkbox", id: "#{ prefix }commemorate_spouse", label: "בן/בת זוג", model: @
   %br
   != App.help "checkbox", id: "#{ prefix }commemorate_parent", label: "אמי/אבי", model: @

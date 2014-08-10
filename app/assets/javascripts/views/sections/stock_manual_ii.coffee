@@ -4,7 +4,7 @@ class App.Views.StockManualIISection extends App.Views.Section
   templateName: 'stock_manual_ii'
 
   isEnabled: ->
-    @viewModel.get 'stockManual'
+    @model.get 'stock_manual'
 
   getModel: ->
     @model.get('form867s').first()

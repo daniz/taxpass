@@ -46,10 +46,10 @@ class App.Views.BtlSection extends App.Views.Section
     checked = $target.prop 'checked'
 
     if checked
-      model = new App.Models.Form type: type
+      model = new App.Models.Form type: type, spouse: no
       @forms.add model
     else
-      model = @forms.findWhere type: type
+      model = @forms.findWhere type: type, spouse: no
       @forms.remove model
 
   onSpouseCheckboxChange: (e) ->
@@ -58,8 +58,8 @@ class App.Views.BtlSection extends App.Views.Section
     checked = $target.prop 'checked'
 
     if checked
-      model = new App.Models.Form type: type
-      @spouseForms.add model
+      model = new App.Models.Form type: type, spouse: yes
+      @forms.add model
     else
-      model = @spouseForms.findWhere type: type
-      @spouseForms.remove model
+      model = @forms.findWhere type: type, spouse: yes
+      @forms.remove model

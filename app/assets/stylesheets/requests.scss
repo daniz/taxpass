@@ -975,6 +975,13 @@ section {
   }
 }
 
+#ending-section {
+  label {
+    display: inline-block;
+    width: 120px;
+  }
+}
+
 // .upload,
 // .spouse_upload {
 //   margin: 10px 0 50px;
@@ -1010,4 +1017,8 @@ section {
 
 .show-container {
   padding-left: 30px;
+}
+
+.save-success {
+  padding: 40px;
 }

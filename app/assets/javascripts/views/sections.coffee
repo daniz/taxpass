@@ -53,11 +53,11 @@ class App.Views.Sections extends Backbone.View
       section = new S 
         model: @model.get 'request'
         viewModel: @model
-      @listenTo section, 'save', @onSave
+      # @listenTo section, 'save', @onSave
       section
 
-  onSave: ->
-    @trigger 'save'
+  # onSave: ->
+  #   @trigger 'save'
 
   start: ->
     currSectionId = @model.get('request').get('current_section')
@@ -81,7 +81,11 @@ class App.Views.Sections extends Backbone.View
     @getPrevSection()?
 
   next: ->
-    @changeSection 'next'
+    if @hasNext()
+      @changeSection 'next'
+    else
+      @model.get('request').set flow: 'done', current_section: ''
+      @trigger 'save'
 
   prev: ->
     @changeSection 'prev'

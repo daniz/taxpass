@@ -13,10 +13,10 @@ class App.Views.MarriedIntroSection extends App.Views.Section
     !m.is_widowed and m.is_married
 
   onRender: ->
-    @viewModel.set 'showSpouse', no
+    @model.set 'include_spouse', no
 
   onSpouseTooClick: ->
     @$('#mit-spouse-too, #mit-only-me').hide()
     @$('#mit-spouse-name-dialog').show()
 
-    @viewModel.set 'showSpouse', yes
+    @model.set 'include_spouse', yes

@@ -17,4 +17,4 @@ class App.Views.WidowedIntroSection extends App.Views.Section
     now = (new Date).getTime()
     oneYearInMillisec = 365 * 24 * 60 * 60 * 1000
     if now - deathTime < oneYearInMillisec
-      @viewModel.set 'showSpouse', yes
+      @model.set 'include_spouse', yes

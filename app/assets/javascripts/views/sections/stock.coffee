@@ -33,4 +33,4 @@ class App.Views.StockSection extends App.Views.Section
   collectData: ->
     super
     manual = @$('[type=radio]:checked').is '#stk-option-manual'
-    @viewModel.set 'stockManual', manual
+    @model.set 'stock_manual', manual

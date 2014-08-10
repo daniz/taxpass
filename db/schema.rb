@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140809110709) do
+ActiveRecord::Schema.define(version: 20140810214104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140809110709) do
     t.integer "request_id"
     t.boolean "spouse"
     t.string  "type"
+    t.integer "uploaded_form_id"
   end
 
   create_table "form_106s", force: true do |t|
@@ -343,6 +344,10 @@ ActiveRecord::Schema.define(version: 20140809110709) do
     t.string   "occupation"
     t.string   "flow"
     t.string   "current_section"
+    t.string   "phone_number"
+    t.text     "feedback"
+    t.boolean  "include_spouse"
+    t.boolean  "stock_manual"
   end
 
   create_table "uploaded_files", force: true do |t|

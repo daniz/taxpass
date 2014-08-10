@@ -53,4 +53,5 @@ class App.Views.Section extends Backbone.View
   isEnabled: -> yes
 
   shouldShowSpouse: ->
-    @viewModel.get 'showSpouse'
+    @model.get 'include_spouse'
+
