@@ -21,6 +21,9 @@ class RequestsController < ApplicationController
   # GET /requests
   # GET /requests.json
   def index
+    unless current_user.is_admin
+      raise "401"
+    end
     gon.requests = Request.all
   end
 
@@ -41,6 +44,9 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
+    unless current_user.is_admin
+      raise "401"
+    end
     gon_request @request
   end
 
