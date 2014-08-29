@@ -32,6 +32,7 @@ class RequestsController < ApplicationController
 
     gon.request = request
     gon.kids    = request.kids
+    gon.user    = request.user
 
     forms = {}
     @@formsFieldsNames.each do |name|
