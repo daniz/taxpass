@@ -6,6 +6,11 @@ class App.Views.Section extends Backbone.View
     super
     @viewModel = o.viewModel
 
+    @events ?= {}
+    _.extend @events,
+      'click .help-button' : 'showHelp'
+      'click .help-button .fa-times' : 'closeHelp'
+
   getModel: -> @model
 
   template: (data) ->
@@ -54,4 +59,25 @@ class App.Views.Section extends Backbone.View
 
   shouldShowSpouse: ->
     @model.get 'include_spouse'
+
+  showHelp: (e) ->
+    $btn = @$ e.currentTarget
+    text = $btn.data 'text'
+    return unless text
+
+    $tool = $('<div>')
+      .addClass('tooltip')
+      .text(text)
+      .css(top: -16, right: $btn.width() + 16)
+      .appendTo($btn)
+      .hide()
+      .fadeIn(200)
+
+    $tool.append $('<span>', 'class' : 'fa fa-times')
+
+    return false
+
+  closeHelp: (e) ->
+    $(e.currentTarget).closest('.tooltip').fadeOut 200, -> $(this).remove()
+    return false
 

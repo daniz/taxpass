@@ -77,9 +77,9 @@ class App.Views.Editor extends Backbone.View
     top = offset.top + 40
     left = offset.left - 100
     $balloon = @$('#support-balloon')
-    $balloon.css(top: top, left: left).fadeIn 400
+    # $balloon.css(top: top, left: left).fadeIn 400
 
-    _.delay ( -> $balloon.fadeOut 400), 5000
+    # _.delay ( -> $balloon.fadeOut 400), 5000
 
   render: ->
     @sections.start()

@@ -9,6 +9,7 @@
 
     %li.pts-immigrant
       != @checkbox "#{ prefix }immigrant", "עולה חדש"
+      %span.help-button.fa.fa-question{ data: { text: "אם אתה עולה חדש מגיעות לך נקודות זיכוי במשך תקופה רצופה של 42 חודשים מהחודש הראשון של עלייתך לישראל." } }
       
       %ul.dependant-fields
         %li
@@ -16,6 +17,7 @@
 
     %li.pts-idf-service
       != @checkbox "#{ prefix }idf_service", "שחרור משירות חובה"
+      %span.help-button.fa.fa-question{ data: { text: "" } }
       
       %ul.dependant-fields
         %li
@@ -26,6 +28,7 @@
 
     %li
       != @checkbox "#{ prefix }academic", "בעל תואר אקדמי או לימודי תעודה"
+      %span.help-button.fa.fa-question{ data: { text: "הזכאות היא למס' שנות מס כמספר שנות הלימוד לתואר, החל בשנת המס שלאחר השנה שבה הסתיימו הלימודים. תואר ראשון - זכאות לפי מספר שנות הלימוד או 3 שנים לפי הנמוך. תואר שני - זכאות לפי מספר שנות הלימוד או שנתיים לפי הנמוך. תואר שלישי ברפואה או ברפואת שיניים - זכאות עד 5 שנים. תואר שלישי ישיר – זכאות למשך שנתיים אחרי סיום לימודי התואר השלישי. תעודת מקצוע - זכאות לפי מספר שנות הלימוד או 3 שנים לפי הנמוך" } }
 
     %li
       != @checkbox "#{ prefix }special_area_resident", "תושב אזור מיוחד (לרבות אילת)"

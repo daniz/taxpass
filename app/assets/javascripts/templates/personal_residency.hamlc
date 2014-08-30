@@ -5,10 +5,8 @@
 
 %p 
   != App.help "user_name"
-  האם היית תושב ישראל בשנת המס
-  != App.help "tax_year", @
-  ?
-
+  = "האם היית תושב ישראל בשנת המס #{ @tax_year }?"
+  
 = renderPartial spouse: no
 
 - if @showSpouse

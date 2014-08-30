@@ -59,9 +59,7 @@
         %i.fa.fa-fw.fa-gift
 
 != App.help "user_name"
-סמן מה רלוונטי אליך בשנת
-!= App.help "tax_year", @
-?
+= "סמן מה רלוונטי אליך בשנת #{ @tax_year }?"
 
 = renderPartial spouse: no
 
