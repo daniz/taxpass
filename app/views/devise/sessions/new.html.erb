@@ -8,7 +8,9 @@
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
+    <div class="label">כתובת אימייל</div>
     <%= f.email_field :email, autofocus: true, placeholder: 'כתובת אימייל' %>
+    <div class="label">סיסמה</div>
     <%= f.password_field :password, autocomplete: "off", placeholder: 'סיסמה' %>
     <div><%= f.submit "התחבר", class: 'button button-blue' %></div>
     

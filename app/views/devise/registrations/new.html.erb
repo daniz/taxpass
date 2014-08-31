@@ -7,14 +7,19 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {autocomplete: 'off'}) do |f| %>
     <%= devise_error_messages! %>
 
+    <div class="label">כתובת אימייל</div>
     <%= f.email_field :email, autofocus: true, placeholder: 'כתובת אימייל' %>
 
+    <div class="label">שם פרטי בעברית</div>
     <%= f.text_field :name, placeholder: 'שם פרטי בעברית', autocomplete: 'off' %>
 
+    <div class="label">סיסמה</div>
     <%= f.password_field :password, autocomplete: "off", placeholder: 'סיסמה' %>
 
+    <div class="label">אישור סיסמה</div>
     <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'אישור סיסמה' %>
 
+    <div class="label">טלפון (אופציונלי)</div>
     <%= f.phone_field :phone, placeholder: 'טלפון (אופציונלי)' %>
 
     <div><%= f.submit "הרשם", class: 'button button-blue' %></div>
